@@ -7,36 +7,115 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBA29E985D100EA8BFA /* ListOfGroups.swift */; };
+		DC83FBBD29E985F600EA8BFA /* ListOfGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBC29E985F600EA8BFA /* ListOfGroupsViewModel.swift */; };
+		DC83FBC029E9883100EA8BFA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBF29E9883100EA8BFA /* BackgroundView.swift */; };
+		DC83FBC329E9887200EA8BFA /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBC229E9887200EA8BFA /* Color + Extension.swift */; };
+		DC83FBC529E98AA100EA8BFA /* View + Extantion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBC429E98AA100EA8BFA /* View + Extantion.swift */; };
+		DC83FBC729E9914F00EA8BFA /* GroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBC629E9914F00EA8BFA /* GroupRow.swift */; };
+		DC83FBC929E9916400EA8BFA /* GroupRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBC829E9916400EA8BFA /* GroupRowViewModel.swift */; };
+		DC83FBD229E998C300EA8BFA /* VocabVibesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBD129E998C300EA8BFA /* VocabVibesTests.swift */; };
+		DC83FBD829E9998000EA8BFA /* ListOfGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBC29E985F600EA8BFA /* ListOfGroupsViewModel.swift */; };
+		DC83FBDB29E99FEB00EA8BFA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DC83FBDA29E99FEB00EA8BFA /* Realm */; };
+		DC83FBDD29E99FEE00EA8BFA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC83FBDC29E99FEE00EA8BFA /* RealmSwift */; };
+		DC83FBDE29E9A01F00EA8BFA /* WordGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D8529E591CA00747E9F /* WordGroup.swift */; };
 		DCAA0D7729E5919400747E9F /* VocabVibesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */; };
-		DCAA0D7929E5919400747E9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D7829E5919400747E9F /* ContentView.swift */; };
 		DCAA0D7B29E5919500747E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAA0D7A29E5919500747E9F /* Assets.xcassets */; };
 		DCAA0D7E29E5919500747E9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAA0D7D29E5919500747E9F /* Preview Assets.xcassets */; };
+		DCAA0D8629E591CA00747E9F /* WordGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D8529E591CA00747E9F /* WordGroup.swift */; };
+		DCAA0D8A29E5924400747E9F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DCAA0D8929E5924400747E9F /* Realm */; };
+		DCAA0D8C29E5924400747E9F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCAA0D8B29E5924400747E9F /* RealmSwift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DC83FBD329E998C300EA8BFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCAA0D6B29E5919400747E9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCAA0D7229E5919400747E9F;
+			remoteInfo = VocabVibes;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		DC83FBBA29E985D100EA8BFA /* ListOfGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroups.swift; sourceTree = "<group>"; };
+		DC83FBBC29E985F600EA8BFA /* ListOfGroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroupsViewModel.swift; sourceTree = "<group>"; };
+		DC83FBBF29E9883100EA8BFA /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		DC83FBC229E9887200EA8BFA /* Color + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
+		DC83FBC429E98AA100EA8BFA /* View + Extantion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View + Extantion.swift"; sourceTree = "<group>"; };
+		DC83FBC629E9914F00EA8BFA /* GroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRow.swift; sourceTree = "<group>"; };
+		DC83FBC829E9916400EA8BFA /* GroupRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRowViewModel.swift; sourceTree = "<group>"; };
+		DC83FBCA29E995D400EA8BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DC83FBCF29E998C300EA8BFA /* VocabVibesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VocabVibesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC83FBD129E998C300EA8BFA /* VocabVibesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabVibesTests.swift; sourceTree = "<group>"; };
 		DCAA0D7329E5919400747E9F /* VocabVibes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VocabVibes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabVibesApp.swift; sourceTree = "<group>"; };
-		DCAA0D7829E5919400747E9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DCAA0D7A29E5919500747E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCAA0D7D29E5919500747E9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DCAA0D8529E591CA00747E9F /* WordGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DC83FBCC29E998C300EA8BFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC83FBDD29E99FEE00EA8BFA /* RealmSwift in Frameworks */,
+				DC83FBDB29E99FEB00EA8BFA /* Realm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCAA0D7029E5919400747E9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCAA0D8C29E5924400747E9F /* RealmSwift in Frameworks */,
+				DCAA0D8A29E5924400747E9F /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC83FBBE29E9881200EA8BFA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC83FBBF29E9883100EA8BFA /* BackgroundView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC83FBC129E9884400EA8BFA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC83FBC429E98AA100EA8BFA /* View + Extantion.swift */,
+				DC83FBC229E9887200EA8BFA /* Color + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DC83FBD029E998C300EA8BFA /* VocabVibesTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC83FBD129E998C300EA8BFA /* VocabVibesTests.swift */,
+			);
+			path = VocabVibesTests;
+			sourceTree = "<group>";
+		};
+		DC83FBD929E99FEB00EA8BFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DCAA0D6A29E5919400747E9F = {
 			isa = PBXGroup;
 			children = (
 				DCAA0D7529E5919400747E9F /* VocabVibes */,
+				DC83FBD029E998C300EA8BFA /* VocabVibesTests */,
 				DCAA0D7429E5919400747E9F /* Products */,
+				DC83FBD929E99FEB00EA8BFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -44,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DCAA0D7329E5919400747E9F /* VocabVibes.app */,
+				DC83FBCF29E998C300EA8BFA /* VocabVibesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,8 +132,14 @@
 			isa = PBXGroup;
 			children = (
 				DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */,
-				DCAA0D7829E5919400747E9F /* ContentView.swift */,
+				DCAA0D9E29E5991100747E9F /* GroupDetail */,
+				DCAA0D9729E5953500747E9F /* ListOfGroups */,
+				DCAA0D8729E591CF00747E9F /* Srevices */,
+				DCAA0D8429E591A800747E9F /* Models */,
+				DC83FBBE29E9881200EA8BFA /* Views */,
+				DC83FBC129E9884400EA8BFA /* Extensions */,
 				DCAA0D7A29E5919500747E9F /* Assets.xcassets */,
+				DC83FBCA29E995D400EA8BFA /* Info.plist */,
 				DCAA0D7C29E5919500747E9F /* Preview Content */,
 			);
 			path = VocabVibes;
@@ -67,9 +153,64 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		DCAA0D8429E591A800747E9F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DCAA0D8529E591CA00747E9F /* WordGroup.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DCAA0D8729E591CF00747E9F /* Srevices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Srevices;
+			sourceTree = "<group>";
+		};
+		DCAA0D9729E5953500747E9F /* ListOfGroups */ = {
+			isa = PBXGroup;
+			children = (
+				DC83FBBA29E985D100EA8BFA /* ListOfGroups.swift */,
+				DC83FBBC29E985F600EA8BFA /* ListOfGroupsViewModel.swift */,
+				DC83FBC629E9914F00EA8BFA /* GroupRow.swift */,
+				DC83FBC829E9916400EA8BFA /* GroupRowViewModel.swift */,
+			);
+			path = ListOfGroups;
+			sourceTree = "<group>";
+		};
+		DCAA0D9E29E5991100747E9F /* GroupDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GroupDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DC83FBCE29E998C300EA8BFA /* VocabVibesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC83FBD529E998C300EA8BFA /* Build configuration list for PBXNativeTarget "VocabVibesTests" */;
+			buildPhases = (
+				DC83FBCB29E998C300EA8BFA /* Sources */,
+				DC83FBCC29E998C300EA8BFA /* Frameworks */,
+				DC83FBCD29E998C300EA8BFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC83FBD429E998C300EA8BFA /* PBXTargetDependency */,
+			);
+			name = VocabVibesTests;
+			packageProductDependencies = (
+				DC83FBDA29E99FEB00EA8BFA /* Realm */,
+				DC83FBDC29E99FEE00EA8BFA /* RealmSwift */,
+			);
+			productName = VocabVibesTests;
+			productReference = DC83FBCF29E998C300EA8BFA /* VocabVibesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DCAA0D7229E5919400747E9F /* VocabVibes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCAA0D8129E5919500747E9F /* Build configuration list for PBXNativeTarget "VocabVibes" */;
@@ -83,6 +224,10 @@
 			dependencies = (
 			);
 			name = VocabVibes;
+			packageProductDependencies = (
+				DCAA0D8929E5924400747E9F /* Realm */,
+				DCAA0D8B29E5924400747E9F /* RealmSwift */,
+			);
 			productName = VocabVibes;
 			productReference = DCAA0D7329E5919400747E9F /* VocabVibes.app */;
 			productType = "com.apple.product-type.application";
@@ -97,6 +242,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					DC83FBCE29E998C300EA8BFA = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = DCAA0D7229E5919400747E9F;
+					};
 					DCAA0D7229E5919400747E9F = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -111,16 +260,27 @@
 				Base,
 			);
 			mainGroup = DCAA0D6A29E5919400747E9F;
+			packageReferences = (
+				DCAA0D8829E5924400747E9F /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = DCAA0D7429E5919400747E9F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				DCAA0D7229E5919400747E9F /* VocabVibes */,
+				DC83FBCE29E998C300EA8BFA /* VocabVibesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DC83FBCD29E998C300EA8BFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCAA0D7129E5919400747E9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,18 +293,79 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DC83FBCB29E998C300EA8BFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC83FBDE29E9A01F00EA8BFA /* WordGroup.swift in Sources */,
+				DC83FBD229E998C300EA8BFA /* VocabVibesTests.swift in Sources */,
+				DC83FBD829E9998000EA8BFA /* ListOfGroupsViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCAA0D6F29E5919400747E9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCAA0D7929E5919400747E9F /* ContentView.swift in Sources */,
+				DC83FBC029E9883100EA8BFA /* BackgroundView.swift in Sources */,
+				DC83FBC929E9916400EA8BFA /* GroupRowViewModel.swift in Sources */,
+				DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */,
+				DC83FBC529E98AA100EA8BFA /* View + Extantion.swift in Sources */,
+				DCAA0D8629E591CA00747E9F /* WordGroup.swift in Sources */,
 				DCAA0D7729E5919400747E9F /* VocabVibesApp.swift in Sources */,
+				DC83FBBD29E985F600EA8BFA /* ListOfGroupsViewModel.swift in Sources */,
+				DC83FBC729E9914F00EA8BFA /* GroupRow.swift in Sources */,
+				DC83FBC329E9887200EA8BFA /* Color + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DC83FBD429E998C300EA8BFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCAA0D7229E5919400747E9F /* VocabVibes */;
+			targetProxy = DC83FBD329E998C300EA8BFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		DC83FBD629E998C300EA8BFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5KN7899368;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = klimenko.VocabVibesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VocabVibes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VocabVibes";
+			};
+			name = Debug;
+		};
+		DC83FBD729E998C300EA8BFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5KN7899368;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = klimenko.VocabVibesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VocabVibes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VocabVibes";
+			};
+			name = Release;
+		};
 		DCAA0D7F29E5919500747E9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -269,11 +490,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VocabVibes/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = VocabVibes/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -297,11 +519,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VocabVibes/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = VocabVibes/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,6 +541,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DC83FBD529E998C300EA8BFA /* Build configuration list for PBXNativeTarget "VocabVibesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC83FBD629E998C300EA8BFA /* Debug */,
+				DC83FBD729E998C300EA8BFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DCAA0D6E29E5919400747E9F /* Build configuration list for PBXProject "VocabVibes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -337,6 +569,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DCAA0D8829E5924400747E9F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC83FBDA29E99FEB00EA8BFA /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCAA0D8829E5924400747E9F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		DC83FBDC29E99FEE00EA8BFA /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCAA0D8829E5924400747E9F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		DCAA0D8929E5924400747E9F /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCAA0D8829E5924400747E9F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		DCAA0D8B29E5924400747E9F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCAA0D8829E5924400747E9F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DCAA0D6B29E5919400747E9F /* Project object */;
 }
