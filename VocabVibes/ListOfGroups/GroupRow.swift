@@ -13,7 +13,7 @@ struct GroupRow: View {
     
     var body: some View {
         NavigationLink(destination: {
-           // GroupDetail(group: group, selectedWordList: group)
+            GroupDetail(viewModel: GroupDetailViewModel(group: viewModel.group))
         }, label: {
             ZStack {
                 Rectangle()
