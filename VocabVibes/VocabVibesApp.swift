@@ -11,7 +11,7 @@ import SwiftUI
 struct VocabVibesApp: App {
     var body: some Scene {
         WindowGroup {
-            ListOfGroups()
+            TrainingsScreen(viewModel: TrainingsScreenViewModel(isMain: true))
         }
     }
 }

@@ -1,0 +1,40 @@
+//
+//  PickerView.swift
+//  VocabVibes
+//
+//  Created by Daniil Klimenko on 19.04.2023.
+//
+
+import SwiftUI
+
+struct PickerView: View {
+    
+    @ObservedObject var viewModel: TrainingsScreenViewModel
+
+    
+    var body: some View {
+        VStack {
+            Text("Select group:")
+                .foregroundColor(.white)
+                .bold()
+            
+            VStack(alignment: .leading) {
+                Picker("Please choose a list", selection: $viewModel.selectedWordList) {
+                    ForEach(viewModel.wordList, id: \.id) { list in
+                        Text(list.nameOfGroup)
+                            .tag(list as WordList?)
+                    }
+                }
+                .buttonStyle(.bordered)
+                
+                Text(viewModel.selectedWordList?.nameOfGroup ?? "ddd")
+            }
+        }
+    }
+}
+
+struct PickerView_Previews: PreviewProvider {
+    static var previews: some View {
+        PickerView(viewModel: TrainingsScreenViewModel(isMain: true))
+    }
+}

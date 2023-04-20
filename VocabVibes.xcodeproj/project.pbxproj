@@ -13,6 +13,14 @@
 		DC26991B29ED708200EBB591 /* NewWordSreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26991A29ED708200EBB591 /* NewWordSreenViewModel.swift */; };
 		DC7A5E7129EAC7D90007ACD1 /* GroupDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7A5E7029EAC7D90007ACD1 /* GroupDetail.swift */; };
 		DC7A5E7329EAC7F50007ACD1 /* GroupDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7A5E7229EAC7F50007ACD1 /* GroupDetailViewModel.swift */; };
+		DC7BF2AC29EFEF6A00753C72 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2AB29EFEF6A00753C72 /* Training.swift */; };
+		DC7BF2AF29EFEFB600753C72 /* TrainingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2AE29EFEFB600753C72 /* TrainingsScreen.swift */; };
+		DC7BF2B129EFEFBF00753C72 /* TrainingsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B029EFEFBF00753C72 /* TrainingsScreenViewModel.swift */; };
+		DC7BF2B329EFF42B00753C72 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B229EFF42B00753C72 /* PickerView.swift */; };
+		DC7BF2B729F0213300753C72 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B629F0213300753C72 /* CardView.swift */; };
+		DC7BF2B929F0214700753C72 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B829F0214700753C72 /* CardViewModel.swift */; };
+		DC7BF2BB29F02ED500753C72 /* FlashCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2BA29F02ED500753C72 /* FlashCardViewModel.swift */; };
+		DC7BF2BD29F02EE000753C72 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2BC29F02EE000753C72 /* FlashCardView.swift */; };
 		DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBA29E985D100EA8BFA /* ListOfGroups.swift */; };
 		DC83FBBD29E985F600EA8BFA /* ListOfGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBC29E985F600EA8BFA /* ListOfGroupsViewModel.swift */; };
 		DC83FBC029E9883100EA8BFA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBF29E9883100EA8BFA /* BackgroundView.swift */; };
@@ -30,6 +38,14 @@
 		DCAA0D8629E591CA00747E9F /* WordGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D8529E591CA00747E9F /* WordGroup.swift */; };
 		DCAA0D8A29E5924400747E9F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DCAA0D8929E5924400747E9F /* Realm */; };
 		DCAA0D8C29E5924400747E9F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCAA0D8B29E5924400747E9F /* RealmSwift */; };
+		DCD28FB429F175590050E786 /* WriteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB329F175590050E786 /* WriteCard.swift */; };
+		DCD28FB629F175650050E786 /* WriteCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB529F175650050E786 /* WriteCardViewModel.swift */; };
+		DCD28FB829F177DE0050E786 /* WriteWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB729F177DE0050E786 /* WriteWord.swift */; };
+		DCD28FBA29F177EC0050E786 /* WriteWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB929F177EC0050E786 /* WriteWordViewModel.swift */; };
+		DCD28FBD29F17F170050E786 /* ChooseWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FBC29F17F170050E786 /* ChooseWord.swift */; };
+		DCD28FBF29F17F1F0050E786 /* ChooseWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FBE29F17F1F0050E786 /* ChooseWordViewModel.swift */; };
+		DCD28FC229F182370050E786 /* MakeWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FC129F182370050E786 /* MakeWordViewModel.swift */; };
+		DCD28FC429F1823C0050E786 /* MakeWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FC329F1823C0050E786 /* MakeWord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +65,14 @@
 		DC26991A29ED708200EBB591 /* NewWordSreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordSreenViewModel.swift; sourceTree = "<group>"; };
 		DC7A5E7029EAC7D90007ACD1 /* GroupDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetail.swift; sourceTree = "<group>"; };
 		DC7A5E7229EAC7F50007ACD1 /* GroupDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewModel.swift; sourceTree = "<group>"; };
+		DC7BF2AB29EFEF6A00753C72 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		DC7BF2AE29EFEFB600753C72 /* TrainingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsScreen.swift; sourceTree = "<group>"; };
+		DC7BF2B029EFEFBF00753C72 /* TrainingsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsScreenViewModel.swift; sourceTree = "<group>"; };
+		DC7BF2B229EFF42B00753C72 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		DC7BF2B629F0213300753C72 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		DC7BF2B829F0214700753C72 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		DC7BF2BA29F02ED500753C72 /* FlashCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewModel.swift; sourceTree = "<group>"; };
+		DC7BF2BC29F02EE000753C72 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		DC83FBBA29E985D100EA8BFA /* ListOfGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroups.swift; sourceTree = "<group>"; };
 		DC83FBBC29E985F600EA8BFA /* ListOfGroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroupsViewModel.swift; sourceTree = "<group>"; };
 		DC83FBBF29E9883100EA8BFA /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -63,6 +87,14 @@
 		DCAA0D7A29E5919500747E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCAA0D7D29E5919500747E9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DCAA0D8529E591CA00747E9F /* WordGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroup.swift; sourceTree = "<group>"; };
+		DCD28FB329F175590050E786 /* WriteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCard.swift; sourceTree = "<group>"; };
+		DCD28FB529F175650050E786 /* WriteCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCardViewModel.swift; sourceTree = "<group>"; };
+		DCD28FB729F177DE0050E786 /* WriteWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteWord.swift; sourceTree = "<group>"; };
+		DCD28FB929F177EC0050E786 /* WriteWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteWordViewModel.swift; sourceTree = "<group>"; };
+		DCD28FBC29F17F170050E786 /* ChooseWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWord.swift; sourceTree = "<group>"; };
+		DCD28FBE29F17F1F0050E786 /* ChooseWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWordViewModel.swift; sourceTree = "<group>"; };
+		DCD28FC129F182370050E786 /* MakeWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeWordViewModel.swift; sourceTree = "<group>"; };
+		DCD28FC329F1823C0050E786 /* MakeWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeWord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +128,42 @@
 			path = NewWordScreen;
 			sourceTree = "<group>";
 		};
+		DC7BF2AD29EFEF9800753C72 /* Trainings */ = {
+			isa = PBXGroup;
+			children = (
+				DCD28FC029F181D60050E786 /* MakeWord */,
+				DCD28FBB29F17F020050E786 /* ChooseWord */,
+				DCD28FB229F175170050E786 /* WriteWord */,
+				DC7BF2B529F0211700753C72 /* FlashCard */,
+				DC7BF2B429F01E7400753C72 /* TrainingsScreen */,
+			);
+			path = Trainings;
+			sourceTree = "<group>";
+		};
+		DC7BF2B429F01E7400753C72 /* TrainingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DC7BF2AE29EFEFB600753C72 /* TrainingsScreen.swift */,
+				DC7BF2B029EFEFBF00753C72 /* TrainingsScreenViewModel.swift */,
+			);
+			path = TrainingsScreen;
+			sourceTree = "<group>";
+		};
+		DC7BF2B529F0211700753C72 /* FlashCard */ = {
+			isa = PBXGroup;
+			children = (
+				DC7BF2B629F0213300753C72 /* CardView.swift */,
+				DC7BF2B829F0214700753C72 /* CardViewModel.swift */,
+				DC7BF2BA29F02ED500753C72 /* FlashCardViewModel.swift */,
+				DC7BF2BC29F02EE000753C72 /* FlashCardView.swift */,
+			);
+			path = FlashCard;
+			sourceTree = "<group>";
+		};
 		DC83FBBE29E9881200EA8BFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DC7BF2B229EFF42B00753C72 /* PickerView.swift */,
 				DC83FBBF29E9883100EA8BFA /* BackgroundView.swift */,
 			);
 			path = Views;
@@ -142,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */,
+				DC7BF2AD29EFEF9800753C72 /* Trainings */,
 				DC26991729ED705E00EBB591 /* NewWordScreen */,
 				DCAA0D9E29E5991100747E9F /* GroupDetail */,
 				DCAA0D9729E5953500747E9F /* ListOfGroups */,
@@ -167,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				DCAA0D8529E591CA00747E9F /* WordGroup.swift */,
+				DC7BF2AB29EFEF6A00753C72 /* Training.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +258,35 @@
 				DC26991529ED5D7800EBB591 /* WordRowViewModel.swift */,
 			);
 			path = GroupDetail;
+			sourceTree = "<group>";
+		};
+		DCD28FB229F175170050E786 /* WriteWord */ = {
+			isa = PBXGroup;
+			children = (
+				DCD28FB729F177DE0050E786 /* WriteWord.swift */,
+				DCD28FB929F177EC0050E786 /* WriteWordViewModel.swift */,
+				DCD28FB329F175590050E786 /* WriteCard.swift */,
+				DCD28FB529F175650050E786 /* WriteCardViewModel.swift */,
+			);
+			path = WriteWord;
+			sourceTree = "<group>";
+		};
+		DCD28FBB29F17F020050E786 /* ChooseWord */ = {
+			isa = PBXGroup;
+			children = (
+				DCD28FBC29F17F170050E786 /* ChooseWord.swift */,
+				DCD28FBE29F17F1F0050E786 /* ChooseWordViewModel.swift */,
+			);
+			path = ChooseWord;
+			sourceTree = "<group>";
+		};
+		DCD28FC029F181D60050E786 /* MakeWord */ = {
+			isa = PBXGroup;
+			children = (
+				DCD28FC329F1823C0050E786 /* MakeWord.swift */,
+				DCD28FC129F182370050E786 /* MakeWordViewModel.swift */,
+			);
+			path = MakeWord;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,20 +409,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCD28FBD29F17F170050E786 /* ChooseWord.swift in Sources */,
 				DC7A5E7329EAC7F50007ACD1 /* GroupDetailViewModel.swift in Sources */,
+				DCD28FB829F177DE0050E786 /* WriteWord.swift in Sources */,
 				DC83FBC029E9883100EA8BFA /* BackgroundView.swift in Sources */,
 				DC83FBC929E9916400EA8BFA /* GroupRowViewModel.swift in Sources */,
+				DC7BF2AF29EFEFB600753C72 /* TrainingsScreen.swift in Sources */,
 				DC26991629ED5D7800EBB591 /* WordRowViewModel.swift in Sources */,
+				DC7BF2B929F0214700753C72 /* CardViewModel.swift in Sources */,
 				DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */,
+				DC7BF2AC29EFEF6A00753C72 /* Training.swift in Sources */,
 				DC83FBC529E98AA100EA8BFA /* View + Extantion.swift in Sources */,
+				DCD28FB429F175590050E786 /* WriteCard.swift in Sources */,
 				DCAA0D8629E591CA00747E9F /* WordGroup.swift in Sources */,
+				DCD28FC429F1823C0050E786 /* MakeWord.swift in Sources */,
+				DCD28FBF29F17F1F0050E786 /* ChooseWordViewModel.swift in Sources */,
 				DCAA0D7729E5919400747E9F /* VocabVibesApp.swift in Sources */,
+				DC7BF2BB29F02ED500753C72 /* FlashCardViewModel.swift in Sources */,
 				DC26991929ED707400EBB591 /* NewWordSreen.swift in Sources */,
+				DC7BF2B329EFF42B00753C72 /* PickerView.swift in Sources */,
+				DCD28FBA29F177EC0050E786 /* WriteWordViewModel.swift in Sources */,
 				DC83FBBD29E985F600EA8BFA /* ListOfGroupsViewModel.swift in Sources */,
+				DC7BF2BD29F02EE000753C72 /* FlashCardView.swift in Sources */,
 				DC26991429ED5D6C00EBB591 /* WordRow.swift in Sources */,
+				DC7BF2B729F0213300753C72 /* CardView.swift in Sources */,
 				DC83FBC729E9914F00EA8BFA /* GroupRow.swift in Sources */,
+				DC7BF2B129EFEFBF00753C72 /* TrainingsScreenViewModel.swift in Sources */,
+				DCD28FB629F175650050E786 /* WriteCardViewModel.swift in Sources */,
 				DC7A5E7129EAC7D90007ACD1 /* GroupDetail.swift in Sources */,
 				DC83FBC329E9887200EA8BFA /* Color + Extension.swift in Sources */,
+				DCD28FC229F182370050E786 /* MakeWordViewModel.swift in Sources */,
 				DC26991B29ED708200EBB591 /* NewWordSreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
