@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC1CEDD729F2CD2700EDAC55 /* SharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CEDD629F2CD2700EDAC55 /* SharedViewModel.swift */; };
+		DC1CEDDA29F2D16200EDAC55 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CEDD929F2D16200EDAC55 /* DataManager.swift */; };
 		DC26991429ED5D6C00EBB591 /* WordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26991329ED5D6C00EBB591 /* WordRow.swift */; };
 		DC26991629ED5D7800EBB591 /* WordRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26991529ED5D7800EBB591 /* WordRowViewModel.swift */; };
 		DC26991929ED707400EBB591 /* NewWordSreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26991829ED707400EBB591 /* NewWordSreen.swift */; };
@@ -17,8 +19,8 @@
 		DC7BF2AF29EFEFB600753C72 /* TrainingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2AE29EFEFB600753C72 /* TrainingsScreen.swift */; };
 		DC7BF2B129EFEFBF00753C72 /* TrainingsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B029EFEFBF00753C72 /* TrainingsScreenViewModel.swift */; };
 		DC7BF2B329EFF42B00753C72 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B229EFF42B00753C72 /* PickerView.swift */; };
-		DC7BF2B729F0213300753C72 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B629F0213300753C72 /* CardView.swift */; };
-		DC7BF2B929F0214700753C72 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B829F0214700753C72 /* CardViewModel.swift */; };
+		DC7BF2B729F0213300753C72 /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B629F0213300753C72 /* SwipeCardView.swift */; };
+		DC7BF2B929F0214700753C72 /* SwipeCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2B829F0214700753C72 /* SwipeCardViewModel.swift */; };
 		DC7BF2BB29F02ED500753C72 /* FlashCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2BA29F02ED500753C72 /* FlashCardViewModel.swift */; };
 		DC7BF2BD29F02EE000753C72 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2BC29F02EE000753C72 /* FlashCardView.swift */; };
 		DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBA29E985D100EA8BFA /* ListOfGroups.swift */; };
@@ -38,8 +40,12 @@
 		DCAA0D8629E591CA00747E9F /* WordGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D8529E591CA00747E9F /* WordGroup.swift */; };
 		DCAA0D8A29E5924400747E9F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DCAA0D8929E5924400747E9F /* Realm */; };
 		DCAA0D8C29E5924400747E9F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCAA0D8B29E5924400747E9F /* RealmSwift */; };
-		DCD28FB429F175590050E786 /* WriteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB329F175590050E786 /* WriteCard.swift */; };
-		DCD28FB629F175650050E786 /* WriteCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB529F175650050E786 /* WriteCardViewModel.swift */; };
+		DCC1AA0729F1BCFC00718739 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1AA0629F1BCFC00718739 /* SettingsView.swift */; };
+		DCC1AA0929F1BD2200718739 /* AllWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1AA0829F1BD2200718739 /* AllWordsView.swift */; };
+		DCC1AA0B29F1BD4600718739 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1AA0A29F1BD4600718739 /* MainView.swift */; };
+		DCC1AA0D29F1BD9400718739 /* TabMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1AA0C29F1BD9400718739 /* TabMainView.swift */; };
+		DCD28FB429F175590050E786 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB329F175590050E786 /* CardView.swift */; };
+		DCD28FB629F175650050E786 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB529F175650050E786 /* CardViewModel.swift */; };
 		DCD28FB829F177DE0050E786 /* WriteWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB729F177DE0050E786 /* WriteWord.swift */; };
 		DCD28FBA29F177EC0050E786 /* WriteWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FB929F177EC0050E786 /* WriteWordViewModel.swift */; };
 		DCD28FBD29F17F170050E786 /* ChooseWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FBC29F17F170050E786 /* ChooseWord.swift */; };
@@ -59,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC1CEDD629F2CD2700EDAC55 /* SharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
+		DC1CEDD929F2D16200EDAC55 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DC26991329ED5D6C00EBB591 /* WordRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRow.swift; sourceTree = "<group>"; };
 		DC26991529ED5D7800EBB591 /* WordRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRowViewModel.swift; sourceTree = "<group>"; };
 		DC26991829ED707400EBB591 /* NewWordSreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordSreen.swift; sourceTree = "<group>"; };
@@ -69,8 +77,8 @@
 		DC7BF2AE29EFEFB600753C72 /* TrainingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsScreen.swift; sourceTree = "<group>"; };
 		DC7BF2B029EFEFBF00753C72 /* TrainingsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsScreenViewModel.swift; sourceTree = "<group>"; };
 		DC7BF2B229EFF42B00753C72 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
-		DC7BF2B629F0213300753C72 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		DC7BF2B829F0214700753C72 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		DC7BF2B629F0213300753C72 /* SwipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
+		DC7BF2B829F0214700753C72 /* SwipeCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardViewModel.swift; sourceTree = "<group>"; };
 		DC7BF2BA29F02ED500753C72 /* FlashCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewModel.swift; sourceTree = "<group>"; };
 		DC7BF2BC29F02EE000753C72 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		DC83FBBA29E985D100EA8BFA /* ListOfGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroups.swift; sourceTree = "<group>"; };
@@ -87,8 +95,12 @@
 		DCAA0D7A29E5919500747E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCAA0D7D29E5919500747E9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DCAA0D8529E591CA00747E9F /* WordGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroup.swift; sourceTree = "<group>"; };
-		DCD28FB329F175590050E786 /* WriteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCard.swift; sourceTree = "<group>"; };
-		DCD28FB529F175650050E786 /* WriteCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCardViewModel.swift; sourceTree = "<group>"; };
+		DCC1AA0629F1BCFC00718739 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DCC1AA0829F1BD2200718739 /* AllWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWordsView.swift; sourceTree = "<group>"; };
+		DCC1AA0A29F1BD4600718739 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DCC1AA0C29F1BD9400718739 /* TabMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMainView.swift; sourceTree = "<group>"; };
+		DCD28FB329F175590050E786 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		DCD28FB529F175650050E786 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		DCD28FB729F177DE0050E786 /* WriteWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteWord.swift; sourceTree = "<group>"; };
 		DCD28FB929F177EC0050E786 /* WriteWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteWordViewModel.swift; sourceTree = "<group>"; };
 		DCD28FBC29F17F170050E786 /* ChooseWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWord.swift; sourceTree = "<group>"; };
@@ -119,6 +131,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC1CEDD529F2CCEF00EDAC55 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				DCD28FB329F175590050E786 /* CardView.swift */,
+				DCD28FB529F175650050E786 /* CardViewModel.swift */,
+				DC1CEDD629F2CD2700EDAC55 /* SharedViewModel.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		DC1CEDD829F2D15100EDAC55 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DC1CEDD929F2D16200EDAC55 /* DataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		DC26991729ED705E00EBB591 /* NewWordScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +161,7 @@
 		DC7BF2AD29EFEF9800753C72 /* Trainings */ = {
 			isa = PBXGroup;
 			children = (
+				DC1CEDD529F2CCEF00EDAC55 /* Card */,
 				DCD28FC029F181D60050E786 /* MakeWord */,
 				DCD28FBB29F17F020050E786 /* ChooseWord */,
 				DCD28FB229F175170050E786 /* WriteWord */,
@@ -152,10 +183,10 @@
 		DC7BF2B529F0211700753C72 /* FlashCard */ = {
 			isa = PBXGroup;
 			children = (
-				DC7BF2B629F0213300753C72 /* CardView.swift */,
-				DC7BF2B829F0214700753C72 /* CardViewModel.swift */,
-				DC7BF2BA29F02ED500753C72 /* FlashCardViewModel.swift */,
+				DC7BF2B629F0213300753C72 /* SwipeCardView.swift */,
+				DC7BF2B829F0214700753C72 /* SwipeCardViewModel.swift */,
 				DC7BF2BC29F02EE000753C72 /* FlashCardView.swift */,
+				DC7BF2BA29F02ED500753C72 /* FlashCardViewModel.swift */,
 			);
 			path = FlashCard;
 			sourceTree = "<group>";
@@ -207,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */,
+				DCC1AA0229F1BC8100718739 /* TabViewScreens */,
 				DC7BF2AD29EFEF9800753C72 /* Trainings */,
 				DC26991729ED705E00EBB591 /* NewWordScreen */,
 				DCAA0D9E29E5991100747E9F /* GroupDetail */,
@@ -214,6 +246,7 @@
 				DCAA0D8429E591A800747E9F /* Models */,
 				DC83FBBE29E9881200EA8BFA /* Views */,
 				DC83FBC129E9884400EA8BFA /* Extensions */,
+				DC1CEDD829F2D15100EDAC55 /* Services */,
 				DCAA0D7A29E5919500747E9F /* Assets.xcassets */,
 				DC83FBCA29E995D400EA8BFA /* Info.plist */,
 				DCAA0D7C29E5919500747E9F /* Preview Content */,
@@ -260,13 +293,46 @@
 			path = GroupDetail;
 			sourceTree = "<group>";
 		};
+		DCC1AA0229F1BC8100718739 /* TabViewScreens */ = {
+			isa = PBXGroup;
+			children = (
+				DCC1AA0C29F1BD9400718739 /* TabMainView.swift */,
+				DCC1AA0329F1BCB100718739 /* MainView */,
+				DCC1AA0529F1BCCA00718739 /* AllWordsView */,
+				DCC1AA0429F1BCBB00718739 /* SettingsView */,
+			);
+			path = TabViewScreens;
+			sourceTree = "<group>";
+		};
+		DCC1AA0329F1BCB100718739 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				DCC1AA0A29F1BD4600718739 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		DCC1AA0429F1BCBB00718739 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				DCC1AA0629F1BCFC00718739 /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		DCC1AA0529F1BCCA00718739 /* AllWordsView */ = {
+			isa = PBXGroup;
+			children = (
+				DCC1AA0829F1BD2200718739 /* AllWordsView.swift */,
+			);
+			path = AllWordsView;
+			sourceTree = "<group>";
+		};
 		DCD28FB229F175170050E786 /* WriteWord */ = {
 			isa = PBXGroup;
 			children = (
 				DCD28FB729F177DE0050E786 /* WriteWord.swift */,
 				DCD28FB929F177EC0050E786 /* WriteWordViewModel.swift */,
-				DCD28FB329F175590050E786 /* WriteCard.swift */,
-				DCD28FB529F175650050E786 /* WriteCardViewModel.swift */,
 			);
 			path = WriteWord;
 			sourceTree = "<group>";
@@ -416,26 +482,32 @@
 				DC83FBC929E9916400EA8BFA /* GroupRowViewModel.swift in Sources */,
 				DC7BF2AF29EFEFB600753C72 /* TrainingsScreen.swift in Sources */,
 				DC26991629ED5D7800EBB591 /* WordRowViewModel.swift in Sources */,
-				DC7BF2B929F0214700753C72 /* CardViewModel.swift in Sources */,
+				DC7BF2B929F0214700753C72 /* SwipeCardViewModel.swift in Sources */,
 				DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */,
 				DC7BF2AC29EFEF6A00753C72 /* Training.swift in Sources */,
 				DC83FBC529E98AA100EA8BFA /* View + Extantion.swift in Sources */,
-				DCD28FB429F175590050E786 /* WriteCard.swift in Sources */,
+				DCC1AA0B29F1BD4600718739 /* MainView.swift in Sources */,
+				DCD28FB429F175590050E786 /* CardView.swift in Sources */,
 				DCAA0D8629E591CA00747E9F /* WordGroup.swift in Sources */,
 				DCD28FC429F1823C0050E786 /* MakeWord.swift in Sources */,
 				DCD28FBF29F17F1F0050E786 /* ChooseWordViewModel.swift in Sources */,
 				DCAA0D7729E5919400747E9F /* VocabVibesApp.swift in Sources */,
 				DC7BF2BB29F02ED500753C72 /* FlashCardViewModel.swift in Sources */,
 				DC26991929ED707400EBB591 /* NewWordSreen.swift in Sources */,
+				DC1CEDD729F2CD2700EDAC55 /* SharedViewModel.swift in Sources */,
+				DCC1AA0D29F1BD9400718739 /* TabMainView.swift in Sources */,
 				DC7BF2B329EFF42B00753C72 /* PickerView.swift in Sources */,
 				DCD28FBA29F177EC0050E786 /* WriteWordViewModel.swift in Sources */,
 				DC83FBBD29E985F600EA8BFA /* ListOfGroupsViewModel.swift in Sources */,
 				DC7BF2BD29F02EE000753C72 /* FlashCardView.swift in Sources */,
+				DC1CEDDA29F2D16200EDAC55 /* DataManager.swift in Sources */,
+				DCC1AA0929F1BD2200718739 /* AllWordsView.swift in Sources */,
 				DC26991429ED5D6C00EBB591 /* WordRow.swift in Sources */,
-				DC7BF2B729F0213300753C72 /* CardView.swift in Sources */,
+				DC7BF2B729F0213300753C72 /* SwipeCardView.swift in Sources */,
 				DC83FBC729E9914F00EA8BFA /* GroupRow.swift in Sources */,
+				DCC1AA0729F1BCFC00718739 /* SettingsView.swift in Sources */,
 				DC7BF2B129EFEFBF00753C72 /* TrainingsScreenViewModel.swift in Sources */,
-				DCD28FB629F175650050E786 /* WriteCardViewModel.swift in Sources */,
+				DCD28FB629F175650050E786 /* CardViewModel.swift in Sources */,
 				DC7A5E7129EAC7D90007ACD1 /* GroupDetail.swift in Sources */,
 				DC83FBC329E9887200EA8BFA /* Color + Extension.swift in Sources */,
 				DCD28FC229F182370050E786 /* MakeWordViewModel.swift in Sources */,
@@ -612,6 +684,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VocabVibes/Preview Content\"";
+				DEVELOPMENT_TEAM = 5KN7899368;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VocabVibes/Info.plist;
@@ -627,9 +700,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = klimenko.VocabVibes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -641,6 +717,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VocabVibes/Preview Content\"";
+				DEVELOPMENT_TEAM = 5KN7899368;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VocabVibes/Info.plist;
@@ -656,9 +733,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = klimenko.VocabVibes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

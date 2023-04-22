@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GroupDetail: View {
+    
+ 
 
     @ObservedObject var viewModel: GroupDetailViewModel
     
@@ -15,25 +17,33 @@ struct GroupDetail: View {
         ZStack {
             BackgroundView()
             VStack {
-                ScrollView {
-                    VStack {
+                    List {
                         ForEach(viewModel.group.words, id: \.id) { word in
                             WordRow(viewModel: WordRowViewModel(word: word))
+                              //  .listRowSeparator(.hidden)
+                                .listRowBackground(Color.darkGrayColor)
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                       
+                                    } label: {
+                                        Label("Add ", systemImage: "plus.circle")
+                                    }
+                                    .tint(.indigo)
+                                }
+                                .swipeActions(edge: .trailing) {
+                                    Button {
+                                    } label: {
+                                        Label("Subtract", systemImage: "minus.circle")
+                                    }
+                                }
                         }
-                    }
-                    .padding()
-                }
                 
-                Spacer()
-//                CustomButton(textButton: "Learn", completion: {
-//                    trainingsIsPressed.toggle()
-//                })
-//                .padding()
-//                .sheet(isPresented: $trainingsIsPressed) {
-//                    TrainingsScreen(isMain: false)
-//                        .presentationDetents([.fraction(0.45)])
-//                }
+                    }
+                    .background(Color.darkGrayColor)
+                    .listStyle(.plain)
+                    //.padding()
             }
+           
             .toolbar {
                 Button {
                     viewModel.getSelectedWordList()
@@ -48,6 +58,7 @@ struct GroupDetail: View {
                     }
                 }
             }
+            
         }
         .navigationTitle("\(viewModel.group.nameOfGroup)")
         .embedNavigationView(with: "\(viewModel.group.nameOfGroup)")
@@ -59,3 +70,58 @@ struct GroupDetail_Previews: PreviewProvider {
         GroupDetail(viewModel: GroupDetailViewModel(group: WordList.example))
     }
 }
+
+
+
+
+//struct GroupDetail: View {
+//
+//
+//
+//    @ObservedObject var viewModel: GroupDetailViewModel
+//
+//    var body: some View {
+//        ZStack {
+//            BackgroundView()
+//            VStack {
+//                ScrollView {
+//                    VStack {
+//                        ForEach(viewModel.group.words, id: \.id) { word in
+//                            WordRow(viewModel: WordRowViewModel(word: word))
+//                        }
+//
+//                    }
+//                    .padding()
+//                }
+//
+//                Spacer()
+////                CustomButton(textButton: "Learn", completion: {
+////                    trainingsIsPressed.toggle()
+////                })
+////                .padding()
+////                .sheet(isPresented: $trainingsIsPressed) {
+////                    TrainingsScreen(isMain: false)
+////                        .presentationDetents([.fraction(0.45)])
+////                }
+//            }
+//
+//            .toolbar {
+//                Button {
+//                    viewModel.getSelectedWordList()
+//                } label: {
+//                    Image(systemName: "plus")
+//                        .foregroundColor(Color.tealColor)
+//                }
+//                .sheet(isPresented: $viewModel.addNewWordIsPressed) {
+//                    if let list = viewModel.selectedWordList {
+//                        NewWordSreen(viewModel: NewWordSreenViewModel(selectedWordList: list))
+//
+//                    }
+//                }
+//            }
+//
+//        }
+//        .navigationTitle("\(viewModel.group.nameOfGroup)")
+//        .embedNavigationView(with: "\(viewModel.group.nameOfGroup)")
+//    }
+//}

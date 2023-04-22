@@ -11,7 +11,8 @@ import SwiftUI
 struct VocabVibesApp: App {
     var body: some Scene {
         WindowGroup {
-            TrainingsScreen(viewModel: TrainingsScreenViewModel(isMain: true))
+            TabMainView()
+                .preferredColorScheme(.dark)
         }
     }
 }

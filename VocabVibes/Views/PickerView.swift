@@ -13,7 +13,7 @@ struct PickerView: View {
 
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Select group:")
                 .foregroundColor(.white)
                 .bold()
@@ -27,9 +27,10 @@ struct PickerView: View {
                 }
                 .buttonStyle(.bordered)
                 
-                Text(viewModel.selectedWordList?.nameOfGroup ?? "ddd")
+                Text(viewModel.selectedWordList?.nameOfGroup ?? "")
             }
         }
+        .padding(.leading, 25)
     }
 }
 

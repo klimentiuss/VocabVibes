@@ -11,10 +11,10 @@ import SwiftUI
 class ChooseWordViewModel: ObservableObject {
     @Binding var selectedWordList: WordList?
     
-    @Published var currentCardIndex = 0
+    @Published var currentCardIndex = 0//
     @Published var answerButtons = [String]()
-    @Published var correctAnswerIndex = 0
-    @Published var isLast = false
+    @Published var correctAnswerIndex = 0//
+    @Published var isLast = false//
     @Published var isWrong = false
     @Published var correctAnswersCount = 0
     
@@ -29,9 +29,12 @@ class ChooseWordViewModel: ObservableObject {
         options.removeAll(where: { $0 == correctAnswer })
         options.shuffle()
         //баг, если в группе 1 слово
-        correctAnswerIndex = Int.random(in: 0..<min(options.count, 3)) // ensure we have enough options
-        answerButtons = Array(options.prefix(3)) + [correctAnswer]
-        answerButtons.swapAt(correctAnswerIndex, answerButtons.count-1)
+        if options.count >= 2 {
+            correctAnswerIndex = Int.random(in: 0..<min(options.count, 3)) // ensure we have enough options
+            answerButtons = Array(options.prefix(3)) + [correctAnswer]
+            answerButtons.swapAt(correctAnswerIndex, answerButtons.count-1)
+        }
+        
     }
     
     func checkIndex() {
@@ -40,7 +43,6 @@ class ChooseWordViewModel: ObservableObject {
                 currentCardIndex += 1
             }
             generateButtons()
-            print(currentCardIndex)
         } else {
             isLast.toggle()
         }

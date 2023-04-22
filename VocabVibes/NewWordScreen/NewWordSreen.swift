@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewWordSreen: View {
     
-    @ObservedObject var viewModel: NewWordSreenViewModel    
+    @ObservedObject var viewModel: NewWordSreenViewModel
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -18,23 +18,29 @@ struct NewWordSreen: View {
             VStack {
                 VStack(alignment: .leading) {
                     TextField("Word", text: $viewModel.word)
+                        .tint(Color.black)
                         .textFieldStyle(.roundedBorder)
+                        .autocorrectionDisabled()
                     TextField("Translate", text: $viewModel.transalte)
+                        .tint(Color.black)
                         .textFieldStyle(.roundedBorder)
+                        .autocorrectionDisabled()
+                    
                 }
                 .padding()
+                Text(viewModel.warningText)
                 Spacer()
                 
                 VStack {
                     Button {
-                        viewModel.saveNewWord()
+                        viewModel.checkTextFieldsAndSave()
                     } label: {
                         Text("Save")
                     }
                     .buttonStyle(.bordered)
                     .padding()
                     Button {
-                            dismiss()
+                        dismiss()
                     } label: {
                         Text("Close")
                     }
@@ -43,17 +49,10 @@ struct NewWordSreen: View {
                     .padding(.bottom)
                 }
                 
-
-//                CustomButton(textButton: "Save", completion: {
-//                    saveNewWord()
-//                    if !isMultiply {
-//                        presentationMode.wrappedValue.dismiss()
-//                    }
-//                    word = ""
-//                    transalte = ""
-//                })
+                
             }
         }
+        .preferredColorScheme(.light)
         .navigationTitle("Add new word")
         .embedNavigationView(with: "Add new word")
     }

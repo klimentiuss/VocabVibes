@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ListOfGroups: View {
     
-    @StateObject private var viewModel = ListOfGroupsViewModel()
+    
+    @ObservedObject private var viewModel = ListOfGroupsViewModel()
     
     var body: some View {
         ZStack {
@@ -19,6 +20,7 @@ struct ListOfGroups: View {
             VStack(alignment: .leading) {
                 HStack {
                     //Title
+                    
                     Text("Word Groups")
                         .foregroundColor(.white)
                         .font(.largeTitle)
@@ -33,13 +35,17 @@ struct ListOfGroups: View {
                         Text("Add new")
                             .foregroundColor(Color.tealColor)
                     }
+
                     .alert("New Group", isPresented: $viewModel.alertPresented, actions: {
                         TextField("Group name", text: $viewModel.groupName)
-                            .foregroundColor(.black)
+                            .autocorrectionDisabled()
+
                         Button("Save", action: {
                             viewModel.createNewGroup()
                         })
+
                         Button("Cancel", role: .cancel, action: {})
+
                     }, message: {
                         Text("Please enter name of new group.")
                     })
@@ -50,6 +56,7 @@ struct ListOfGroups: View {
                     VStack{
                         ForEach(viewModel.wordList, id: \.id) { group in
                             GroupRow(viewModel: GroupRowViewModel(group: group))
+                                
                         }
                     }
                 }

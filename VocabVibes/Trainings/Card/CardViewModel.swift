@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WriteCardViewModel: ObservableObject {
+class CardViewModel: ObservableObject {
  
     @Published var word: String
     

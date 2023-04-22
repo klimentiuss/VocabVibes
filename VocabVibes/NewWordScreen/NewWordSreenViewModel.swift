@@ -14,10 +14,29 @@ class NewWordSreenViewModel: ObservableObject {
     @Published var transalte = ""
     @Published var selectedWordList: WordList
     @Published var isMultiply = false
+    @Published var warningText = ""
     
     @ObservedResults(WordList.self) var wordList
     
     let realm = try! Realm()
+    
+    func checkTextFieldsAndSave() {
+        let trimmedWord = word.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedTranslate = transalte.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard !trimmedWord.isEmpty && !trimmedTranslate.isEmpty else {
+            word = ""
+            transalte = ""
+            warningText = "Please fill in the fields correctly."
+            return
+        }
+        
+        saveNewWord()
+        
+        warningText = ""
+        word = ""
+        transalte = ""
+    }
     
     func saveNewWord() {
         let newWord = Word()
@@ -35,8 +54,6 @@ class NewWordSreenViewModel: ObservableObject {
             print("Error adding word: \(error.localizedDescription)")
         }
         
-        word = ""
-        transalte = ""
     }
     
     init(selectedWordList: WordList) {

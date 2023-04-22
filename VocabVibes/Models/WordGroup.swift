@@ -38,6 +38,9 @@ extension WordList {
         word.wordTranslation = "яблоко"
         
         list.words.append(word)
+        list.words.append(word)
+        list.words.append(word)
+        
         return list
         
     }

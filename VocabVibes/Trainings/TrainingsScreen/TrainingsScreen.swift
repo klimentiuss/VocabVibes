@@ -28,10 +28,11 @@ struct TrainingsScreen: View {
                         .foregroundColor(.white)
                         .font(.title)
                 }
-                .padding(.horizontal)
+                .padding(.top, 10)
+                .padding(.leading, 20)
                 
                 LazyVGrid(
-                    columns: viewModel.isMain ? viewModel.flexibleColumns : viewModel.lagreFixedColumns,
+                    columns: viewModel.isMain ? viewModel.lagreFixedColumns : viewModel.smallFixedColumns,
                     spacing: 10
                 ) {
                     Section {
@@ -54,8 +55,8 @@ struct TrainingsScreen: View {
                                 ZStack {
                                     Color.lightGrayColor
                                         .frame(
-                                            width: viewModel.isMain ? 160 : 100,
-                                            height: viewModel.isMain ? 160 : 100)
+                                            width: viewModel.isMain ? 175 : 100,
+                                            height: viewModel.isMain ? 175 : 100)
                                         .cornerRadius(20)
                                     Text(training.trainingName)
                                         .foregroundColor(.white)

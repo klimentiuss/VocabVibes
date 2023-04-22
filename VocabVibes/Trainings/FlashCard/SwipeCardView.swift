@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct CardView: View {
+struct SwipeCardView: View {
     
-    @StateObject var viewModel: CardViewModel
+    @StateObject var viewModel: SwipeCardViewModel
     
     var body: some View {
         ZStack {
@@ -67,8 +67,8 @@ struct CardView: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
+struct SwipeCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(viewModel: CardViewModel(word: "Apple", translated: "Yabloko"))
+        SwipeCardView(viewModel: SwipeCardViewModel(word: "Apple", translated: "Yabloko"))
     }
 }

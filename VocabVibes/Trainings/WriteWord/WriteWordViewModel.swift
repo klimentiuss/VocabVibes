@@ -9,14 +9,16 @@ import SwiftUI
 
 
 class WriteWordViewModel: ObservableObject {
+    
+    
     @Binding var selectedWordList: WordList?
     
     @Published var translate = ""
-    @Published var currentCardIndex = 0
+    @Published var currentCardIndex = 0//
     @Published var translateStatus = ""
     @Published var keyboardOffset: CGFloat = 0
-    @Published var isLast = false
-    @Published var correctAnswersCount = 0
+    @Published var isLast = false//
+    @Published var correctAnswersCount = 0//
     
     init(selectedWordList: Binding<WordList?>) {
         self._selectedWordList = selectedWordList

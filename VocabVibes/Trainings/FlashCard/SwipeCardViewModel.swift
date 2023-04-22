@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-class CardViewModel: ObservableObject {
+class SwipeCardViewModel: ObservableObject {
     
     @Published var word: String
     @Published var translated: String

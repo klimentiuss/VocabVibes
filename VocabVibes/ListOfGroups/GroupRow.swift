@@ -9,8 +9,8 @@ import SwiftUI
 
 struct GroupRow: View {
     
-    let viewModel: GroupRowViewModel
-    
+    @ObservedObject var viewModel: GroupRowViewModel
+        
     var body: some View {
         NavigationLink(destination: {
             GroupDetail(viewModel: GroupDetailViewModel(group: viewModel.group))
@@ -27,13 +27,16 @@ struct GroupRow: View {
                         .foregroundColor(.white)
                         .font(.title2)
                     Spacer()
-                    Text("\(viewModel.group.words.count)")
+                    Text("\(viewModel.wordsCount)")
                         .foregroundColor(.black)
                         .opacity(0.3)
                 }
                 .padding()
             }
         })
+        .onAppear {
+            viewModel.updateWordsValue()
+        }
     }
 }
 

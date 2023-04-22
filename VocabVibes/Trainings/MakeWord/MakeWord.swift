@@ -20,7 +20,7 @@ struct MakeWord: View {
                     ZStack {
                         if let list = viewModel.selectedWordList?.words {
                             ForEach(Array(list.enumerated()), id: \.1.id) { index, word in
-                                WriteCard(viewModel: WriteCardViewModel(word: word.wordValue))
+                                CardView(viewModel: CardViewModel(word: word.wordValue))
                                     .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
                                     .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
                             }

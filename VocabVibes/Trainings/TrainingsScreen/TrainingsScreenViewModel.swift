@@ -29,8 +29,8 @@ class TrainingsScreenViewModel: ObservableObject {
     ]
     
     let lagreFixedColumns: [GridItem] = [
-        GridItem(.fixed(170), spacing: 20),
-        GridItem(.fixed(170), spacing: 20)
+        GridItem(.fixed(170), spacing: 15),
+        GridItem(.fixed(170), spacing: 15)
     ]
     
     func getFirstlist() {

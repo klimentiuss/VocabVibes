@@ -16,8 +16,7 @@ struct FlashCardView: View {
             
             if let words = viewModel.selectedWordList?.words {
                 ForEach(words.shuffled(), id: \.id) { word in
-                    //CardView(word: word.wordValue, translated: word.wordTranslation, counter: viewModel.counter, currentCardIndex: viewModel.currentCardIndex)
-                    CardView(viewModel: CardViewModel(word: word.wordValue, translated: word.wordTranslation))
+                    SwipeCardView(viewModel: SwipeCardViewModel(word: word.wordValue, translated: word.wordTranslation))
                 }
             }
         }

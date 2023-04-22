@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct WriteCard: View {
+struct CardView: View {
     
-    @ObservedObject var viewModel: WriteCardViewModel
+    @ObservedObject var viewModel: CardViewModel
     
     var body: some View {
         ZStack {
@@ -28,8 +28,8 @@ struct WriteCard: View {
     }
 }
 
-struct WriteCard_Previews: PreviewProvider {
+struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        WriteCard(viewModel: WriteCardViewModel(word: "Hi"))
+        CardView(viewModel: CardViewModel(word: "Hi"))
     }
 }

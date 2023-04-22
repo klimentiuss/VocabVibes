@@ -14,12 +14,17 @@ class ListOfGroupsViewModel: ObservableObject {
     @Published var alertPresented = false
     @Published var groupName = ""
     
+    
     func createNewGroup() {
+        let trimmedGroupName = groupName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedGroupName.isEmpty else {
+            groupName = ""
+            return
+        }
+        
         let newGroup = WordList()
-        newGroup.nameOfGroup = groupName
-        
+        newGroup.nameOfGroup = trimmedGroupName
         $wordList.append(newGroup)
-        
         groupName = ""
     }
 }

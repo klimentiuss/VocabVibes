@@ -14,17 +14,16 @@ struct ChooseWord: View {
     var body: some View {
         ZStack(alignment: .top) {
             BackgroundView()
-            if !viewModel.isLast {
+            if !viewModel.isLast && viewModel.selectedWordList?.words.count ?? 0 >= 3 {
                 VStack {
                     ZStack {
                         if let list = viewModel.selectedWordList?.words {
                             ForEach(Array(list.enumerated()), id: \.1.id) { index, word in
-                                WriteCard(viewModel: WriteCardViewModel(word: word.wordValue))
+                                CardView(viewModel: CardViewModel(word: word.wordValue))
                                     .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
                                     .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
                             }
                         }
-                        
                     }
                     .padding()
                     
@@ -43,11 +42,22 @@ struct ChooseWord: View {
                     }
                 }
             } else {
+                viewModel.selectedWordList?.words.count ?? 0 >= 3
+                ?
                 VStack(alignment: .center) {
                     Spacer()
                     Text("Correct Answers: \(viewModel.correctAnswersCount)")
                         .foregroundColor(.white)
                         .font(.largeTitle)
+                        .bold()
+                    Spacer()
+                }
+                :
+                VStack(alignment: .center) {
+                    Spacer()
+                    Text("Few words in the group.\nPlease add new words.")
+                        .font(.title)
+                        .foregroundColor(.white)
                         .bold()
                     Spacer()
                 }
