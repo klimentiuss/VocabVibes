@@ -1,64 +1,89 @@
 //
-//  GroupDetail.swift
+//  GroupDetailSecond.swift
 //  VocabVibes
 //
-//  Created by Daniil Klimenko on 15.04.2023.
+//  Created by Daniil Klimenko on 07.05.2023.
 //
 
 import SwiftUI
+import RealmSwift
 
 struct GroupDetail: View {
     
- 
-
     @ObservedObject var viewModel: GroupDetailViewModel
+    @State var offsetMove: CGFloat = -110
     
     var body: some View {
         ZStack {
             BackgroundView()
-            VStack {
+            withAnimation {
+                VStack {
+                   //перенести в отдельное вью
+                    VStack {
+                        VStack(alignment: .leading) {
+                            TextField("Word", text: $viewModel.word)
+                            
+                                .tint(Color.black)
+                                .textFieldStyle(.roundedBorder)
+                                .autocorrectionDisabled()
+                                .keyboardType(.asciiCapable)
+                                .toolbar {
+                                    ToolbarItemGroup(placement: .keyboard) {
+                                        HStack {
+                                            Button("Close") {
+                                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                                viewModel.getSelectedWordList()
+                                                offsetMove = viewModel.addNewWordIsPressed ?  0 : -110
+                                            }
+                                            .foregroundColor(.red)
+                                            Spacer()
+                                            Button("Save") {
+                                                viewModel.checkTextFieldsAndSave()
+                                            }
+                                        }
+                                    }
+                                }
+                            TextField("Translate", text: $viewModel.transalte)
+                                .tint(Color.black)
+                                .textFieldStyle(.roundedBorder)
+                                .autocorrectionDisabled()
+                                .keyboardType(.asciiCapable)
+                        }
+                        .padding()
+                    }
+                    
+                    
+                    
                     List {
                         ForEach(viewModel.group.words, id: \.id) { word in
                             WordRow(viewModel: WordRowViewModel(word: word))
-                              //  .listRowSeparator(.hidden)
                                 .listRowBackground(Color.darkGrayColor)
-                                .swipeActions(edge: .leading) {
-                                    Button {
-                                       
-                                    } label: {
-                                        Label("Add ", systemImage: "plus.circle")
-                                    }
-                                    .tint(.indigo)
-                                }
-                                .swipeActions(edge: .trailing) {
-                                    Button {
-                                    } label: {
-                                        Label("Subtract", systemImage: "minus.circle")
-                                    }
-                                }
                         }
-                
+                        .onDelete { indexSet in
+                            viewModel.delete(at: indexSet)
+                        }
                     }
                     .background(Color.darkGrayColor)
                     .listStyle(.plain)
-                    //.padding()
-            }
-           
-            .toolbar {
-                Button {
-                    viewModel.getSelectedWordList()
-                } label: {
-                    Image(systemName: "plus")
-                        .foregroundColor(Color.tealColor)
                 }
-                .sheet(isPresented: $viewModel.addNewWordIsPressed) {
-                    if let list = viewModel.selectedWordList {
-                        NewWordSreen(viewModel: NewWordSreenViewModel(selectedWordList: list))
-
+                .animation(.easeIn, value: offsetMove)
+                .offset(y:offsetMove)
+                .toolbar {
+                    Button {
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        viewModel.getSelectedWordList()
+                        offsetMove = viewModel.addNewWordIsPressed ?  0 : -110
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(Color.tealColor)
+                            .rotationEffect(.degrees(viewModel.addNewWordIsPressed ? 40 : 0))
+                            .animation(.easeIn, value: viewModel.addNewWordIsPressed)
                     }
                 }
             }
-            
+        }
+        .onAppear {
+            viewModel.getSelectedWordList()
         }
         .navigationTitle("\(viewModel.group.nameOfGroup)")
         .embedNavigationView(with: "\(viewModel.group.nameOfGroup)")
@@ -67,61 +92,6 @@ struct GroupDetail: View {
 
 struct GroupDetail_Previews: PreviewProvider {
     static var previews: some View {
-        GroupDetail(viewModel: GroupDetailViewModel(group: WordList.example))
+        GroupDetail(viewModel: GroupDetailViewModel(group: WordList.example, selectedWordList: WordList.example))
     }
 }
-
-
-
-
-//struct GroupDetail: View {
-//
-//
-//
-//    @ObservedObject var viewModel: GroupDetailViewModel
-//
-//    var body: some View {
-//        ZStack {
-//            BackgroundView()
-//            VStack {
-//                ScrollView {
-//                    VStack {
-//                        ForEach(viewModel.group.words, id: \.id) { word in
-//                            WordRow(viewModel: WordRowViewModel(word: word))
-//                        }
-//
-//                    }
-//                    .padding()
-//                }
-//
-//                Spacer()
-////                CustomButton(textButton: "Learn", completion: {
-////                    trainingsIsPressed.toggle()
-////                })
-////                .padding()
-////                .sheet(isPresented: $trainingsIsPressed) {
-////                    TrainingsScreen(isMain: false)
-////                        .presentationDetents([.fraction(0.45)])
-////                }
-//            }
-//
-//            .toolbar {
-//                Button {
-//                    viewModel.getSelectedWordList()
-//                } label: {
-//                    Image(systemName: "plus")
-//                        .foregroundColor(Color.tealColor)
-//                }
-//                .sheet(isPresented: $viewModel.addNewWordIsPressed) {
-//                    if let list = viewModel.selectedWordList {
-//                        NewWordSreen(viewModel: NewWordSreenViewModel(selectedWordList: list))
-//
-//                    }
-//                }
-//            }
-//
-//        }
-//        .navigationTitle("\(viewModel.group.nameOfGroup)")
-//        .embedNavigationView(with: "\(viewModel.group.nameOfGroup)")
-//    }
-//}

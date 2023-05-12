@@ -22,6 +22,15 @@ struct WordRow: View {
                 Text(viewModel.word.wordValue)
                     .foregroundColor(.white)
                     .font(.title2)
+                
+                Text(" – ")
+                    .foregroundColor(.white)
+                    .font(.title2)
+                
+                Text(viewModel.word.wordTranslation)
+                    .foregroundColor(.white)
+                    .font(.title2)
+                    .opacity(0.5)
                 Spacer()
             }
             .padding()

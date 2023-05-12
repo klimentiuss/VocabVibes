@@ -27,4 +27,32 @@ class ListOfGroupsViewModel: ObservableObject {
         $wordList.append(newGroup)
         groupName = ""
     }
+    
+    func delete(at indexSet: IndexSet) {
+        if let index = indexSet.first,
+            let realm = wordList[index].realm {
+            try? realm.write({
+                realm.delete(wordList[index])
+            })
+            objectWillChange.send()
+        }
+    }
+
+    
+    //    func deleteList(_ list: WordList) {
+    //
+    //        let realm = try! Realm()
+    //
+    //        do {
+    //            try realm.write {
+    //                realm.delete(list.words)
+    //                realm.delete(list)
+    //            }
+    //        } catch {
+    //            print("Error adding word: \(error.localizedDescription)")
+    //        }
+    //      //  wordList = realm.objects(WordList.self)
+    //        //$wordList.remove(list)
+    //    }
+    
 }

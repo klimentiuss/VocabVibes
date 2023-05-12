@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 class GroupRowViewModel: ObservableObject {
     
@@ -19,6 +20,7 @@ class GroupRowViewModel: ObservableObject {
         wordsCount = group.words.count
     }
     
+  
     func updateWordsValue() {
         wordsCount = group.words.count
     }
