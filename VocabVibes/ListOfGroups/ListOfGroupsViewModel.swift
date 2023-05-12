@@ -37,22 +37,5 @@ class ListOfGroupsViewModel: ObservableObject {
             objectWillChange.send()
         }
     }
-
-    
-    //    func deleteList(_ list: WordList) {
-    //
-    //        let realm = try! Realm()
-    //
-    //        do {
-    //            try realm.write {
-    //                realm.delete(list.words)
-    //                realm.delete(list)
-    //            }
-    //        } catch {
-    //            print("Error adding word: \(error.localizedDescription)")
-    //        }
-    //      //  wordList = realm.objects(WordList.self)
-    //        //$wordList.remove(list)
-    //    }
     
 }

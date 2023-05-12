@@ -10,7 +10,6 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TrainingsScreen(viewModel: TrainingsScreenViewModel(isMain: true))
-          //  .padding(.top)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {

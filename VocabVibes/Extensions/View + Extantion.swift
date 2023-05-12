@@ -11,6 +11,13 @@ import SwiftUI
 
 extension View {
     
+    func screenSize() -> CGSize {
+        guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return .zero
+        }
+        return window.screen.bounds.size
+    }
+    
     func embedNavigationView(with title: String) -> some View {
         return NavigationStack {
             self

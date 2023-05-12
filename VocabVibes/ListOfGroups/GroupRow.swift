@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct GroupRow: View {
-    
-//    @State var offsetX: CGFloat = 0
-    
+        
     @ObservedObject var viewModel: GroupRowViewModel
         
     var body: some View {
         ZStack {
             NavigationLink {
-                GroupDetail(viewModel: GroupDetailViewModel(group: viewModel.group, selectedWordList: viewModel.group))
-             //   GroupDetail(viewModel: GroupDetailViewModel(group: viewModel.group))
+                GroupDetail(viewModel: GroupDetailViewModel(group: viewModel.group))
             } label: {
                 ZStack {
                     Rectangle()
@@ -44,22 +41,6 @@ struct GroupRow: View {
 
             }
         }
-//        .offset(x: offsetX)
-//        .gesture(DragGesture()
-//            .onChanged{ value in
-//                if value.translation.width < 0 {
-//                    offsetX = value.translation.width
-//
-//                }
-//            }
-//                .onEnded{ value in
-//                    withAnimation {
-//                        offsetX = 0
-//                    }
-//                }
-//        )
-       
-
     }
 }
 
@@ -70,11 +51,3 @@ struct GroupRow_Previews: PreviewProvider {
 }
 
 
-extension View {
-    func screenSize() -> CGSize {
-        guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-            return .zero
-        }
-        return window.screen.bounds.size
-    }
-}

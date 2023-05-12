@@ -18,11 +18,15 @@ class GroupDetailViewModel: ObservableObject {
     
     @Published var word = ""
     @Published var transalte = ""
-    @Published var selectedWordList: WordList
     @Published var warningText = ""
-    
+        
     let realm = try! Realm()
     
+    func showOrHide() {
+        addNewWordIsPressed.toggle()
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+    }
     
     func checkTextFieldsAndSave() {
         let trimmedWord = word.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -48,7 +52,7 @@ class GroupDetailViewModel: ObservableObject {
         newWord.wordTranslation = transalte
         
         do {
-            let selectedListRef = ThreadSafeReference(to: selectedWordList)
+            let selectedListRef = ThreadSafeReference(to: group)
             
             try realm.write {
                 guard let selectedList = realm.resolve(selectedListRef) else { return }
@@ -62,7 +66,7 @@ class GroupDetailViewModel: ObservableObject {
     
     func delete(at indexSet: IndexSet) {
         guard let index = indexSet.first else { return }
-        let selectedListRef = ThreadSafeReference(to: selectedWordList)
+        let selectedListRef = ThreadSafeReference(to: group)
         
         do {
             let selectedList = realm.resolve(selectedListRef)
@@ -77,17 +81,11 @@ class GroupDetailViewModel: ObservableObject {
         }
     }
     
-    func getSelectedWordList() {
-        selectedWordList = group
-        addNewWordIsPressed.toggle()
-    }
-    
-    init(group: WordList, addNewWordIsPressed: Bool = false, word: String = "", transalte: String = "", selectedWordList: WordList, warningText: String = "") {
+    init(group: WordList, addNewWordIsPressed: Bool = false, word: String = "", transalte: String = "", warningText: String = "") {
         self.group = group
         self.addNewWordIsPressed = addNewWordIsPressed
         self.word = word
         self.transalte = transalte
-        self.selectedWordList = selectedWordList
         self.warningText = warningText
     }
 

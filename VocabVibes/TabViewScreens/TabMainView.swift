@@ -15,7 +15,6 @@ struct TabMainView: View {
         UITabBar.appearance().backgroundColor = UIColor(Color.lightGrayColor)
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.tealColor.opacity(0.4))
         UITabBar.appearance().barTintColor = UIColor(Color.lightGrayColor)
-      //  UIScrollView.appearance().backgroundColor = UIColor(Color.darkGrayColor)
     }
     
     var body: some View {

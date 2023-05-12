@@ -37,9 +37,9 @@ extension WordList {
         word.wordValue = "apple"
         word.wordTranslation = "яблоко"
         
-        list.words.append(word)
-        list.words.append(word)
-        list.words.append(word)
+        for _ in 1..<15 {
+            list.words.append(word)
+        }
         
         return list
         
