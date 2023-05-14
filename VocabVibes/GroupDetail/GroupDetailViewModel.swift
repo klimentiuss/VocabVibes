@@ -33,8 +33,6 @@ class GroupDetailViewModel: ObservableObject {
         let trimmedTranslate = transalte.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedWord.isEmpty && !trimmedTranslate.isEmpty else {
-            word = ""
-            transalte = ""
             warningText = "Please fill in the fields correctly."
             return
         }
