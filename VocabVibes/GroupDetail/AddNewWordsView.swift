@@ -56,9 +56,14 @@ struct AddNewWordsView: View {
                 if viewModel.addNewWordIsPressed {
                     HStack {
                         Button("Close") {
-                            viewModel.showOrHide()
+                            withAnimation {
+                                viewModel.showOrHide()
+                                viewModel.clearFields()
+                            }
+                            
                             completion()
                         }
+                        .animation(.linear, value: viewModel.addNewWordIsPressed)
                         .foregroundColor(.red)
                         Spacer()
                         Button("Save") {

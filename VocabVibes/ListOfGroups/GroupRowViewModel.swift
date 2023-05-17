@@ -10,10 +10,8 @@ import RealmSwift
 
 class GroupRowViewModel: ObservableObject {
     
-    @Published var group: WordList
+    @ObservedRealmObject var group: WordList
     @Published var wordsCount: Int
-
- 
     
     init(group: WordList) {
         self.group = group

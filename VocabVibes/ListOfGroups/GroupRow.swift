@@ -29,7 +29,7 @@ struct GroupRow: View {
                             .foregroundColor(.white)
                             .font(.title2)
                         Spacer()
-                        Text("\(viewModel.wordsCount)")
+                        Text("\(viewModel.group.words.count)")
                             .foregroundColor(.black)
                             .opacity(0.3)
                     }
@@ -38,7 +38,6 @@ struct GroupRow: View {
             }
             .onAppear {
                 viewModel.updateWordsValue()
-
             }
         }
     }

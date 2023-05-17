@@ -10,12 +10,9 @@ import RealmSwift
 
 class GroupDetailViewModel: ObservableObject {
     
-    
     @ObservedRealmObject var group: WordList
-    @ObservedResults(WordList.self) var wordList
     
     @Published var addNewWordIsPressed = false
-    
     @Published var word = ""
     @Published var transalte = ""
     @Published var warningText = ""
@@ -28,6 +25,12 @@ class GroupDetailViewModel: ObservableObject {
 
     }
     
+    func clearFields() {
+        warningText = ""
+        word = ""
+        transalte = ""
+    }
+    
     func checkTextFieldsAndSave() {
         let trimmedWord = word.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTranslate = transalte.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -38,10 +41,8 @@ class GroupDetailViewModel: ObservableObject {
         }
         
         saveNewWord()
+        clearFields()
         
-        warningText = ""
-        word = ""
-        transalte = ""
     }
     // тут 2 метода одинаковые +-, придумать как упростить
     func saveNewWord() {

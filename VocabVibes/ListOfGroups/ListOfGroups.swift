@@ -24,11 +24,13 @@ struct ListOfGroups: View {
             VStack(alignment: .leading) {
                 HStack {
                     //Title
-                    
                     Text("Word Groups")
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .bold()
+                        .padding(.top, 10)
+                        .padding(.leading, 20)
+                        .padding(.bottom, -10)
                     
                     Spacer()
                     
@@ -39,6 +41,8 @@ struct ListOfGroups: View {
                         Text("Add new")
                             .foregroundColor(Color.tealColor)
                     }
+                    .padding(.top, 20)
+                    .padding(.horizontal, 20)
                     
                     .alert("New Group", isPresented: $viewModel.alertPresented, actions: {
                         TextField("Group name", text: $viewModel.groupName)
@@ -54,8 +58,7 @@ struct ListOfGroups: View {
                         Text("Please enter name of new group.")
                     })
                 }
-                .padding(.horizontal, 20)
-                .padding()
+
                 
                 List {
                     ForEach(viewModel.wordList.freeze(), id: \.id) { group in
@@ -69,10 +72,7 @@ struct ListOfGroups: View {
                 }
                 .scrollContentBackground(.hidden)
                 .listStyle(.plain)
-                .padding(.top, -10)
-                
             }
-            .padding(.top, 10)
         }
         .navigationTitle("Word groups")
         .embedNavigationView(with: "VocabVibes")
