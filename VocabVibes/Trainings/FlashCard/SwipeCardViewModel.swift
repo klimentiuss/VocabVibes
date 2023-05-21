@@ -9,32 +9,33 @@ import SwiftUI
 
 
 class SwipeCardViewModel: ObservableObject {
-    
-    @Published var word: String
-    @Published var translated: String
-
-    @Published var counter: Int = 0
-    @Published var currentCardIndex: Int = 0
+        
+    @Published var word: Word
 
     @Published var color: Color = Color.lightGrayColor
     @Published var isTranslated = false
     @Published var offset = CGSize.zero
     @Published var rotation = 0.0
+    @Published var isSwiped = false
     
     func swipeCard(width: CGFloat) {
-        
-        currentCardIndex += 1
         
         switch width {
         case -500...(-150):
             offset = CGSize(width: -500, height: 0)
+            isSwiped.toggle()
+            StorageManager.shared.updateWeight(of: word, isKnow: false)
         case 150...(500):
-            counter += 1
             offset = CGSize(width: 500, height: 0)
+            isSwiped.toggle()
+            StorageManager.shared.updateWeight(of: word, isKnow: true)
         default:
             offset = .zero
         }
+        
+        
     }
+    
     
     func changeColor(width: CGFloat) {
         switch width {
@@ -47,8 +48,7 @@ class SwipeCardViewModel: ObservableObject {
         }
     }
     
-    init(word: String, translated: String) {
+    init(word: Word) {
         self.word = word
-        self.translated = translated
     }
 }

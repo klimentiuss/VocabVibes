@@ -33,17 +33,20 @@ class WriteWordViewModel: ObservableObject {
     func skipCard() {
         translateStatus = ""
         translate = ""
+        guard let word = selectedWordList?.words[currentCardIndex] else { return }
+        StorageManager.shared.updateWeight(of: word, isKnow: false)
         currentCardIndex += 1
     }
-    
-    
     
     func checkTranslation() {
         
         checkIndex()
         
-        if selectedWordList?.words[currentCardIndex].wordTranslation == translate {
+        guard let word = selectedWordList?.words[currentCardIndex] else { return }
+        
+        if word.wordTranslation == translate {
             correctAnswersCount += 1
+            StorageManager.shared.updateWeight(of: word, isKnow: true)
             translateStatus = ""
             withAnimation {
                 currentCardIndex += 1

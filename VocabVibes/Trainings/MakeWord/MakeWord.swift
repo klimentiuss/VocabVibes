@@ -73,6 +73,7 @@ struct MakeWord: View {
                     
                     HStack {
                         Button {
+                            viewModel.skipCard()
                             viewModel.changeCard()
                         } label: {
                             Rectangle()

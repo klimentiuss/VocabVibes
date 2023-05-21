@@ -29,8 +29,16 @@ class MakeWordViewModel: ObservableObject {
         }
     }
     
+    func skipCard() {
+        guard let word = selectedWordList?.words[currentCardIndex] else { return }
+        StorageManager.shared.updateWeight(of: word, isKnow: false)
+    }
+    
     func checkAnswer() {
-        if answer == selectedWordList?.words[currentCardIndex].wordTranslation.lowercased() {
+        guard let word = selectedWordList?.words[currentCardIndex] else { return }
+        
+        if answer == word.wordTranslation.lowercased() {
+            StorageManager.shared.updateWeight(of: word, isKnow: true)
             correctAnswersCount += 1
             changeCard()
         } else {

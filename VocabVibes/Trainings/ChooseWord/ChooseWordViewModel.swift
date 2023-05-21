@@ -53,18 +53,22 @@ class ChooseWordViewModel: ObservableObject {
         if isWrong {
             return
         }
-        let correctAnswer = selectedWordList?.words[currentCardIndex].wordTranslation
+        
+        guard let word = selectedWordList?.words[currentCardIndex] else { return }
         
         if selectedButtonIndex == correctAnswerIndex {
-            print("Correct! You chose the matching word.")
             answerButtons[selectedButtonIndex] = "✅ " + answerButtons[selectedButtonIndex]
-            answerButtons = answerButtons.map { $0 == correctAnswer ? "🟢 " + $0 : $0 }
+            answerButtons = answerButtons.map { $0 == word.wordTranslation ? "🟢 " + $0 : $0 }
+            
+            StorageManager.shared.updateWeight(of: word, isKnow: true)
             correctAnswersCount += 1
             withAnimation {
                 checkIndex()
                 generateButtons()
             }
             return
+        } else {
+            StorageManager.shared.updateWeight(of: word, isKnow: false)
         }
         
         answerButtons[selectedButtonIndex] = "❌ " + answerButtons[selectedButtonIndex]

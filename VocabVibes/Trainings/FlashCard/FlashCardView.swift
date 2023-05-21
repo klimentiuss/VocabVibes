@@ -14,11 +14,22 @@ struct FlashCardView: View {
         ZStack {
             BackgroundView()
             
-            if let words = viewModel.selectedWordList?.words {
-                ForEach(words.shuffled(), id: \.id) { word in
-                    SwipeCardView(viewModel: SwipeCardViewModel(word: word.wordValue, translated: word.wordTranslation))
+            if !viewModel.isLast {
+                ZStack {
+                    if let words = viewModel.selectedWordList?.words {
+                        ForEach(words.shuffled(), id: \.id) { word in
+                            SwipeCardView(viewModel: SwipeCardViewModel(word: word)) {
+                                viewModel.updateIndex()
+                            }
+                            
+                        }
+                    }
                 }
+            } else {
+                Text("ВСЕ")
             }
+            
+            
         }
         .embedNavigationView(with: "FlashCards")
     }

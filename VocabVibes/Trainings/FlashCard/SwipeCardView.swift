@@ -10,6 +10,8 @@ import SwiftUI
 struct SwipeCardView: View {
     
     @StateObject var viewModel: SwipeCardViewModel
+        
+    var completion: () -> ()
     
     var body: some View {
         ZStack {
@@ -20,7 +22,7 @@ struct SwipeCardView: View {
 
             HStack {
                 if viewModel.isTranslated {
-                    Text(viewModel.translated)
+                    Text(viewModel.word.wordTranslation)
                         .opacity(viewModel.isTranslated ? 1 : 0)
                         .font(.largeTitle)
                         .foregroundColor(.white)
@@ -28,7 +30,7 @@ struct SwipeCardView: View {
                         .rotation3DEffect(.degrees(Double(180)), axis: (x: 0, y: 1, z: 0))
                         .animation(.linear, value: viewModel.isTranslated)
                 } else {
-                    Text(viewModel.word)
+                    Text(viewModel.word.wordValue)
                         .opacity(viewModel.isTranslated ? 0 : 1)
                         .font(.largeTitle)
                         .foregroundColor(.white)
@@ -59,7 +61,10 @@ struct SwipeCardView: View {
                     withAnimation {
                         viewModel.swipeCard(width: viewModel.offset.width)
                         viewModel.changeColor(width: viewModel.offset.width)
-                        
+                        //переделать - баг если действие было, но свайпа нет
+                        if viewModel.isSwiped {
+                            completion()
+                        }
                     }
                 }
         )
@@ -67,8 +72,8 @@ struct SwipeCardView: View {
     }
 }
 
-struct SwipeCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwipeCardView(viewModel: SwipeCardViewModel(word: "Apple", translated: "Yabloko"))
-    }
-}
+//struct SwipeCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SwipeCardView(viewModel: SwipeCardViewModel(word: "Apple", translated: "Yabloko"))
+//    }
+//}

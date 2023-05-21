@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC1CEDD729F2CD2700EDAC55 /* SharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CEDD629F2CD2700EDAC55 /* SharedViewModel.swift */; };
 		DC1CEDDA29F2D16200EDAC55 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CEDD929F2D16200EDAC55 /* DataManager.swift */; };
 		DC26991429ED5D6C00EBB591 /* WordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26991329ED5D6C00EBB591 /* WordRow.swift */; };
 		DC26991629ED5D7800EBB591 /* WordRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26991529ED5D7800EBB591 /* WordRowViewModel.swift */; };
@@ -33,6 +32,7 @@
 		DC83FBDB29E99FEB00EA8BFA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DC83FBDA29E99FEB00EA8BFA /* Realm */; };
 		DC83FBDD29E99FEE00EA8BFA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC83FBDC29E99FEE00EA8BFA /* RealmSwift */; };
 		DC83FBDE29E9A01F00EA8BFA /* WordGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D8529E591CA00747E9F /* WordGroup.swift */; };
+		DC9993482A1A58C9002E0432 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9993472A1A58C9002E0432 /* StorageManager.swift */; };
 		DCAA0D7729E5919400747E9F /* VocabVibesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */; };
 		DCAA0D7B29E5919500747E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAA0D7A29E5919500747E9F /* Assets.xcassets */; };
 		DCAA0D7E29E5919500747E9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAA0D7D29E5919500747E9F /* Preview Assets.xcassets */; };
@@ -65,7 +65,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DC1CEDD629F2CD2700EDAC55 /* SharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
 		DC1CEDD929F2D16200EDAC55 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DC26991329ED5D6C00EBB591 /* WordRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRow.swift; sourceTree = "<group>"; };
 		DC26991529ED5D7800EBB591 /* WordRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRowViewModel.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		DC83FBC829E9916400EA8BFA /* GroupRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRowViewModel.swift; sourceTree = "<group>"; };
 		DC83FBCA29E995D400EA8BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DC83FBCF29E998C300EA8BFA /* VocabVibesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VocabVibesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC9993472A1A58C9002E0432 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		DCAA0D7329E5919400747E9F /* VocabVibes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VocabVibes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabVibesApp.swift; sourceTree = "<group>"; };
 		DCAA0D7A29E5919500747E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,7 +136,6 @@
 			children = (
 				DCD28FB329F175590050E786 /* CardView.swift */,
 				DCD28FB529F175650050E786 /* CardViewModel.swift */,
-				DC1CEDD629F2CD2700EDAC55 /* SharedViewModel.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -145,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				DC1CEDD929F2D16200EDAC55 /* DataManager.swift */,
+				DC9993472A1A58C9002E0432 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -231,7 +231,6 @@
 				DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */,
 				DCC1AA0229F1BC8100718739 /* TabViewScreens */,
 				DC7BF2AD29EFEF9800753C72 /* Trainings */,
-				DCAA0D9E29E5991100747E9F /* GroupDetail */,
 				DCAA0D9729E5953500747E9F /* ListOfGroups */,
 				DCAA0D8429E591A800747E9F /* Models */,
 				DC83FBBE29E9881200EA8BFA /* Views */,
@@ -239,6 +238,7 @@
 				DC1CEDD829F2D15100EDAC55 /* Services */,
 				DCAA0D7A29E5919500747E9F /* Assets.xcassets */,
 				DC83FBCA29E995D400EA8BFA /* Info.plist */,
+				DCAA0D9E29E5991100747E9F /* GroupDetail */,
 				DCAA0D7C29E5919500747E9F /* Preview Content */,
 			);
 			path = VocabVibes;
@@ -476,6 +476,7 @@
 				DC26991629ED5D7800EBB591 /* WordRowViewModel.swift in Sources */,
 				DC7BF2B929F0214700753C72 /* SwipeCardViewModel.swift in Sources */,
 				DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */,
+				DC9993482A1A58C9002E0432 /* StorageManager.swift in Sources */,
 				DC7BF2AC29EFEF6A00753C72 /* Training.swift in Sources */,
 				DC83FBC529E98AA100EA8BFA /* View + Extantion.swift in Sources */,
 				DCC1AA0B29F1BD4600718739 /* MainView.swift in Sources */,
@@ -486,7 +487,6 @@
 				DCAA0D7729E5919400747E9F /* VocabVibesApp.swift in Sources */,
 				DC7BF2BB29F02ED500753C72 /* FlashCardViewModel.swift in Sources */,
 				DC8134292A07B62B006C85EF /* GroupDetailViewModel.swift in Sources */,
-				DC1CEDD729F2CD2700EDAC55 /* SharedViewModel.swift in Sources */,
 				DCC1AA0D29F1BD9400718739 /* TabMainView.swift in Sources */,
 				DC7BF2B329EFF42B00753C72 /* PickerView.swift in Sources */,
 				DCD28FBA29F177EC0050E786 /* WriteWordViewModel.swift in Sources */,
