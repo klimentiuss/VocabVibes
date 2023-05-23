@@ -32,6 +32,8 @@ struct WordRow: View {
                     .font(.title2)
                     .opacity(0.5)
                 Spacer()
+                
+                RatingView(word: viewModel.word)
             }
             .padding()
         }

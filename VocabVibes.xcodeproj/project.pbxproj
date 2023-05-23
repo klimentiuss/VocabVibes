@@ -52,6 +52,7 @@
 		DCD28FBF29F17F1F0050E786 /* ChooseWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FBE29F17F1F0050E786 /* ChooseWordViewModel.swift */; };
 		DCD28FC229F182370050E786 /* MakeWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FC129F182370050E786 /* MakeWordViewModel.swift */; };
 		DCD28FC429F1823C0050E786 /* MakeWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FC329F1823C0050E786 /* MakeWord.swift */; };
+		DCEFFE6D2A1D0AFF003EE79E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFFE6C2A1D0AFF003EE79E /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		DCD28FBE29F17F1F0050E786 /* ChooseWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWordViewModel.swift; sourceTree = "<group>"; };
 		DCD28FC129F182370050E786 /* MakeWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeWordViewModel.swift; sourceTree = "<group>"; };
 		DCD28FC329F1823C0050E786 /* MakeWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeWord.swift; sourceTree = "<group>"; };
+		DCEFFE6C2A1D0AFF003EE79E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */,
 				DCC1AA0229F1BC8100718739 /* TabViewScreens */,
 				DC7BF2AD29EFEF9800753C72 /* Trainings */,
+				DCAA0D9E29E5991100747E9F /* GroupDetail */,
 				DCAA0D9729E5953500747E9F /* ListOfGroups */,
 				DCAA0D8429E591A800747E9F /* Models */,
 				DC83FBBE29E9881200EA8BFA /* Views */,
@@ -238,7 +241,6 @@
 				DC1CEDD829F2D15100EDAC55 /* Services */,
 				DCAA0D7A29E5919500747E9F /* Assets.xcassets */,
 				DC83FBCA29E995D400EA8BFA /* Info.plist */,
-				DCAA0D9E29E5991100747E9F /* GroupDetail */,
 				DCAA0D7C29E5919500747E9F /* Preview Content */,
 			);
 			path = VocabVibes;
@@ -279,6 +281,7 @@
 				DC4C4AF12A0E2C0C000C5377 /* AddNewWordsView.swift */,
 				DC8134282A07B62B006C85EF /* GroupDetailViewModel.swift */,
 				DC26991329ED5D6C00EBB591 /* WordRow.swift */,
+				DCEFFE6C2A1D0AFF003EE79E /* RatingView.swift */,
 				DC26991529ED5D7800EBB591 /* WordRowViewModel.swift */,
 			);
 			path = GroupDetail;
@@ -495,6 +498,7 @@
 				DC1CEDDA29F2D16200EDAC55 /* DataManager.swift in Sources */,
 				DCC1AA0929F1BD2200718739 /* AllWordsView.swift in Sources */,
 				DC26991429ED5D6C00EBB591 /* WordRow.swift in Sources */,
+				DCEFFE6D2A1D0AFF003EE79E /* RatingView.swift in Sources */,
 				DC7BF2B729F0213300753C72 /* SwipeCardView.swift in Sources */,
 				DC83FBC729E9914F00EA8BFA /* GroupRow.swift in Sources */,
 				DCC1AA0729F1BCFC00718739 /* SettingsView.swift in Sources */,

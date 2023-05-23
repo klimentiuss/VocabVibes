@@ -17,7 +17,12 @@ struct CardView: View {
                 .foregroundColor(Color.lightGrayColor)
                 .frame(width: 320, height: 420)
                 .cornerRadius(20)
-            
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.tealColor, lineWidth: 1)
+                        .opacity(0.4)
+                        
+                }
             VStack {
                 Text(viewModel.word)
                     .font(.largeTitle)

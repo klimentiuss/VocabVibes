@@ -10,6 +10,7 @@ import SwiftUI
 struct MakeWord: View {
     
     @ObservedObject var viewModel: MakeWordViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
@@ -113,6 +114,12 @@ struct MakeWord: View {
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .bold()
+                    Button("Go back") {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.tealColor)
+                    .buttonStyle(.bordered)
+                    .padding()
                     Spacer()
                 }
             }

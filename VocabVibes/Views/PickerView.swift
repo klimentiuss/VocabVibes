@@ -27,7 +27,6 @@ struct PickerView: View {
                 }
                 .buttonStyle(.bordered)
                 
-                Text(viewModel.selectedWordList?.nameOfGroup ?? "")
             }
         }
         .padding(.leading, 25)

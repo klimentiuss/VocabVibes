@@ -18,7 +18,11 @@ class StorageManager {
             do {
                 let realm = try Realm()
                 try realm.write {
-                    word.wordWeight += isKnow ? 1 : -1
+                    word.wordWeight = isKnow
+                    ? (word.wordWeight < 10 ? word.wordWeight + 1 : word.wordWeight)
+                    : (word.wordWeight > 0 ? word.wordWeight - 1 : word.wordWeight)
+
+                   // word.wordWeight += isKnow ? 1 : -1
                 }
             } catch {
                 print("Failed to update age: \(error)")

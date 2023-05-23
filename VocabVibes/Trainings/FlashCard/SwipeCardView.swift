@@ -19,7 +19,13 @@ struct SwipeCardView: View {
                 .foregroundColor(viewModel.color)
                 .frame(width: 350, height: 520)
                 .cornerRadius(20)
-
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.tealColor, lineWidth: 1)
+                        .opacity(0.4)
+                        
+                }
+            
             HStack {
                 if viewModel.isTranslated {
                     Text(viewModel.word.wordTranslation)
@@ -38,7 +44,6 @@ struct SwipeCardView: View {
                 }
             }
         }
-        
         .rotation3DEffect(.degrees(Double(viewModel.rotation)), axis: (x: 0, y: 1, z: 0))
         .animation(.easeOut(duration: 0.4), value: viewModel.rotation)
         .onTapGesture {
@@ -72,8 +77,8 @@ struct SwipeCardView: View {
     }
 }
 
-//struct SwipeCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SwipeCardView(viewModel: SwipeCardViewModel(word: "Apple", translated: "Yabloko"))
-//    }
-//}
+struct SwipeCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        SwipeCardView(viewModel: SwipeCardViewModel(word: Word.example)) {}
+    }
+}

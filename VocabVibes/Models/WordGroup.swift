@@ -38,6 +38,7 @@ extension WordList {
         let word = Word()
         word.wordValue = "apple"
         word.wordTranslation = "яблоко"
+        word.wordWeight = 8
         
         for _ in 1..<15 {
             list.words.append(word)
@@ -53,6 +54,7 @@ extension Word {
             let word = Word()
             word.wordValue = "apple"
             word.wordTranslation = "яблоко"
+            word.wordWeight = 8
             return word
         }
 }

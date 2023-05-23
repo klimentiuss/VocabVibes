@@ -9,11 +9,13 @@ import SwiftUI
 
 struct FlashCardView: View {
     @StateObject var viewModel: FlashCardViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
             BackgroundView()
             
+            //переделать на enum
             if !viewModel.isLast {
                 ZStack {
                     if let words = viewModel.selectedWordList?.words {
@@ -26,7 +28,22 @@ struct FlashCardView: View {
                     }
                 }
             } else {
-                Text("ВСЕ")
+                VStack(alignment: .center) {
+                    Spacer()
+                    Text("You've done practive")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .bold()
+                    
+                    Button("Go back") {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.tealColor)
+                    .buttonStyle(.bordered)
+                    .padding()
+                    
+                    Spacer()
+                }
             }
             
             

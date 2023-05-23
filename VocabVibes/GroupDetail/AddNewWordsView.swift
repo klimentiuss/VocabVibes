@@ -36,7 +36,7 @@ struct AddNewWordsView: View {
                         keyboardFocused = .translate
                     }
                     
-                TextField("Translate", text: $viewModel.transalte)
+                TextField("Translate", text: $viewModel.translate)
                     .tint(Color.white)
                     .textFieldStyle(.roundedBorder)
                     .autocorrectionDisabled()

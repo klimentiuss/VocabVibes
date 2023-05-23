@@ -101,7 +101,9 @@ struct WriteWord: View {
                     Button("Go back") {
                         self.presentationMode.wrappedValue.dismiss()
                     }
-                    
+                    .foregroundColor(.tealColor)
+                    .buttonStyle(.bordered)
+                    .padding()
                     Spacer()
                 }
             }

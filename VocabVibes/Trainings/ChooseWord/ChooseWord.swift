@@ -10,6 +10,7 @@ import SwiftUI
 struct ChooseWord: View {
     
     @ObservedObject var viewModel: ChooseWordViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -42,25 +43,32 @@ struct ChooseWord: View {
                     }
                 }
             } else {
-                viewModel.selectedWordList?.words.count ?? 0 >= 3
-                ?
+                
                 VStack(alignment: .center) {
                     Spacer()
+                    viewModel.selectedWordList?.words.count ?? 0 >= 3
+                    ?
                     Text("Correct Answers: \(viewModel.correctAnswersCount)")
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .bold()
-                    Spacer()
-                }
-                :
-                VStack(alignment: .center) {
-                    Spacer()
+                    :
                     Text("Few words in the group.\nPlease add new words.")
                         .font(.title)
                         .foregroundColor(.white)
                         .bold()
+                    
+                    VStack(alignment: .center) {
+                        Button("Go back") {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                        .foregroundColor(.tealColor)
+                        .buttonStyle(.bordered)
+                        .padding()
+                    }
                     Spacer()
                 }
+                
             }
         }
         .gesture(
@@ -75,7 +83,9 @@ struct ChooseWord: View {
         .navigationTitle("ChooseCards")
         .embedNavigationView(with: "ChooseOne")
         .onAppear {
-            self.viewModel.generateButtons()
+            if viewModel.selectedWordList?.words.count ?? 0 >= 3 {
+                self.viewModel.generateButtons()
+            }
         }
     }
 }

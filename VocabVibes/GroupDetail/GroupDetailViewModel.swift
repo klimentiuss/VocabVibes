@@ -14,7 +14,7 @@ class GroupDetailViewModel: ObservableObject {
     
     @Published var addNewWordIsPressed = false
     @Published var word = ""
-    @Published var transalte = ""
+    @Published var translate = ""
     @Published var warningText = ""
         
     let realm = try! Realm()
@@ -28,27 +28,27 @@ class GroupDetailViewModel: ObservableObject {
     func clearFields() {
         warningText = ""
         word = ""
-        transalte = ""
+        translate = ""
     }
     
     func checkTextFieldsAndSave() {
         let trimmedWord = word.trimmingCharacters(in: .whitespacesAndNewlines)
-        let trimmedTranslate = transalte.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedTranslate = translate.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedWord.isEmpty && !trimmedTranslate.isEmpty else {
             warningText = "Please fill in the fields correctly."
             return
         }
         
-        saveNewWord()
+        saveNewWord(word: trimmedWord, translate: trimmedTranslate)
         clearFields()
         
     }
     // тут 2 метода одинаковые +-, придумать как упростить
-    func saveNewWord() {
+    func saveNewWord(word: String, translate: String) {
         let newWord = Word()
-        newWord.wordValue = word
-        newWord.wordTranslation = transalte
+        newWord.wordValue = word.lowercased()
+        newWord.wordTranslation = translate.lowercased()
         
         do {
             let selectedListRef = ThreadSafeReference(to: group)
@@ -84,7 +84,7 @@ class GroupDetailViewModel: ObservableObject {
         self.group = group
         self.addNewWordIsPressed = addNewWordIsPressed
         self.word = word
-        self.transalte = transalte
+        self.translate = transalte
         self.warningText = warningText
     }
 
