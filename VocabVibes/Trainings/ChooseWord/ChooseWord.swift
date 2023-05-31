@@ -18,13 +18,12 @@ struct ChooseWord: View {
             if !viewModel.isLast && viewModel.selectedWordList?.words.count ?? 0 >= 3 {
                 VStack {
                     ZStack {
-                        if let list = viewModel.selectedWordList?.words {
-                            ForEach(Array(list.enumerated()), id: \.1.id) { index, word in
-                                CardView(viewModel: CardViewModel(word: word.wordValue))
-                                    .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
-                                    .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
-                            }
+                        ForEach(Array(viewModel.wordsToTraining.enumerated()), id: \.1.id) { index, word in
+                            CardView(viewModel: CardViewModel(word: word.wordValue))
+                                .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
+                                .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
                         }
+                        
                     }
                     .padding()
                     
@@ -83,6 +82,7 @@ struct ChooseWord: View {
         .navigationTitle("ChooseCards")
         .embedNavigationView(with: "ChooseOne")
         .onAppear {
+            viewModel.shuffleWords()
             if viewModel.selectedWordList?.words.count ?? 0 >= 3 {
                 self.viewModel.generateButtons()
             }

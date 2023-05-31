@@ -18,19 +18,28 @@ struct WriteWord: View {
             if !viewModel.isLast {
                 VStack {
                     ZStack {
-                        if let list = viewModel.selectedWordList?.words {
-                            ForEach(Array(list.enumerated()), id: \.1.id) { index, word in
+//                        if let list = viewModel.selectedWordList?.words {
+//                            ForEach(Array(viewModel.wordsToTraining.enumerated()), id: \.1.id) { index, word in
+//                                CardView(viewModel: CardViewModel(word: word.wordValue))
+//                                    .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
+//                                    .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
+//                            }
+//                        }
+                        ForEach(Array(viewModel.wordsToTraining.enumerated()), id: \.1.id) { index, word in
                                 CardView(viewModel: CardViewModel(word: word.wordValue))
                                     .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
                                     .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
                             }
-                        }
+                        
                         
                         Text(viewModel.translateStatus)
                             .offset(y: 170)
                             .font(.title3)
                             .foregroundColor(.white)
                             .animation(.spring(), value: 0.5)
+                    }
+                    .onAppear {
+                        viewModel.shuffleWords()
                     }
                     .padding()
                     

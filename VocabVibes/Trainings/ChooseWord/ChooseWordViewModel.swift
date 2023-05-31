@@ -18,13 +18,19 @@ class ChooseWordViewModel: ObservableObject {
     @Published var isWrong = false
     @Published var correctAnswersCount = 0
     
-    init(selectedWordList: Binding<WordList?>) {
-        self._selectedWordList = selectedWordList
+    @Published var wordsToTraining = [Word]()
+    
+    func shuffleWords() {
+        if let words = selectedWordList?.words {
+            wordsToTraining = words.shuffled()
+            
+        }
     }
+    
     
     func generateButtons() {
         isWrong = false
-        let correctAnswer = selectedWordList?.words[currentCardIndex].wordTranslation ?? ""
+        let correctAnswer = wordsToTraining[currentCardIndex].wordTranslation
         var options = selectedWordList!.words.map{$0.wordTranslation}.shuffled()
         options.removeAll(where: { $0 == correctAnswer })
         options.shuffle()
@@ -37,6 +43,7 @@ class ChooseWordViewModel: ObservableObject {
         
     }
     
+    //переделать
     func checkIndex() {
         if currentCardIndex < selectedWordList!.words.count - 1 {
             withAnimation {
@@ -54,13 +61,13 @@ class ChooseWordViewModel: ObservableObject {
             return
         }
         
-        guard let word = selectedWordList?.words[currentCardIndex] else { return }
+       // guard let word = selectedWordList?.words[currentCardIndex] else { return }
         
         if selectedButtonIndex == correctAnswerIndex {
             answerButtons[selectedButtonIndex] = "✅ " + answerButtons[selectedButtonIndex]
-            answerButtons = answerButtons.map { $0 == word.wordTranslation ? "🟢 " + $0 : $0 }
+            answerButtons = answerButtons.map { $0 == wordsToTraining[currentCardIndex].wordTranslation ? "🟢 " + $0 : $0 }
             
-            StorageManager.shared.updateWeight(of: word, isKnow: true)
+            StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: true)
             correctAnswersCount += 1
             withAnimation {
                 checkIndex()
@@ -68,11 +75,15 @@ class ChooseWordViewModel: ObservableObject {
             }
             return
         } else {
-            StorageManager.shared.updateWeight(of: word, isKnow: false)
+            StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: false)
         }
         
         answerButtons[selectedButtonIndex] = "❌ " + answerButtons[selectedButtonIndex]
         answerButtons[correctAnswerIndex] = "🟢 " + answerButtons[correctAnswerIndex]
         isWrong = true
+    }
+    
+    init(selectedWordList: Binding<WordList?>) {
+        self._selectedWordList = selectedWordList
     }
 }

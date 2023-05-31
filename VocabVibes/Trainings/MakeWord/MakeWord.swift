@@ -19,12 +19,10 @@ struct MakeWord: View {
             if !viewModel.isLast {
                 VStack {
                     ZStack {
-                        if let list = viewModel.selectedWordList?.words {
-                            ForEach(Array(list.enumerated()), id: \.1.id) { index, word in
-                                CardView(viewModel: CardViewModel(word: word.wordValue))
-                                    .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
-                                    .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
-                            }
+                        ForEach(Array(viewModel.wordsToTraining.enumerated()), id: \.1.id) { index, word in
+                            CardView(viewModel: CardViewModel(word: word.wordValue))
+                                .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
+                                .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
                         }
                     }
                     HStack {
@@ -126,6 +124,7 @@ struct MakeWord: View {
         }
         .embedNavigationView(with: "MakeWord")
         .onAppear{
+            viewModel.shuffleWords()
             viewModel.brokeWord()
         }
     }

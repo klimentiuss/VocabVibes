@@ -20,8 +20,17 @@ class WriteWordViewModel: ObservableObject {
     @Published var isLast = false//
     @Published var correctAnswersCount = 0//
     
+    @Published var wordsToTraining = [Word]()
+    
     init(selectedWordList: Binding<WordList?>) {
         self._selectedWordList = selectedWordList
+    }
+    
+    func shuffleWords() {
+        if let words = selectedWordList?.words {
+            wordsToTraining = words.shuffled()
+            
+        }
     }
     
     func checkIndex() {
@@ -33,8 +42,7 @@ class WriteWordViewModel: ObservableObject {
     func skipCard() {
         translateStatus = ""
         translate = ""
-        guard let word = selectedWordList?.words[currentCardIndex] else { return }
-        StorageManager.shared.updateWeight(of: word, isKnow: false)
+        StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: false)
         currentCardIndex += 1
     }
     
@@ -42,11 +50,9 @@ class WriteWordViewModel: ObservableObject {
         
         checkIndex()
         
-        guard let word = selectedWordList?.words[currentCardIndex] else { return }
-        
-        if word.wordTranslation == translate {
+        if  wordsToTraining[currentCardIndex].wordTranslation == translate.lowercased() {
             correctAnswersCount += 1
-            StorageManager.shared.updateWeight(of: word, isKnow: true)
+            StorageManager.shared.updateWeight(of:  wordsToTraining[currentCardIndex], isKnow: true)
             translateStatus = ""
             withAnimation {
                 currentCardIndex += 1

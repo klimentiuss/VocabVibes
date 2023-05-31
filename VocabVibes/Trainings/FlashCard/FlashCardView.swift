@@ -18,15 +18,17 @@ struct FlashCardView: View {
             //переделать на enum
             if !viewModel.isLast {
                 ZStack {
-                    if let words = viewModel.selectedWordList?.words {
-                        ForEach(words.shuffled(), id: \.id) { word in
-                            SwipeCardView(viewModel: SwipeCardViewModel(word: word)) {
-                                viewModel.updateIndex()
-                            }
-                            
+                    ForEach(viewModel.wordsToTraining, id: \.id) { word in
+                        SwipeCardView(viewModel: SwipeCardViewModel(word: word)) {
+                            viewModel.updateIndex()
                         }
+                        
                     }
                 }
+                .onAppear {
+                    viewModel.shuffleWords()
+                }
+                
             } else {
                 VStack(alignment: .center) {
                     Spacer()

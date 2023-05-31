@@ -16,6 +16,17 @@ class MakeWordViewModel: ObservableObject {
     @Published var isLast = false
     @Published var correctAnswersCount = 0
     
+    @Published var wordsToTraining = [Word]()
+    
+    func shuffleWords() {
+        if let words = selectedWordList?.words {
+            wordsToTraining = words.shuffled()
+            
+        }
+    }
+    
+    
+//переделать нормально, изменить на wordsToTraining[currentCardIndex]
     func changeCard() {
         if currentCardIndex < selectedWordList!.words.count - 1 {
             answer = ""
@@ -23,22 +34,21 @@ class MakeWordViewModel: ObservableObject {
                 currentCardIndex += 1
             }
             brokeWord()
-            print(currentCardIndex)
         } else {
             isLast.toggle()
         }
     }
     
     func skipCard() {
-        guard let word = selectedWordList?.words[currentCardIndex] else { return }
-        StorageManager.shared.updateWeight(of: word, isKnow: false)
+       // guard let word = selectedWordList?.words[currentCardIndex] else { return }
+        StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: false)
     }
     
     func checkAnswer() {
-        guard let word = selectedWordList?.words[currentCardIndex] else { return }
+       // guard let word = selectedWordList?.words[currentCardIndex] else { return }
         
-        if answer == word.wordTranslation.lowercased() {
-            StorageManager.shared.updateWeight(of: word, isKnow: true)
+        if answer == wordsToTraining[currentCardIndex].wordTranslation.lowercased() {
+            StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: true)
             correctAnswersCount += 1
             changeCard()
         } else {
@@ -47,7 +57,7 @@ class MakeWordViewModel: ObservableObject {
     }
     
     func brokeWord() {
-        let correctAnswer = selectedWordList!.words[currentCardIndex].wordTranslation
+        let correctAnswer = wordsToTraining[currentCardIndex].wordTranslation
         arrayCharacter = Array(correctAnswer.lowercased()).shuffled()
     }
     
