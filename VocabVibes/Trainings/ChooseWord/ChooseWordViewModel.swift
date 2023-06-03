@@ -13,45 +13,42 @@ class ChooseWordViewModel: ObservableObject {
     
     @Published var currentCardIndex = 0//
     @Published var answerButtons = [String]()
-    @Published var correctAnswerIndex = 0//
-    @Published var isLast = false//
+    @Published var correctAnswerIndex = 0
     @Published var isWrong = false
     @Published var correctAnswersCount = 0
     
     @Published var wordsToTraining = [Word]()
+    @Published var status: StatusView
     
     func shuffleWords() {
         if let words = selectedWordList?.words {
             wordsToTraining = words.shuffled()
-            
         }
+        status = wordsToTraining.count > 2 ? .readyToDisplay : .fewWords
     }
     
     
     func generateButtons() {
-        isWrong = false
-        let correctAnswer = wordsToTraining[currentCardIndex].wordTranslation
-        var options = selectedWordList!.words.map{$0.wordTranslation}.shuffled()
-        options.removeAll(where: { $0 == correctAnswer })
-        options.shuffle()
-        //баг, если в группе 1 слово
-        if options.count >= 2 {
+        if status == .readyToDisplay  {
+            isWrong = false
+            let correctAnswer = wordsToTraining[currentCardIndex].wordTranslation
+            var options = wordsToTraining.map{$0.wordTranslation}.shuffled()
+            options.removeAll(where: { $0 == correctAnswer })
+            options.shuffle()
             correctAnswerIndex = Int.random(in: 0..<min(options.count, 3)) // ensure we have enough options
             answerButtons = Array(options.prefix(3)) + [correctAnswer]
             answerButtons.swapAt(correctAnswerIndex, answerButtons.count-1)
         }
-        
     }
     
-    //переделать
     func checkIndex() {
-        if currentCardIndex < selectedWordList!.words.count - 1 {
+        if currentCardIndex < wordsToTraining.count - 1  {
             withAnimation {
                 currentCardIndex += 1
             }
             generateButtons()
         } else {
-            isLast.toggle()
+            status = .lastWord
         }
     }
     
@@ -60,30 +57,24 @@ class ChooseWordViewModel: ObservableObject {
         if isWrong {
             return
         }
-        
-       // guard let word = selectedWordList?.words[currentCardIndex] else { return }
-        
+                
         if selectedButtonIndex == correctAnswerIndex {
-            answerButtons[selectedButtonIndex] = "✅ " + answerButtons[selectedButtonIndex]
-            answerButtons = answerButtons.map { $0 == wordsToTraining[currentCardIndex].wordTranslation ? "🟢 " + $0 : $0 }
-            
             StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: true)
+            answerButtons[selectedButtonIndex] = "✅ " + answerButtons[selectedButtonIndex]
             correctAnswersCount += 1
-            withAnimation {
-                checkIndex()
-                generateButtons()
-            }
+            checkIndex()
+            generateButtons()
             return
         } else {
             StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: false)
+            answerButtons[selectedButtonIndex] = "❌ " + answerButtons[selectedButtonIndex]
+            answerButtons[correctAnswerIndex] = "🟢 " + answerButtons[correctAnswerIndex]
+            isWrong = true
         }
-        
-        answerButtons[selectedButtonIndex] = "❌ " + answerButtons[selectedButtonIndex]
-        answerButtons[correctAnswerIndex] = "🟢 " + answerButtons[correctAnswerIndex]
-        isWrong = true
     }
     
     init(selectedWordList: Binding<WordList?>) {
         self._selectedWordList = selectedWordList
+        self.status = .readyToDisplay
     }
 }

@@ -16,109 +16,66 @@ struct MakeWord: View {
         ZStack {
             BackgroundView()
             
-            if !viewModel.isLast {
+            switch viewModel.status {
+            case .readyToDisplay:
                 VStack {
+                    //MARK: - Displaying cards
                     ZStack {
                         ForEach(Array(viewModel.wordsToTraining.enumerated()), id: \.1.id) { index, word in
                             CardView(viewModel: CardViewModel(word: word.wordValue))
+                            //Movement and disappearance cards
                                 .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
-                                .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
+                                .opacity(index == viewModel.currentCardIndex ? 1 : 0.1)
                         }
-                    }
-                    HStack {
-                        TextField("", text: $viewModel.answer)
-                            .background(Rectangle()
-                                .fill(Color.lightGrayColor)
-                                .frame(width: 250, height: 42)
-                                .cornerRadius(10)
-                                        
-                            )
+                        
+                        Text(viewModel.translateStatus)
+                            .offset(y: 170)
+                            .font(.title3)
                             .foregroundColor(.white)
-                            .frame(width: 220)
-                            .padding()
-                        
-                        Button {
-                            if !viewModel.answer.isEmpty {
-                                let lastChar = viewModel.answer.removeLast()
-                                viewModel.arrayCharacter.append(lastChar)
-                            }
-                        } label: {
-                            Image(systemName: "delete.left")
-                                .foregroundColor(.white)
-                                .font(.title)
-                        }
-                        .buttonStyle(.bordered)
-                        .foregroundColor(.white)
+                            .animation(.spring(), value: 0.5)
                     }
                     
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(viewModel.arrayCharacter, id: \.self) { char in
-                                Button {
-                                    viewModel.addCharacter(char: char)
-                                } label: {
-                                    Text(String(char))
-                                }
-                                .buttonStyle(.bordered)
-                                .foregroundColor(.white)
-                                .font(.title)
-                            }
-                        }
-                        
+                    //MARK: - Composing a word
+                    
+                    ComposingWordView(answer: $viewModel.answer) {
+                        viewModel.returnCharacter()
                     }
-                    .frame(width: 280)
+
+                    //MARK: - Splitting a word into letters
                     
+                    SplittingWordView(arrayCharacter: viewModel.arrayCharacter) { char in
+                        viewModel.addCharacter(char: char)
+                    }
                     
-                    
+                    //MARK: - Skip and Check Buttons
                     HStack {
-                        Button {
+                        CustomButtonView(
+                            buttonIcon: "rectangle.portrait.and.arrow.right",
+                            size: 40,
+                            color: .red)
+                        {
                             viewModel.skipCard()
                             viewModel.changeCard()
-                        } label: {
-                            Rectangle()
-                                .frame(width: 80, height: 80)
-                                .cornerRadius(20)
-                                .foregroundColor(Color.lightGrayColor)
-                                .overlay {
-                                    Image(systemName: "rectangle.portrait.and.arrow.right")
-                                        .resizable()
-                                        .foregroundColor(.red)
-                                        .frame(width: 40, height: 40)
-                                }
                         }
                         .offset(x: -50, y: 20)
                         
-                        Button {
+                        CustomButtonView(
+                            buttonIcon: "checkmark",
+                            size: 30,
+                            color: .green)
+                        {
                             viewModel.checkAnswer()
-                        } label: {
-                            Rectangle()
-                                .frame(width: 80, height: 80)
-                                .cornerRadius(20)
-                                .foregroundColor(Color.lightGrayColor)
-                                .overlay {
-                                    Image(systemName: "checkmark")
-                                        .resizable()
-                                        .foregroundColor(.green)
-                                        .frame(width: 30, height: 30)
-                                }
                         }
                         .offset(x: 50, y: 20)
                     }
                 }
-            } else {
-                VStack(alignment: .center) {
-                    Spacer()
-                    Text("Correct Answers: \(viewModel.correctAnswersCount)")
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .bold()
-                    Button("Go back") {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
-                    .foregroundColor(.tealColor)
-                    .buttonStyle(.bordered)
-                    .padding()
-                    Spacer()
+            case .lastWord:
+                FinishTrainingView(correctAnswersCount: viewModel.correctAnswersCount) {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            case .fewWords:
+                WarningView() {
+                    self.presentationMode.wrappedValue.dismiss()
                 }
             }
         }
@@ -127,11 +84,16 @@ struct MakeWord: View {
             viewModel.shuffleWords()
             viewModel.brokeWord()
         }
+        //MARK: - Exiting a training when the app is closed
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
-//struct MakeWord_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MakeWord()
-//    }
-//}
+struct MakeWord_Previews: PreviewProvider {
+    static var previews: some View {
+        @State var wordList: WordList? = WordList.example
+        MakeWord(viewModel: MakeWordViewModel(selectedWordList: $wordList))
+    }
+}

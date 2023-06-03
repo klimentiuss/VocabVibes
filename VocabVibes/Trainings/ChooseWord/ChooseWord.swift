@@ -15,8 +15,11 @@ struct ChooseWord: View {
     var body: some View {
         ZStack(alignment: .top) {
             BackgroundView()
-            if !viewModel.isLast && viewModel.selectedWordList?.words.count ?? 0 >= 3 {
+            
+            switch viewModel.status {
+            case .readyToDisplay:
                 VStack {
+                    //MARK: - Displaying cards
                     ZStack {
                         ForEach(Array(viewModel.wordsToTraining.enumerated()), id: \.1.id) { index, word in
                             CardView(viewModel: CardViewModel(word: word.wordValue))
@@ -27,47 +30,19 @@ struct ChooseWord: View {
                     }
                     .padding()
                     
-                    VStack {
-                        ForEach($viewModel.answerButtons.indices, id: \.self) { index in
-                            Button {
-                                viewModel.checkAnswer(index)
-                            } label: {
-                                Text(viewModel.answerButtons[index])
-                                    .frame(width: 280, height: 25)
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        .buttonStyle(.bordered)
+                    //MARK: - Displaying buttons with words
+                    AnswerButtonsView(answerButtons: $viewModel.answerButtons) { index in
+                        viewModel.checkAnswer(index)
                     }
                 }
-            } else {
-                
-                VStack(alignment: .center) {
-                    Spacer()
-                    viewModel.selectedWordList?.words.count ?? 0 >= 3
-                    ?
-                    Text("Correct Answers: \(viewModel.correctAnswersCount)")
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .bold()
-                    :
-                    Text("Few words in the group.\nPlease add new words.")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .bold()
-                    
-                    VStack(alignment: .center) {
-                        Button("Go back") {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                        .foregroundColor(.tealColor)
-                        .buttonStyle(.bordered)
-                        .padding()
-                    }
-                    Spacer()
+            case .lastWord:
+                FinishTrainingView(correctAnswersCount: viewModel.correctAnswerIndex) {
+                    self.presentationMode.wrappedValue.dismiss()
                 }
-                
+            case .fewWords:
+                WarningView {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
         }
         .gesture(
@@ -79,19 +54,21 @@ struct ChooseWord: View {
                     }
                 }
         )
-        .navigationTitle("ChooseCards")
         .embedNavigationView(with: "ChooseOne")
         .onAppear {
             viewModel.shuffleWords()
-            if viewModel.selectedWordList?.words.count ?? 0 >= 3 {
-                self.viewModel.generateButtons()
-            }
+            viewModel.generateButtons()
+        }
+        //MARK: - Exiting a training when the app is closed
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            self.presentationMode.wrappedValue.dismiss()
         }
     }
 }
 
 //struct ChooseWord_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ChooseWord()
+//        @State var wordList: WordList? = WordList.example
+//        ChooseWord(viewModel: ChooseWordViewModel(selectedWordList: $wordList))
 //    }
 //}

@@ -10,7 +10,6 @@ import SwiftUI
 
 class WriteWordViewModel: ObservableObject {
     
-    
     @Binding var selectedWordList: WordList?
     
     @Published var translate = ""
@@ -21,29 +20,27 @@ class WriteWordViewModel: ObservableObject {
     @Published var correctAnswersCount = 0//
     
     @Published var wordsToTraining = [Word]()
+    @Published var status: StatusView
     
-    init(selectedWordList: Binding<WordList?>) {
-        self._selectedWordList = selectedWordList
-    }
     
     func shuffleWords() {
         if let words = selectedWordList?.words {
             wordsToTraining = words.shuffled()
-            
         }
+        status = wordsToTraining.count > 2 ? .readyToDisplay : .fewWords
     }
     
     func checkIndex() {
-        if currentCardIndex > selectedWordList!.words.count - 2 {
-            isLast.toggle()
+        if currentCardIndex >= wordsToTraining.count - 1 {
+            status = .lastWord
         }
     }
     
     func skipCard() {
-        translateStatus = ""
-        translate = ""
         StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: false)
         currentCardIndex += 1
+        translateStatus = ""
+        translate = ""
     }
     
     func checkTranslation() {
@@ -51,21 +48,28 @@ class WriteWordViewModel: ObservableObject {
         checkIndex()
         
         if  wordsToTraining[currentCardIndex].wordTranslation == translate.lowercased() {
-            correctAnswersCount += 1
             StorageManager.shared.updateWeight(of:  wordsToTraining[currentCardIndex], isKnow: true)
+            correctAnswersCount += 1
             translateStatus = ""
             withAnimation {
                 currentCardIndex += 1
             }
-            self.translate = ""
+            translate = ""
+            closeKeyboard()
         } else {
             withAnimation {
-                translateStatus = "Incorrect"
+                translateStatus = translate.isEmpty ? "Please enter translation below" : "Incorrect"
             }
         }
     }
     
     func closeKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    
+    init(selectedWordList: Binding<WordList?>) {
+        self._selectedWordList = selectedWordList
+        self.status = .readyToDisplay
     }
 }

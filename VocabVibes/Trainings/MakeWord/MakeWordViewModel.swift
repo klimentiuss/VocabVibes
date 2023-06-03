@@ -7,58 +7,74 @@
 
 import SwiftUI
 
+enum StatusView {
+    case readyToDisplay
+    case lastWord
+    case fewWords
+}
+
 class MakeWordViewModel: ObservableObject {
     @Binding var selectedWordList: WordList?
     
     @Published var arrayCharacter: [Character] = []
     @Published var answer = ""
     @Published var currentCardIndex = 0
-    @Published var isLast = false
     @Published var correctAnswersCount = 0
-    
     @Published var wordsToTraining = [Word]()
+    @Published var translateStatus = ""
+    @Published var status: StatusView
     
     func shuffleWords() {
         if let words = selectedWordList?.words {
             wordsToTraining = words.shuffled()
-            
         }
     }
     
+    func returnCharacter() {
+        if !answer.isEmpty {
+            let lastChar = answer.removeLast()
+            arrayCharacter.append(lastChar)
+        }
+    }
     
-//переделать нормально, изменить на wordsToTraining[currentCardIndex]
     func changeCard() {
-        if currentCardIndex < selectedWordList!.words.count - 1 {
+        if currentCardIndex < wordsToTraining.count - 1 {
             answer = ""
+            translateStatus = ""
             withAnimation {
                 currentCardIndex += 1
             }
             brokeWord()
         } else {
-            isLast.toggle()
+            status = .lastWord
         }
     }
     
     func skipCard() {
-       // guard let word = selectedWordList?.words[currentCardIndex] else { return }
         StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: false)
     }
     
     func checkAnswer() {
-       // guard let word = selectedWordList?.words[currentCardIndex] else { return }
         
         if answer == wordsToTraining[currentCardIndex].wordTranslation.lowercased() {
             StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: true)
             correctAnswersCount += 1
             changeCard()
         } else {
-            print("Uncorrect :c")
+            withAnimation {
+                translateStatus = answer == "" ? "Please form a word \n    from the letters" : "Incorrect"
+            }
         }
     }
     
     func brokeWord() {
-        let correctAnswer = wordsToTraining[currentCardIndex].wordTranslation
-        arrayCharacter = Array(correctAnswer.lowercased()).shuffled()
+        if wordsToTraining.count >= 3 {
+            let correctAnswer = wordsToTraining[currentCardIndex].wordTranslation
+            arrayCharacter = Array(correctAnswer.lowercased()).shuffled()
+        } else {
+            status = .fewWords
+        }
+        
     }
     
     func addCharacter(char: Character) {
@@ -68,5 +84,6 @@ class MakeWordViewModel: ObservableObject {
     
     init(selectedWordList: Binding<WordList?>) {
         self._selectedWordList = selectedWordList
+        self.status = .readyToDisplay
     }
 }
