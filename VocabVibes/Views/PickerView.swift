@@ -15,7 +15,8 @@ struct PickerView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Select group:")
-                .foregroundColor(.white)
+                .font(.title3)
+                .foregroundColor(.lightWhite)
                 .bold()
             
             VStack(alignment: .leading) {

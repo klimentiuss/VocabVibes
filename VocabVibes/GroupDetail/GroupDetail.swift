@@ -28,13 +28,13 @@ struct GroupDetail: View {
                         List {
                             ForEach(viewModel.group.words, id: \.id) { word in
                                 WordRow(viewModel: WordRowViewModel(word: word))
-                                    .listRowBackground(Color.darkGrayColor)
+                                    .listRowBackground(Color.coalBlack)
                             }
                             .onDelete { indexSet in
                                 viewModel.delete(at: indexSet)
                             }
                         }
-                        .background(Color.darkGrayColor)
+                        .background(Color.coalBlack)
                         .listStyle(.plain)
                     }
                     .padding(.bottom, viewModel.addNewWordIsPressed ?  0 : -90)
@@ -46,7 +46,7 @@ struct GroupDetail: View {
                             offsetMove = viewModel.addNewWordIsPressed ?  0 : -110
                         } label: {
                             Image(systemName: "plus")
-                                .foregroundColor(Color.tealColor)
+                                .foregroundColor(Color.lightGreen)
                                 .rotationEffect(.degrees(viewModel.addNewWordIsPressed ? 40 : 0))
                                 .animation(.easeIn, value: viewModel.addNewWordIsPressed)
                         }

@@ -24,13 +24,20 @@ struct AnswerButtonsView: View {
                         .foregroundColor(.white)
                 }
             }
+            .background(Color.black)
+            .cornerRadius(8)
             .buttonStyle(.bordered)
+            
         }
+        
     }
 }
 
-//struct SwiftUIView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SwiftUIView()
-//    }
-//}
+struct AnswerButtonsView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        @State var arra: [String] = ["a", "b", "c", "d"]
+        AnswerButtonsView(answerButtons: $arra){_ in }
+            .preferredColorScheme(.dark)
+    }
+}

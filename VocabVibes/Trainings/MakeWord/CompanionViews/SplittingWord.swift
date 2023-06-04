@@ -21,8 +21,10 @@ struct SplittingWordView: View {
                     } label: {
                         Text(String(char))
                     }
+                    .background(Color.black)
+                    .cornerRadius(8)
                     .buttonStyle(.bordered)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.lightWhite)
                     .font(.title)
                 }
             }

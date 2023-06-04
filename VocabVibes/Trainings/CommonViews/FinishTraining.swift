@@ -22,7 +22,7 @@ struct FinishTrainingView: View {
             Button("Go back") {
                 completion()
             }
-            .foregroundColor(.tealColor)
+            .foregroundColor(Color.lightGreen)
             .buttonStyle(.bordered)
             .padding()
             Spacer()

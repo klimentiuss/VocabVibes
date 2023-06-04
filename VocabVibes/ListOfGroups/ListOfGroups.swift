@@ -11,7 +11,7 @@ import RealmSwift
 struct ListOfGroups: View {
     
     init() {
-        UICollectionView.appearance().backgroundColor = UIColor(Color.darkGrayColor)
+        UICollectionView.appearance().backgroundColor = UIColor(Color.coalBlack)
     }
     
     @ObservedObject var viewModel = ListOfGroupsViewModel()    
@@ -39,7 +39,7 @@ struct ListOfGroups: View {
                         viewModel.alertPresented.toggle()
                     } label: {
                         Text("Add new")
-                            .foregroundColor(Color.tealColor)
+                            .foregroundColor(Color.lightGreen)
                     }
                     .padding(.top, 20)
                     .padding(.horizontal, 20)
@@ -63,7 +63,7 @@ struct ListOfGroups: View {
                 List {
                     ForEach(viewModel.wordList.freeze(), id: \.id) { group in
                         GroupRow(viewModel: GroupRowViewModel(group: group))
-                            .listRowBackground(Color.darkGrayColor)
+                            .listRowBackground(Color.coalBlack)
                     }
                     .onDelete(perform: { indexSet in
                         viewModel.delete(at: indexSet)

@@ -38,7 +38,7 @@ struct WriteWord: View {
                     //MARK: - Writing word
                     TextField("Write translation", text: $viewModel.translate)
                         .background(Rectangle()
-                            .fill(Color.lightGrayColor)
+                            .fill(Color.lightCoalBlack)
                             .frame(width: 300, height: 35)
                             .cornerRadius(10)
                         )
@@ -51,7 +51,7 @@ struct WriteWord: View {
                         CustomButtonView(
                             buttonIcon: "rectangle.portrait.and.arrow.right",
                             size: 40,
-                            color: .red)
+                            color: .ratingRed)
                         {
                             viewModel.checkIndex()
                             viewModel.closeKeyboard()
@@ -62,7 +62,7 @@ struct WriteWord: View {
                         CustomButtonView(
                             buttonIcon: "checkmark",
                             size: 30,
-                            color: .green)
+                            color: .ratingEmerald)
                         {
                             viewModel.checkTranslation()
                         }

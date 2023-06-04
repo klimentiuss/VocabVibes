@@ -52,7 +52,7 @@ struct MakeWord: View {
                         CustomButtonView(
                             buttonIcon: "rectangle.portrait.and.arrow.right",
                             size: 40,
-                            color: .red)
+                            color: .ratingRed)
                         {
                             viewModel.skipCard()
                             viewModel.changeCard()
@@ -62,7 +62,7 @@ struct MakeWord: View {
                         CustomButtonView(
                             buttonIcon: "checkmark",
                             size: 30,
-                            color: .green)
+                            color: .ratingEmerald)
                         {
                             viewModel.checkAnswer()
                         }

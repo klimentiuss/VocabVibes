@@ -12,7 +12,7 @@ class SwipeCardViewModel: ObservableObject {
         
     @Published var word: Word
 
-    @Published var color: Color = Color.lightGrayColor
+    @Published var color: Color =  Color(#colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1529411765, alpha: 1))
     @Published var isTranslated = false
     @Published var offset = CGSize.zero
     @Published var rotation = 0.0
@@ -44,7 +44,7 @@ class SwipeCardViewModel: ObservableObject {
         case 130...(500):
             color = .green
         default:
-            color = Color.lightGrayColor
+            color =  Color(#colorLiteral(red: 0.1137254902, green: 0.1098039216, blue: 0.1294117647, alpha: 1))
         }
     }
     

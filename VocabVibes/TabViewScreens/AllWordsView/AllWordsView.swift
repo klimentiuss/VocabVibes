@@ -27,7 +27,7 @@ struct AllWordsView: View {
                 List {
                     ForEach(viewModel.words.freeze(), id: \.id) { word in
                         WordRow(viewModel: WordRowViewModel(word: word))
-                            .listRowBackground(Color.darkGrayColor)
+                            .listRowBackground(Color.coalBlack)
                     }
                 }
                 .listStyle(.plain)

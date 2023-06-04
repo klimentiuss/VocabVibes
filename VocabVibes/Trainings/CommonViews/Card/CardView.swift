@@ -14,12 +14,12 @@ struct CardView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(Color.lightGrayColor)
+                .foregroundColor(Color.lightCoalBlack)
                 .frame(width: 320, height: 420)
                 .cornerRadius(20)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.tealColor, lineWidth: 1)
+                        .stroke(Color.lightGreen, lineWidth: 1)
                         .opacity(0.4)
                         
                 }

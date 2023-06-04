@@ -21,7 +21,7 @@ struct SwipeCardView: View {
                 .cornerRadius(20)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.tealColor, lineWidth: 1)
+                        .stroke(Color.lightGreen, lineWidth: 1)
                         .opacity(0.4)
                         
                 }
@@ -80,5 +80,6 @@ struct SwipeCardView: View {
 struct SwipeCardView_Previews: PreviewProvider {
     static var previews: some View {
         SwipeCardView(viewModel: SwipeCardViewModel(word: Word.example)) {}
+            .preferredColorScheme(.dark)
     }
 }

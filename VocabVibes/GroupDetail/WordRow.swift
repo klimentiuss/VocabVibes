@@ -14,8 +14,7 @@ struct WordRow: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color.lightGrayColor)
-                .opacity(0.8)
+                .fill(Color.lightCoalBlack)
                 .frame(height: 55)
                 .cornerRadius(15)
             HStack {
@@ -43,5 +42,6 @@ struct WordRow: View {
 struct WordRow_Previews: PreviewProvider {
     static var previews: some View {
         WordRow(viewModel: WordRowViewModel(word: Word.example))
+            .preferredColorScheme(.dark)
     }
 }

@@ -22,7 +22,7 @@ struct WarningView: View {
                 Button("Go back") {
                     completion()
                 }
-                .foregroundColor(.tealColor)
+                .foregroundColor(.lightGreen)
                 .buttonStyle(.bordered)
                 .padding()
             }

@@ -16,7 +16,7 @@ struct ComposingWordView: View {
         HStack {
             TextField("", text: $answer)
                 .background(Rectangle()
-                    .fill(Color.lightGrayColor)
+                    .fill(Color.lightCoalBlack)
                     .frame(width: 250, height: 42)
                     .cornerRadius(10)
                             
@@ -32,8 +32,10 @@ struct ComposingWordView: View {
                     .foregroundColor(.white)
                     .font(.title)
             }
+            .background(Color.black)
+            .cornerRadius(8)
             .buttonStyle(.bordered)
-            .foregroundColor(.white)
+            .foregroundColor(.lightWhite)
         }
     }
 }
@@ -43,5 +45,6 @@ struct ComposingWordView_Previews: PreviewProvider {
     static var previews: some View {
         @State var textString = "type here"
         ComposingWordView(answer: $textString){}
+            .preferredColorScheme(.dark)
     }
 }

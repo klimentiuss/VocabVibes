@@ -10,7 +10,7 @@ import SwiftUI
 struct BackgroundView: View {
     var body: some View {
         Rectangle()
-            .foregroundColor(Color.darkGrayColor)
+            .foregroundColor(Color.coalBlack)
             .ignoresSafeArea()
     }
 }

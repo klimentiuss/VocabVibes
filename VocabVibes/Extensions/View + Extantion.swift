@@ -6,7 +6,6 @@
 //  Copyright © 2023 Mohammad Azam. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 
 extension View {
@@ -22,15 +21,17 @@ extension View {
         return NavigationStack {
             self
                 .toolbarBackground(
-                    Color.lightGrayColor,
+                    Color.lightCoalBlack,
                     for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbarColorScheme(.dark, for: .navigationBar)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text(title).font(.largeTitle).bold()
-                            .foregroundColor(Color(#colorLiteral(red: 0, green: 0.8285897374, blue: 0.7882844806, alpha: 1)))
+                        Text(title)
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(Color.lightGreen)
                         
                     }
                 }
@@ -39,3 +40,8 @@ extension View {
     }
 }
 
+extension UINavigationController {
+    open override func viewWillLayoutSubviews() {
+        navigationBar.topItem?.backButtonDisplayMode = .minimal
+    }
+}

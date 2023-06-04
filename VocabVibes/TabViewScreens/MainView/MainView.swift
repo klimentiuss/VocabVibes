@@ -16,7 +16,7 @@ struct MainView: View {
                         SettingsView()
                     } label: {
                         Image(systemName: "gearshape.fill")
-                            .foregroundColor(Color.tealColor)
+                            .foregroundColor(Color.lightGreen)
                     }
                 }
             }

@@ -40,7 +40,7 @@ struct FlashCardView: View {
                     Button("Go back") {
                         self.presentationMode.wrappedValue.dismiss()
                     }
-                    .foregroundColor(.tealColor)
+                    .foregroundColor(Color.lightGreen)
                     .buttonStyle(.bordered)
                     .padding()
                     

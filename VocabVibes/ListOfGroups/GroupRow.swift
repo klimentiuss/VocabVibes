@@ -18,19 +18,18 @@ struct GroupRow: View {
             } label: {
                 ZStack {
                     Rectangle()
-                        .fill(Color.lightGrayColor)
+                        .fill(Color.lightCoalBlack)
                         .frame(height: 70)
-                        .opacity(0.8)
                         .cornerRadius(20)
                         
                     
                     HStack {
                         Text(viewModel.group.nameOfGroup)
-                            .foregroundColor(.white)
+                            .foregroundColor(.lightWhite)
                             .font(.title2)
                         Spacer()
                         Text("\(viewModel.group.words.count)")
-                            .foregroundColor(.black)
+                            .foregroundColor(.lightWhite)
                             .opacity(0.3)
                     }
                     .padding()

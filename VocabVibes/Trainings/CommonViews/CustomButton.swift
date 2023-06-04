@@ -22,7 +22,7 @@ struct CustomButtonView: View {
             Rectangle()
                 .frame(width: 80, height: 80)
                 .cornerRadius(20)
-                .foregroundColor(Color.lightGrayColor)
+                .foregroundColor(Color.lightCoalBlack)
                 .overlay {
                     Image(systemName: buttonIcon)
                         .resizable()
@@ -35,6 +35,7 @@ struct CustomButtonView: View {
 
 struct CustomButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButtonView(buttonIcon: "rectangle.portrait.and.arrow.right", size: 40, color: .red){}
+        CustomButtonView(buttonIcon: "rectangle.portrait.and.arrow.right", size: 40, color: .lightGreen){}
+            .preferredColorScheme(.dark)
     }
 }

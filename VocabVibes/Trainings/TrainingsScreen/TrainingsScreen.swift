@@ -20,7 +20,7 @@ struct TrainingsScreen: View {
                 VStack {
                     viewModel.isMain ?
                     Text("Start training")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color.lightWhite)
                         .font(.largeTitle)
                         .bold()
                     :
@@ -40,27 +40,36 @@ struct TrainingsScreen: View {
                             
                             NavigationLink {
                                 switch training.trainingName {
-                                case "Flash\nCards\n🌅" :
+                                case "Flash\nCards" :
                                     FlashCardView(viewModel: FlashCardViewModel(selectedWordList: $viewModel.selectedWordList))
-                                case "Write\nword\n📝":
+                                case "Write\nWord":
                                     WriteWord(viewModel: WriteWordViewModel(selectedWordList: $viewModel.selectedWordList))
-                                case "Choose\nOne\n💡":
+                                case "Choose\nOne":
                                     ChooseWord(viewModel: ChooseWordViewModel(selectedWordList: $viewModel.selectedWordList))
-                                case "Make\nWord\n🧩":
+                                case "Make\nWord":
                                     MakeWord(viewModel: MakeWordViewModel(selectedWordList: $viewModel.selectedWordList))
                                 default:
                                     FlashCardView(viewModel: FlashCardViewModel(selectedWordList: $viewModel.selectedWordList))
                                 }
                             } label: {
                                 ZStack {
-                                    Color.lightGrayColor
+                                    Rectangle()
+                                        .foregroundColor(training.color)
                                         .frame(
                                             width: viewModel.isMain ? 175 : 100,
                                             height: viewModel.isMain ? 175 : 100)
                                         .cornerRadius(20)
-                                    Text(training.trainingName)
-                                        .foregroundColor(.white)
-                                        .font(viewModel.isMain ? .title : .headline)
+                                    VStack {
+                                        Image(training.image)
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                            
+                                        Text(training.trainingName)
+                                            .foregroundColor(Color.coalBlack)
+                                            .font(viewModel.isMain ? .title2 : .headline)
+                                            .bold()
+                                    }
+                                   
                                 }
                             }
                         }
@@ -73,7 +82,7 @@ struct TrainingsScreen: View {
                 
             }
         }
-        .embedNavigationView(with: "HAHAHA")
+        .embedNavigationView(with: "VocabVibes")
         .onAppear {
             viewModel.getFirstlist()
         }

@@ -12,31 +12,36 @@ import SwiftUI
 struct TabMainView: View {
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color.lightGrayColor)
-        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.tealColor.opacity(0.4))
-        UITabBar.appearance().barTintColor = UIColor(Color.lightGrayColor)
+//        UITabBar.appearance().backgroundColor = UIColor(Color.lightGrayColor)
+//        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.tealColor.opacity(0.4))
+//        UITabBar.appearance().barTintColor = UIColor(Color.lightGrayColor)
+        UITabBar.appearance().backgroundColor = UIColor(Color.lightCoalBlack)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.thinGreen.opacity(0.4))
+        UITabBar.appearance().barTintColor = UIColor(Color.lightCoalBlack)
     }
     
     var body: some View {
         TabView {
             MainView()
                 .tabItem {
-                    Label("Main", systemImage: "figure.strengthtraining.traditional")
+                    
+                    Label("", systemImage: "figure.strengthtraining.traditional")
                 }
             
             ListOfGroups()
                 .tabItem {
-                    Label("Groups", systemImage: "books.vertical.fill")
+                    Label("", systemImage: "rectangle.stack")
                 }
             AllWordsView()
                 .tabItem {
-                    Label("Words", systemImage: "list.dash")
+                    Label("", systemImage: "text.justify")
+                        
                 }
         }
         .onAppear {
             DataManager.shared.createInitialList()
         }
-        .tint(Color.tealColor)
+        .tint(Color.lightGreen)
         .embedNavigationView(with: "VocabVibes")
     }
 }

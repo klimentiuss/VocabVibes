@@ -27,7 +27,7 @@ struct AddNewWordsView: View {
             VStack(alignment: .leading) {
                 TextField("Word", text: $viewModel.word)
                     .focused($keyboardFocused, equals: .word)
-                    .tint(Color.white)
+                    .tint(Color.lightWhite)
                     .textFieldStyle(.roundedBorder)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
@@ -37,7 +37,7 @@ struct AddNewWordsView: View {
                     }
                     
                 TextField("Translate", text: $viewModel.translate)
-                    .tint(Color.white)
+                    .tint(Color.lightWhite)
                     .textFieldStyle(.roundedBorder)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
@@ -64,11 +64,12 @@ struct AddNewWordsView: View {
                             completion()
                         }
                         .animation(.linear, value: viewModel.addNewWordIsPressed)
-                        .foregroundColor(.red)
+                        .foregroundColor(Color.ratingRed)
                         Spacer()
                         Button("Save") {
                             viewModel.checkTextFieldsAndSave()
                         }
+                        .foregroundColor(Color.ratingEmerald)
                     }
                     .onAppear {
                         DispatchQueue.main.async {
