@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  ComposingWordView.swift
 //  VocabVibes
 //
 //  Created by Daniil Klimenko on 03.06.2023.

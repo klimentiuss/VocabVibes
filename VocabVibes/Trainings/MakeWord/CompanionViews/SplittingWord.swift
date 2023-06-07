@@ -16,16 +16,15 @@ struct SplittingWordView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(arrayCharacter, id: \.self) { char in
-                    Button {
-                        completion(char)
-                    } label: {
                         Text(String(char))
-                    }
-                    .background(Color.black)
-                    .cornerRadius(8)
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.lightWhite)
-                    .font(.title)
+                            .frame(width: 37, height: 45)
+                            .background(Color.lightCoalBlack)
+                            .cornerRadius(8)
+                            .foregroundColor(Color.lightWhite)
+                            .font(.title)
+                            .onTapGesture {
+                                completion(char)
+                            }
                 }
             }
             

@@ -50,17 +50,6 @@ class MakeWordViewModel: ObservableObject {
             }
             brokeWord()
         }
-        
-//        if currentCardIndex < wordsToTraining.count - 1 {
-//            answer = ""
-//            translateStatus = ""
-//            withAnimation {
-//                currentCardIndex += 1
-//            }
-//            brokeWord()
-//        } else {
-//            status = .lastWord
-//        }
     }
     
     func skipCard() {
@@ -93,6 +82,7 @@ class MakeWordViewModel: ObservableObject {
     func addCharacter(char: Character) {
         answer += String(char)
         arrayCharacter.remove(at: arrayCharacter.firstIndex(of: char) ?? 0)
+        print(arrayCharacter.firstIndex(of: char) ?? 0)
     }
     
     init(selectedWordList: Binding<WordList?>) {
