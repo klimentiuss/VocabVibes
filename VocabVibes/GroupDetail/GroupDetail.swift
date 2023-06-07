@@ -20,11 +20,12 @@ struct GroupDetail: View {
             BackgroundView()
             VStack {
                 withAnimation {
+                    //MARK: - Adding new words
                     VStack {
                         AddNewWordsView(viewModel: viewModel) {
                             offsetMove = viewModel.addNewWordIsPressed ?  0 : -110
                         }
-                           
+                    //MARK: - List of words
                         List {
                             ForEach(viewModel.group.words, id: \.id) { word in
                                 WordRow(viewModel: WordRowViewModel(word: word))
@@ -53,6 +54,7 @@ struct GroupDetail: View {
                     }
                     
                 }
+                //MARK: - Training Button
                 Button {
                     
                 } label: {
@@ -63,6 +65,7 @@ struct GroupDetail: View {
             
             
         }
+        
         .navigationTitle("\(viewModel.group.nameOfGroup)")
         .embedNavigationView(with: "\(viewModel.group.nameOfGroup)")
     }

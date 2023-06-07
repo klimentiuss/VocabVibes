@@ -13,7 +13,7 @@ struct MainView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        SettingsView()
+                      SettingsView()
                     } label: {
                         Image(systemName: "gearshape.fill")
                             .foregroundColor(Color.lightGreen)

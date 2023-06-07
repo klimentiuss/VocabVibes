@@ -32,7 +32,7 @@ struct WordRow: View {
                     .opacity(0.5)
                 Spacer()
                 
-                RatingView(word: viewModel.word)
+                RatingView(viewModel: viewModel)
             }
             .padding()
         }

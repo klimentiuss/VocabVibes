@@ -19,10 +19,11 @@ class ChooseWordViewModel: ObservableObject {
     
     @Published var wordsToTraining = [Word]()
     @Published var status: StatusView
+    @Published var prefix = UserDefaults.standard.integer(forKey: "wordsPerTraining")
     
     func shuffleWords() {
-        if let words = selectedWordList?.words {
-            wordsToTraining = words.shuffled()
+        if let words = selectedWordList?.words.shuffled() {
+            wordsToTraining = words.prefix(prefix).shuffled()
         }
         status = wordsToTraining.count > 2 ? .readyToDisplay : .fewWords
     }
@@ -42,14 +43,24 @@ class ChooseWordViewModel: ObservableObject {
     }
     
     func checkIndex() {
-        if currentCardIndex < wordsToTraining.count - 1  {
+        
+        if currentCardIndex >= wordsToTraining.count - 1 || currentCardIndex == prefix {
+            status = .lastWord
+        } else {
             withAnimation {
                 currentCardIndex += 1
             }
             generateButtons()
-        } else {
-            status = .lastWord
         }
+        
+//        if currentCardIndex < wordsToTraining.count - 1 || currentCardIndex != prefix {
+//            withAnimation {
+//                currentCardIndex += 1
+//            }
+//            generateButtons()
+//        } else {
+//            status = .lastWord
+//        }
     }
     
     func checkAnswer(_ selectedButtonIndex: Int) {

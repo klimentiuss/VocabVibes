@@ -9,9 +9,6 @@ import SwiftUI
 
 
 extension Color {
-//    static let darkGrayColor = Color(#colorLiteral(red: 0.1930268705, green: 0.1930268705, blue: 0.1930268705, alpha: 1))
-//    static let tealColor = Color(#colorLiteral(red: 0, green: 0.8285897374, blue: 0.7882844806, alpha: 1))
-//    static let lightGrayColor = Color(#colorLiteral(red: 0.246493727, green: 0.246493727, blue: 0.246493727, alpha: 1))
     
     static let ratingRed = Color(#colorLiteral(red: 0.9322058558, green: 0.5090264678, blue: 0.3976840675, alpha: 1))
     static let ratingYellow = Color(#colorLiteral(red: 0.937254902, green: 0.8156862745, blue: 0.4666666667, alpha: 1))
@@ -23,7 +20,11 @@ extension Color {
     static let lightCoalBlack = Color(#colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1529411765, alpha: 1))
     
     static let lightWhite = Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.85))
-    static let thinGreen = Color(#colorLiteral(red: 0.7007637593, green: 0.8666666667, blue: 0.8666666667, alpha: 0.9))
-    static let lightGreen = Color(#colorLiteral(red: 0.6520230877, green: 0.8666666667, blue: 0.8666666667, alpha: 1))
+    static let thinGreen = Color(#colorLiteral(red: 0.7019607843, green: 0.8666666667, blue: 0.8666666667, alpha: 0.9))
+    static let lightGreen = Color(#colorLiteral(red: 0.6509803922, green: 0.8666666667, blue: 0.8666666667, alpha: 1))
+    
+    static let softViolet = Color(#colorLiteral(red: 0.8980392157, green: 0.8745098039, blue: 0.9411764706, alpha: 0.9))
+    static let softYellow = Color(#colorLiteral(red: 0.9450980392, green: 0.9333333333, blue: 0.8274509804, alpha: 1))
+    static let softPeach = Color(#colorLiteral(red: 0.9333333333, green: 0.8745098039, blue: 0.8705882353, alpha: 1))
 }
 

@@ -15,21 +15,17 @@ struct FlashCardView: View {
         ZStack {
             BackgroundView()
             
-            //переделать на enum
-            if !viewModel.isLast {
+            switch viewModel.status {
+            case .readyToDisplay:
+                //MARK: - Displaying cards
                 ZStack {
                     ForEach(viewModel.wordsToTraining, id: \.id) { word in
                         SwipeCardView(viewModel: SwipeCardViewModel(word: word)) {
                             viewModel.updateIndex()
                         }
-                        
                     }
                 }
-                .onAppear {
-                    viewModel.shuffleWords()
-                }
-                
-            } else {
+            case .lastWord:
                 VStack(alignment: .center) {
                     Spacer()
                     Text("You've done practive")
@@ -46,11 +42,16 @@ struct FlashCardView: View {
                     
                     Spacer()
                 }
+            case .fewWords:
+                WarningView {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
-            
-            
         }
         .embedNavigationView(with: "FlashCards")
+        .onAppear {
+            viewModel.shuffleWords()
+        }
     }
 }
 

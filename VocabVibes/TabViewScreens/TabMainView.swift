@@ -12,9 +12,6 @@ import SwiftUI
 struct TabMainView: View {
     
     init() {
-//        UITabBar.appearance().backgroundColor = UIColor(Color.lightGrayColor)
-//        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.tealColor.opacity(0.4))
-//        UITabBar.appearance().barTintColor = UIColor(Color.lightGrayColor)
         UITabBar.appearance().backgroundColor = UIColor(Color.lightCoalBlack)
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.thinGreen.opacity(0.4))
         UITabBar.appearance().barTintColor = UIColor(Color.lightCoalBlack)

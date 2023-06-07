@@ -10,11 +10,11 @@ import SwiftUI
 struct SwipeCardView: View {
     
     @StateObject var viewModel: SwipeCardViewModel
-        
     var completion: () -> ()
     
     var body: some View {
         ZStack {
+            //MARK: - Card
             Rectangle()
                 .foregroundColor(viewModel.color)
                 .frame(width: 350, height: 520)
@@ -23,9 +23,8 @@ struct SwipeCardView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.lightGreen, lineWidth: 1)
                         .opacity(0.4)
-                        
                 }
-            
+            //MARK: - Word on card
             HStack {
                 if viewModel.isTranslated {
                     Text(viewModel.word.wordTranslation)
@@ -35,6 +34,7 @@ struct SwipeCardView: View {
                         //Mirror text
                         .rotation3DEffect(.degrees(Double(180)), axis: (x: 0, y: 1, z: 0))
                         .animation(.linear, value: viewModel.isTranslated)
+                        
                 } else {
                     Text(viewModel.word.wordValue)
                         .opacity(viewModel.isTranslated ? 0 : 1)
@@ -44,6 +44,7 @@ struct SwipeCardView: View {
                 }
             }
         }
+        //Card rotation
         .rotation3DEffect(.degrees(Double(viewModel.rotation)), axis: (x: 0, y: 1, z: 0))
         .animation(.easeOut(duration: 0.4), value: viewModel.rotation)
         .onTapGesture {
@@ -66,7 +67,6 @@ struct SwipeCardView: View {
                     withAnimation {
                         viewModel.swipeCard(width: viewModel.offset.width)
                         viewModel.changeColor(width: viewModel.offset.width)
-                        //переделать - баг если действие было, но свайпа нет
                         if viewModel.isSwiped {
                             completion()
                         }

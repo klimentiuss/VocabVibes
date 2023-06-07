@@ -1,32 +1,15 @@
 //
-//  SwiftUIView.swift
+//  WordRowViewModel.swift
 //  VocabVibes
 //
-//  Created by Daniil Klimenko on 23.05.2023.
+//  Created by Daniil Klimenko on 17.04.2023.
 //
 
 import SwiftUI
 
-struct RatingView: View {
+class WordRowViewModel: ObservableObject {
     
     let word: Word
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(
-                    LinearGradient(colors: getRatingColors(with: word.wordWeight),
-                                   startPoint: UnitPoint(x: 0, y: 0),
-                                   endPoint: UnitPoint(x: 1, y: 1))
-                )
-                .frame(width: 40, height: 15)
-                .cornerRadius(15)
-                
-                
-                
-        }
-        
-    }
     
     func getRatingColors(with rating: Int) -> [Color] {
         var colors: [Color] = []
@@ -45,10 +28,9 @@ struct RatingView: View {
         
         return colors
     }
-}
-
-struct RatingView_Previews: PreviewProvider {
-    static var previews: some View {
-        RatingView(word: Word.example)
+    
+    init(word: Word) {
+        self.word = word
     }
+    
 }

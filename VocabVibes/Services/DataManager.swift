@@ -17,6 +17,7 @@ class DataManager {
     func createInitialList() {
         if !UserDefaults.standard.bool(forKey: "done") {
             UserDefaults.standard.set(true, forKey: "done")
+            UserDefaults.standard.set(10, forKey: "wordsPerTraining")
             
             let initialList = WordList()
             initialList.nameOfGroup = "Words to learn"

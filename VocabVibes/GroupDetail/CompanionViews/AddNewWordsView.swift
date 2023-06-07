@@ -16,9 +16,8 @@ enum Field {
 struct AddNewWordsView: View {
     
     @ObservedObject var viewModel: GroupDetailViewModel
-    var completion: () -> ()
     @FocusState var keyboardFocused: Field?
-    
+    var completion: () -> ()
     
     
     var body: some View {
@@ -51,6 +50,7 @@ struct AddNewWordsView: View {
             }
             .padding()
         }
+        //MARK: - Keyboard toolbar buttons 
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 if viewModel.addNewWordIsPressed {

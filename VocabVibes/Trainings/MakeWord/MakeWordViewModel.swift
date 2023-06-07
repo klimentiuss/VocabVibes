@@ -23,10 +23,11 @@ class MakeWordViewModel: ObservableObject {
     @Published var wordsToTraining = [Word]()
     @Published var translateStatus = ""
     @Published var status: StatusView
+    @Published var prefix = UserDefaults.standard.integer(forKey: "wordsPerTraining")
     
     func shuffleWords() {
-        if let words = selectedWordList?.words {
-            wordsToTraining = words.shuffled()
+        if let words = selectedWordList?.words.shuffled() {
+            wordsToTraining = words.prefix(prefix).shuffled()
         }
     }
     
@@ -38,16 +39,28 @@ class MakeWordViewModel: ObservableObject {
     }
     
     func changeCard() {
-        if currentCardIndex < wordsToTraining.count - 1 {
+        
+        if currentCardIndex >= wordsToTraining.count - 1 || currentCardIndex == prefix {
+            status = .lastWord
+        } else {
             answer = ""
             translateStatus = ""
             withAnimation {
                 currentCardIndex += 1
             }
             brokeWord()
-        } else {
-            status = .lastWord
         }
+        
+//        if currentCardIndex < wordsToTraining.count - 1 {
+//            answer = ""
+//            translateStatus = ""
+//            withAnimation {
+//                currentCardIndex += 1
+//            }
+//            brokeWord()
+//        } else {
+//            status = .lastWord
+//        }
     }
     
     func skipCard() {

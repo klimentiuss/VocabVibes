@@ -12,9 +12,12 @@ struct ListOfGroups: View {
     
     init() {
         UICollectionView.appearance().backgroundColor = UIColor(Color.coalBlack)
+        UITextField.appearance().keyboardAppearance = .dark
     }
     
-    @ObservedObject var viewModel = ListOfGroupsViewModel()    
+    @StateObject private var viewModel = ListOfGroupsViewModel()
+
+//    @ObservedObject var viewModel = ListOfGroupsViewModel()
 
     var body: some View {
         ZStack {
@@ -23,7 +26,7 @@ struct ListOfGroups: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    //Title
+                    //Header
                     Text("Word Groups")
                         .foregroundColor(.white)
                         .font(.largeTitle)
@@ -36,7 +39,7 @@ struct ListOfGroups: View {
                     
                     //Addition new group
                     Button {
-                        viewModel.alertPresented.toggle()
+                        viewModel.addNewGroupPresented.toggle()
                     } label: {
                         Text("Add new")
                             .foregroundColor(Color.lightGreen)
@@ -44,10 +47,10 @@ struct ListOfGroups: View {
                     .padding(.top, 20)
                     .padding(.horizontal, 20)
                     
-                    .alert("New Group", isPresented: $viewModel.alertPresented, actions: {
+                    .alert("New Group", isPresented: $viewModel.addNewGroupPresented, actions: {
                         TextField("Group name", text: $viewModel.groupName)
                             .autocorrectionDisabled()
-                        
+                            .foregroundColor(.ratingEmerald)
                         Button("Save", action: {
                             viewModel.createNewGroup()
                         })
@@ -57,22 +60,28 @@ struct ListOfGroups: View {
                     }, message: {
                         Text("Please enter name of new group.")
                     })
+                    
                 }
 
-                
+                //MARK: - List of groups
                 List {
-                    ForEach(viewModel.wordList.freeze(), id: \.id) { group in
+                    ForEach(viewModel.wordGroups.freeze(), id: \.id) { group in
                         GroupRow(viewModel: GroupRowViewModel(group: group))
                             .listRowBackground(Color.coalBlack)
                     }
                     .onDelete(perform: { indexSet in
-                        viewModel.delete(at: indexSet)
-                        
+                        if viewModel.wordGroups.count > 1 {
+                            viewModel.delete(at: indexSet)
+                        } else {
+                            viewModel.alertPresented.toggle()
+                        }
                     })
                 }
                 .scrollContentBackground(.hidden)
                 .listStyle(.plain)
+                .alert("You can't delete the last group", isPresented: $viewModel.alertPresented) {}
             }
+            
         }
         .navigationTitle("Word groups")
         .embedNavigationView(with: "VocabVibes")

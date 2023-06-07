@@ -17,6 +17,7 @@ struct TrainingsScreen: View {
             BackgroundView()
             
             VStack(alignment: viewModel.isMain ? .leading : .center) {
+                //MARK: - Header
                 VStack {
                     viewModel.isMain ?
                     Text("Start training")
@@ -31,6 +32,7 @@ struct TrainingsScreen: View {
                 .padding(.top, 10)
                 .padding(.leading, 20)
                 
+                //MARK: - Grid with trainings
                 LazyVGrid(
                     columns: viewModel.isMain ? viewModel.lagreFixedColumns : viewModel.smallFixedColumns,
                     spacing: 10
@@ -77,7 +79,7 @@ struct TrainingsScreen: View {
                     .offset(y: -15)
                 }
                 .padding(.horizontal)
-
+                //MARK: - Picker group for training
                 PickerView(viewModel: viewModel)
                 
             }

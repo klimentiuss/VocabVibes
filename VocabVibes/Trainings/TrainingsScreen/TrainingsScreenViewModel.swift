@@ -41,5 +41,7 @@ class TrainingsScreenViewModel: ObservableObject {
     
     init(isMain: Bool) {
         self.isMain = isMain
+        self.selectedWordList = wordList.first
     }
 }
+

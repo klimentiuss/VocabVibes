@@ -19,7 +19,6 @@ class WordList: Object, ObjectKeyIdentifiable {
 class Word: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
 
-    
     @Persisted var wordWeight: Int = 0
     @Persisted var wordValue: String = ""
     @Persisted var wordTranslation: String = ""

@@ -93,6 +93,10 @@ struct WriteWord: View {
                 viewModel.keyboardOffset = 0
             }
         }
+        //MARK: - Exiting a training when the app is closed
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 

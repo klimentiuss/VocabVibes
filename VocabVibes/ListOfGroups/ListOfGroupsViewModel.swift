@@ -9,9 +9,10 @@ import Foundation
 import RealmSwift
 
 class ListOfGroupsViewModel: ObservableObject {
-    @ObservedResults(WordList.self) var wordList
+    @ObservedResults(WordList.self) var wordGroups
     
     @Published var alertPresented = false
+    @Published var addNewGroupPresented = false
     @Published var groupName = ""
     
     
@@ -24,15 +25,16 @@ class ListOfGroupsViewModel: ObservableObject {
         
         let newGroup = WordList()
         newGroup.nameOfGroup = trimmedGroupName
-        $wordList.append(newGroup)
+        
+        $wordGroups.append(newGroup)
         groupName = ""
     }
     
     func delete(at indexSet: IndexSet) {
         if let index = indexSet.first,
-            let realm = wordList[index].realm {
+            let realm = wordGroups[index].realm {
             try? realm.write({
-                realm.delete(wordList[index])
+                realm.delete(wordGroups[index])
             })
             objectWillChange.send()
         }
