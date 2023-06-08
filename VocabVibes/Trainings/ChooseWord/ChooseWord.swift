@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChooseWord: View {
     
-    @ObservedObject var viewModel: ChooseWordViewModel
+    @StateObject var viewModel: ChooseWordViewModel
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -58,10 +58,6 @@ struct ChooseWord: View {
         .onAppear {
             viewModel.shuffleWords()
             viewModel.generateButtons()
-        }
-        //MARK: - Exiting a training when the app is closed
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            self.presentationMode.wrappedValue.dismiss()
         }
     }
 }

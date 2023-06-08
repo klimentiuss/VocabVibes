@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WriteWord: View {
     
-    @ObservedObject var viewModel: WriteWordViewModel
+    @StateObject var viewModel: WriteWordViewModel
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -92,10 +92,6 @@ struct WriteWord: View {
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
                 viewModel.keyboardOffset = 0
             }
-        }
-        //MARK: - Exiting a training when the app is closed
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            self.presentationMode.wrappedValue.dismiss()
         }
     }
 }

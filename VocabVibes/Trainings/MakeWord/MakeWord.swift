@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MakeWord: View {
     
-    @ObservedObject var viewModel: MakeWordViewModel
+    @StateObject var viewModel: MakeWordViewModel
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -83,10 +83,6 @@ struct MakeWord: View {
         .onAppear{
             viewModel.shuffleWords()
             viewModel.brokeWord()
-        }
-        //MARK: - Exiting a training when the app is closed
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            self.presentationMode.wrappedValue.dismiss()
         }
     }
 }
