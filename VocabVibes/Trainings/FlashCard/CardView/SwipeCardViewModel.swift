@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 class SwipeCardViewModel: ObservableObject {
         
     @Published var word: Word
@@ -17,6 +16,7 @@ class SwipeCardViewModel: ObservableObject {
     @Published var offset = CGSize.zero
     @Published var rotation = 0.0
     @Published var isSwiped = false
+    
     
     func swipeCard(width: CGFloat) {
         
@@ -34,6 +34,16 @@ class SwipeCardViewModel: ObservableObject {
         }
     }
     
+    //test vibration
+    func makeVibration(width: CGFloat) {
+        if width >= 500 {
+            VibrationManager.shared.simpleSuccess()
+        }
+        
+        if width <= -500 {
+            VibrationManager.shared.simpleError()
+        }
+    }
     
     func changeColor(width: CGFloat) {
         switch width {
@@ -45,6 +55,8 @@ class SwipeCardViewModel: ObservableObject {
             color =  Color(#colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1529411765, alpha: 1))
         }
     }
+    
+    
     
     init(word: Word) {
         self.word = word

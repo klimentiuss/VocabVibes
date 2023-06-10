@@ -55,8 +55,10 @@ class WriteWordViewModel: ObservableObject {
                 currentCardIndex += 1
             }
             translate = ""
+            VibrationManager.shared.simpleSuccess()
             closeKeyboard()
         } else {
+            VibrationManager.shared.simpleError()
             withAnimation {
                 translateStatus = translate.isEmpty ? "Please enter translation below" : "Incorrect"
             }

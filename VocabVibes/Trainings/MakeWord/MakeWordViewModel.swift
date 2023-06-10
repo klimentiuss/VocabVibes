@@ -61,8 +61,10 @@ class MakeWordViewModel: ObservableObject {
         if answer == wordsToTraining[currentCardIndex].wordTranslation.lowercased() {
             StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: true)
             correctAnswersCount += 1
+            VibrationManager.shared.simpleSuccess()
             changeCard()
         } else {
+            VibrationManager.shared.simpleError()
             withAnimation {
                 translateStatus = answer == "" ? "Please form a word \n    from the letters" : "Incorrect"
             }

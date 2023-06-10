@@ -52,15 +52,6 @@ class ChooseWordViewModel: ObservableObject {
             }
             generateButtons()
         }
-        
-//        if currentCardIndex < wordsToTraining.count - 1 || currentCardIndex != prefix {
-//            withAnimation {
-//                currentCardIndex += 1
-//            }
-//            generateButtons()
-//        } else {
-//            status = .lastWord
-//        }
     }
     
     func checkAnswer(_ selectedButtonIndex: Int) {
@@ -74,6 +65,7 @@ class ChooseWordViewModel: ObservableObject {
             answerButtons[selectedButtonIndex] = "✅ " + answerButtons[selectedButtonIndex]
             correctAnswersCount += 1
             checkIndex()
+            VibrationManager.shared.simpleSuccess()
             generateButtons()
             return
         } else {
@@ -81,6 +73,7 @@ class ChooseWordViewModel: ObservableObject {
             answerButtons[selectedButtonIndex] = "❌ " + answerButtons[selectedButtonIndex]
             answerButtons[correctAnswerIndex] = "🟢 " + answerButtons[correctAnswerIndex]
             isWrong = true
+            VibrationManager.shared.simpleError()
         }
     }
     
