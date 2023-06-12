@@ -47,7 +47,7 @@ class WriteWordViewModel: ObservableObject {
         
         checkIndex()
         
-        if  wordsToTraining[currentCardIndex].wordTranslation == translate.lowercased() {
+        if  wordsToTraining[currentCardIndex].wordTranslation == translate.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
             StorageManager.shared.updateWeight(of:  wordsToTraining[currentCardIndex], isKnow: true)
             correctAnswersCount += 1
             translateStatus = ""
@@ -60,7 +60,7 @@ class WriteWordViewModel: ObservableObject {
         } else {
             VibrationManager.shared.simpleError()
             withAnimation {
-                translateStatus = translate.isEmpty ? "Please enter translation below" : "Incorrect"
+                translateStatus = translate.isEmpty ? "keyWriteWordWorning".localized : "keyIncorrect".localized
             }
         }
     }

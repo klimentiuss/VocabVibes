@@ -28,12 +28,12 @@ struct FlashCardView: View {
             case .lastWord:
                 VStack(alignment: .center) {
                     Spacer()
-                    Text("You've done practive")
+                    Text("keyDonePractice".localized)
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .bold()
                     
-                    Button("Go back") {
+                    Button("keyGoback".localized) {
                         self.presentationMode.wrappedValue.dismiss()
                     }
                     .foregroundColor(Color.lightGreen)
@@ -48,7 +48,7 @@ struct FlashCardView: View {
                 }
             }
         }
-        .embedNavigationView(with: "FlashCards")
+        .embedNavigationView(with: "keyFlashCards".localized)
         .onAppear {
             viewModel.shuffleWords()
         }

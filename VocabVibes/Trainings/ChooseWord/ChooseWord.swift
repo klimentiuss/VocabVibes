@@ -36,7 +36,7 @@ struct ChooseWord: View {
                     }
                 }
             case .lastWord:
-                FinishTrainingView(correctAnswersCount: viewModel.correctAnswerIndex) {
+                FinishTrainingView(correctAnswersCount: viewModel.correctAnswersCount) {
                     self.presentationMode.wrappedValue.dismiss()
                 }
             case .fewWords:
@@ -54,7 +54,7 @@ struct ChooseWord: View {
                     }
                 }
         )
-        .embedNavigationView(with: "ChooseOne")
+        .embedNavigationView(with: "keyChooseOne".localized)
         .onAppear {
             viewModel.shuffleWords()
             viewModel.generateButtons()

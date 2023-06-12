@@ -34,6 +34,7 @@ class ListOfGroupsViewModel: ObservableObject {
         if let index = indexSet.first,
             let realm = wordGroups[index].realm {
             try? realm.write({
+                realm.delete(wordGroups[index].words)
                 realm.delete(wordGroups[index])
             })
             objectWillChange.send()

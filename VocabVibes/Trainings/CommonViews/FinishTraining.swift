@@ -15,11 +15,17 @@ struct FinishTrainingView: View {
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
-            Text("Correct Answers: \(correctAnswersCount)")
-                .foregroundColor(.white)
-                .font(.largeTitle)
-                .bold()
-            Button("Go back") {
+            VStack {
+                Text("keyCorrectAnswers".localized)
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                    .bold()
+                Text("\(correctAnswersCount)")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                    .bold()
+            }
+            Button("keyGoback".localized) {
                 completion()
             }
             .foregroundColor(Color.lightGreen)

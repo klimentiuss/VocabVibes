@@ -27,7 +27,7 @@ struct ListOfGroups: View {
             VStack(alignment: .leading) {
                 HStack {
                     //Header
-                    Text("Word Groups")
+                    Text("keyWordGroups".localized)
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .bold()
@@ -41,24 +41,24 @@ struct ListOfGroups: View {
                     Button {
                         viewModel.addNewGroupPresented.toggle()
                     } label: {
-                        Text("Add new")
+                        Text("keyAddNew".localized)
                             .foregroundColor(Color.lightGreen)
                     }
                     .padding(.top, 20)
                     .padding(.horizontal, 20)
                     
-                    .alert("New Group", isPresented: $viewModel.addNewGroupPresented, actions: {
-                        TextField("Group name", text: $viewModel.groupName)
+                    .alert("keyNewGroup".localized, isPresented: $viewModel.addNewGroupPresented, actions: {
+                        TextField("keyGroupName".localized, text: $viewModel.groupName)
                             .autocorrectionDisabled()
                             .foregroundColor(.ratingEmerald)
-                        Button("Save", action: {
+                        Button("keySave".localized, action: {
                             viewModel.createNewGroup()
                         })
                         
-                        Button("Cancel", role: .cancel, action: {})
+                        Button("keyCancel".localized, role: .cancel, action: {})
                         
                     }, message: {
-                        Text("Please enter name of new group.")
+                        Text("keyEnterNameOfGroup".localized)
                     })
                     
                 }
@@ -81,11 +81,11 @@ struct ListOfGroups: View {
                 }
                 .scrollContentBackground(.hidden)
                 .listStyle(.plain)
-                .alert("You can't delete the last group", isPresented: $viewModel.alertPresented) {}
+                .alert("keyCantDeleteGroup".localized, isPresented: $viewModel.alertPresented) {}
             }
             
         }
-        .navigationTitle("Word groups")
+        .navigationTitle("keyWordGroups".localized)
         .embedNavigationView(with: "VocabVibes")
     }
 }

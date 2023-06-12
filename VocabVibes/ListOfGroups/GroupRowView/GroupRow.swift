@@ -14,7 +14,7 @@ struct GroupRow: View {
     var body: some View {
         ZStack {
             NavigationLink {
-                GroupDetail(viewModel: GroupDetailViewModel(group: viewModel.group))
+                GroupDetail(viewModel: GroupDetailViewModel(group: viewModel.group), isTextFieldsShown: false)
             } label: {
                 ZStack {
                     Rectangle()

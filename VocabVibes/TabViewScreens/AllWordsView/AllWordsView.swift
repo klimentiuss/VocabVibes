@@ -17,7 +17,7 @@ struct AllWordsView: View {
             BackgroundView()
             
             VStack(alignment: .leading) {
-                Text("All words")
+                Text("keyAllWords".localized)
                     .foregroundColor(.white)
                     .font(.largeTitle)
                     .bold()

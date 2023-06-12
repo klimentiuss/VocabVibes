@@ -24,7 +24,7 @@ struct AddNewWordsView: View {
         
         Group {
             VStack(alignment: .leading) {
-                TextField("Word", text: $viewModel.word)
+                TextField("keyWord".localized, text: $viewModel.word)
                     .focused($keyboardFocused, equals: .word)
                     .tint(Color.lightWhite)
                     .textFieldStyle(.roundedBorder)
@@ -35,7 +35,7 @@ struct AddNewWordsView: View {
                         keyboardFocused = .translate
                     }
                     
-                TextField("Translate", text: $viewModel.translate)
+                TextField("keyTranslate".localized, text: $viewModel.translate)
                     .tint(Color.lightWhite)
                     .textFieldStyle(.roundedBorder)
                     .autocorrectionDisabled()
@@ -55,7 +55,7 @@ struct AddNewWordsView: View {
             ToolbarItemGroup(placement: .keyboard) {
                 if viewModel.addNewWordIsPressed {
                     HStack {
-                        Button("Close") {
+                        Button("keyClose".localized) {
                             withAnimation {
                                 viewModel.showOrHide()
                                 viewModel.clearFields()
@@ -66,7 +66,7 @@ struct AddNewWordsView: View {
                         .animation(.linear, value: viewModel.addNewWordIsPressed)
                         .foregroundColor(Color.ratingRed)
                         Spacer()
-                        Button("Save") {
+                        Button("keySave".localized) {
                             viewModel.checkTextFieldsAndSave()
                         }
                         .foregroundColor(Color.ratingEmerald)

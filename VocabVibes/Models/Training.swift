@@ -14,10 +14,10 @@ struct Training {
     
     static func getViews() -> [Training] {
         [
-            Training(trainingName: "Flash\nCards", color: .thinGreen, image: "flashCards"),
-            Training(trainingName: "Choose\nOne", color: .softViolet, image: "chooseWord"),
-            Training(trainingName: "Make\nWord", color: .softYellow, image: "makeWord"),
-            Training(trainingName: "Write\nWord", color: .softPeach, image: "writeWord")
+            Training(trainingName: "keyBigFlashCards".localized, color: .thinGreen, image: "flashCards"),
+            Training(trainingName: "keyBigChooseOne".localized, color: .softViolet, image: "chooseWord"),
+            Training(trainingName: "keyBigMakeWord".localized, color: .softYellow, image: "makeWord"),
+            Training(trainingName: "keyBigWriteWords".localized, color: .softPeach, image: "writeWord")
         ]
     }
 }

@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  VocabVibes
+
+  Created by Daniil Klimenko on 12.06.2023.
+  
+*/
+
+"keyAllWords" = "Wszystkie słowa";
+"keyHaptic" = "Wibracja";
+"keyWordsInTraining" = "Słowa w treningu";
+"keyTrainings" = "Treningi";
+"keySettingsWarning" = "Ustawienia słów w treningu obejmują używanie maksymalnej liczby słów z grupy.";
+"keyLocalization" = "Lokalizacja";
+"keyLanguage" = "Język";
+"keySettings" = "Ustawienia";
+"keyCorrectAnswers"= "Poprawne odpowiedzi: ";
+"keyGoback" = "Powrót";
+"keyFewWords" = "Za mało słów w grupie.\nProszę dodać nowe słowa.";
+"keyMakeWord" = "Utwórz";
+"keyMakeWordWarning" = "Proszę utworzyć słowo \n z liter";
+"keyIncorrect" = "Niepoprawne";
+"keyChooseOne" = "Wybierz";
+"keyWriteTranslation" = "Napisz tłumaczenie";
+"keyWriteCards" = "Napisz";
+"keyWriteWordWorning" = "Proszę wpisać tłumaczenie poniżej";
+"keyDonePractice" = "Zakończyłeś trening";
+"keyFlashCards" = "Fiszki";
+"keyStartTraining" = "Rozpocznij trening";
+"keyChooseTraining" = "Wybierz rodzaj treningu:";
+"keyBigFlashCards" = "Fiszki";
+"keyBigWriteWords" = "Napisz";
+"keyBigChooseOne" = "Wybierz";
+"keyBigMakeWord" = "Utwórz";
+"keySelectGroup" = "Wybierz grupę:";
+"keyChooseList" = "Proszę wybrać grupę";
+"keyFillCorrect" = "Proszę wypełnić pola poprawnie.";
+"keyWord" = "Słowo";
+"keyTranslate" = "Tłumaczenie";
+"keyClose" = "Zamknij";
+"keyCancel" = "Anuluj";
+"keySave" = "Zapisz";
+"keyWordGroups" = "Grupy słów";
+"keyAddNew" = "Dodaj nową";
+"keyNewGroup" = "Nowa grupa";
+"keyGroupName" = "Nazwa grupy";
+"keyEnterNameOfGroup" = "Wprowadź nazwę nowej grupy.";
+"keyCantDeleteGroup" = "Nie możesz usunąć ostatniej grupy.";

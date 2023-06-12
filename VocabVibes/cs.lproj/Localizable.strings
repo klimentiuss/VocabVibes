@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  VocabVibes
+
+  Created by Daniil Klimenko on 12.06.2023.
+  
+*/
+
+"keyAllWords" = "Všechna slova";
+"keyHaptic" = "Vibrace";
+"keyWordsInTraining" = "Slova ve výcviku";
+"keyTrainings" = "Tréninky";
+"keySettingsWarning" = "Nastavení slov ve výcviku předpokládá použití maximálního počtu slov ze skupiny.";
+"keyLocalization" = "Lokalizace";
+"keyLanguage" = "Jazyk";
+"keySettings" = "Nastavení";
+"keyCorrectAnswers"= "Správné odpovědi: ";
+"keyGoback" = "Zpět";
+"keyFewWords" = "Málo slov ve skupině.\nProsím, přidejte nová slova.";
+"keyMakeWord" = "Vytvořit";
+"keyMakeWordWarning" = "Prosím, sestavte slovo \n    z písmen";
+"keyIncorrect" = "Nesprávně";
+"keyChooseOne" = "Vyberte";
+"keyWriteTranslation" = "Napište překlad";
+"keyWriteCards" = "Napište";
+"keyWriteWordWorning" = "Prosím, napište překlad níže";
+"keyDonePractice" = "Dokončili jste trénink";
+"keyFlashCards" = "Kartičky";
+"keyStartTraining" = "Začít trénink";
+"keyChooseTraining" = "Vyberte typ tréninku:";
+"keyBigFlashCards" = "Kartičky";
+"keyBigWriteWords" = "Napište";
+"keyBigChooseOne" = "Vyberte";
+"keyBigMakeWord" = "Vytvořte";
+"keySelectGroup" = "Vyberte skupinu:";
+"keyChooseList" = "Prosím, vyberte skupinu";
+"keyFillCorrect" = "Prosím, vyplňte pole správně.";
+"keyWord" = "Slovo";
+"keyTranslate" = "Překlad";
+"keyClose" = "Zavřít";
+"keyCancel" = "Zrušit";
+"keySave" = "Uložit";
+"keyWordGroups" = "Skupiny slov";
+"keyAddNew" = "Přidat nové";
+"keyNewGroup" = "Nová skupina";
+"keyGroupName" = "Název skupiny";
+"keyEnterNameOfGroup" = "Zadejte název nové skupiny.";
+"keyCantDeleteGroup" = "Nemůžete smazat poslední skupinu.";

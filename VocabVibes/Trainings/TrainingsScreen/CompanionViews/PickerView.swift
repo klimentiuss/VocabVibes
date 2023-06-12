@@ -10,25 +10,36 @@ import SwiftUI
 struct PickerView: View {
     
     @ObservedObject var viewModel: TrainingsScreenViewModel
-
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Select group:")
+            Text("keySelectGroup".localized)
                 .font(.title3)
                 .foregroundColor(.lightWhite)
                 .bold()
-            
-            VStack(alignment: .leading) {
-                Picker("Please choose a list", selection: $viewModel.selectedWordList) {
-                    ForEach(viewModel.wordList, id: \.id) { list in
-                        Text(list.nameOfGroup)
-                            .tag(list as WordList?)
+            HStack {
+                VStack(alignment: .leading) {
+                    Picker("keyChooseList".localized, selection: $viewModel.selectedWordList) {
+                        ForEach(viewModel.wordList, id: \.id) { list in
+                            Text(list.nameOfGroup)
+                                .tag(list as WordList?)
+                        }
                     }
+                    .buttonStyle(.bordered)
+                    
                 }
-                .buttonStyle(.bordered)
-                
+               
+                NavigationLink {
+                    if let selectedList = viewModel.selectedWordList {
+                        GroupDetail(viewModel: GroupDetailViewModel(group: selectedList), isTextFieldsShown: true)
+                    }
+                } label: {
+                    Image(systemName: "plus")
+                }
+
+
             }
+            
         }
         .padding(.leading, 25)
     }

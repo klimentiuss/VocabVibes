@@ -36,7 +36,7 @@ struct WriteWord: View {
                     
                     .padding()
                     //MARK: - Writing word
-                    TextField("Write translation", text: $viewModel.translate)
+                    TextField("keyWriteTranslation".localized, text: $viewModel.translate)
                         .background(Rectangle()
                             .fill(Color.lightCoalBlack)
                             .frame(width: 300, height: 35)
@@ -80,7 +80,7 @@ struct WriteWord: View {
                 }
             }
         }
-        .embedNavigationView(with: "WriteCards")
+        .embedNavigationView(with: "keyWriteCards".localized)
         
         .onAppear {
             viewModel.shuffleWords()

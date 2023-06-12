@@ -20,7 +20,6 @@ class GroupDetailViewModel: ObservableObject {
     func showOrHide() {
         addNewWordIsPressed.toggle()
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-
     }
     
     func clearFields() {
@@ -34,7 +33,7 @@ class GroupDetailViewModel: ObservableObject {
         let trimmedTranslate = translate.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedWord.isEmpty && !trimmedTranslate.isEmpty else {
-            warningText = "Please fill in the fields correctly."
+            warningText = "keyFillCorrect".localized
             return
         }
         

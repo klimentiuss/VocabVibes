@@ -16,9 +16,9 @@ struct SettingsView: View {
             BackgroundView()
             Form {
                 Section(content: {
-                    Toggle("Haptic", isOn: $viewModel.switcher)
+                    Toggle("keyHaptic".localized, isOn: $viewModel.switcher)
                     
-                    Picker("Select Number", selection: $viewModel.wordsPerTraining) {
+                    Picker("keyWordsInTraining".localized, selection: $viewModel.wordsPerTraining) {
                         ForEach(viewModel.trainingOptions, id: \.self) { number in
                             Text("\(number)")
                         }
@@ -26,31 +26,18 @@ struct SettingsView: View {
                     .preferredColorScheme(.dark)
                     .pickerStyle(.menu)
                 }, header: {
-                    Text("Trainings")
+                    Text("keyTrainings".localized)
                 }, footer: {
-                    Text("Setting up words in training implies using the maximum number of words from the group.")
+                    Text("keySettingsWarning".localized)
                 })
                 .listRowBackground(Color.lightCoalBlack)
-                
-                
-                Section("Localization") {
-                    Picker("Language", selection: $viewModel.languages) {
-                        ForEach(viewModel.languages, id: \.self) { value in
-                            Text(value)
-                        }
-                    }
-                    .preferredColorScheme(.dark)
-                    .pickerStyle(.menu)
-                }
-                .listRowBackground(Color.lightCoalBlack)
             }
-            
             .tint(.ratingEmerald)
             .foregroundColor(.lightWhite)
             .scrollContentBackground(.hidden)
         }
-        .navigationTitle("Settings")
-        .embedNavigationView(with: "Settings")
+        .navigationTitle("keySettings".localized)
+        .embedNavigationView(with: "keySettings".localized)
     }
 }
 

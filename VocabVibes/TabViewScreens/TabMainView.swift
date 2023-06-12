@@ -37,6 +37,7 @@ struct TabMainView: View {
         }
         .onAppear {
             DataManager.shared.createInitialList()
+           
         }
         .tint(Color.lightGreen)
         .embedNavigationView(with: "VocabVibes")

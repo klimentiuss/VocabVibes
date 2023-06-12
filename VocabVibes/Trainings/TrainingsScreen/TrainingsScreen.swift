@@ -20,12 +20,12 @@ struct TrainingsScreen: View {
                 //MARK: - Header
                 VStack {
                     viewModel.isMain ?
-                    Text("Start training")
+                    Text("keyStartTraining".localized)
                         .foregroundColor(Color.lightWhite)
                         .font(.largeTitle)
                         .bold()
                     :
-                    Text("Choose training type:")
+                    Text("keyChooseTraining".localized)
                         .foregroundColor(.white)
                         .font(.title)
                 }
@@ -42,13 +42,13 @@ struct TrainingsScreen: View {
                             
                             NavigationLink {
                                 switch training.trainingName {
-                                case "Flash\nCards" :
+                                case "keyBigFlashCards".localized :
                                     FlashCardView(viewModel: FlashCardViewModel(selectedWordList: $viewModel.selectedWordList))
-                                case "Write\nWord":
+                                case "keyBigWriteWords".localized:
                                     WriteWord(viewModel: WriteWordViewModel(selectedWordList: $viewModel.selectedWordList))
-                                case "Choose\nOne":
+                                case "keyBigChooseOne".localized:
                                     ChooseWord(viewModel: ChooseWordViewModel(selectedWordList: $viewModel.selectedWordList))
-                                case "Make\nWord":
+                                case "keyBigMakeWord".localized:
                                     MakeWord(viewModel: MakeWordViewModel(selectedWordList: $viewModel.selectedWordList))
                                 default:
                                     FlashCardView(viewModel: FlashCardViewModel(selectedWordList: $viewModel.selectedWordList))

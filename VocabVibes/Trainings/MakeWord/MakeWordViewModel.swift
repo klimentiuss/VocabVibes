@@ -66,7 +66,7 @@ class MakeWordViewModel: ObservableObject {
         } else {
             VibrationManager.shared.simpleError()
             withAnimation {
-                translateStatus = answer == "" ? "Please form a word \n    from the letters" : "Incorrect"
+                translateStatus = answer == "" ? "keyMakeWordWarning".localized : "keyIncorrect".localized
             }
         }
     }

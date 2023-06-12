@@ -13,8 +13,8 @@ struct GroupDetail: View {
     
     @ObservedObject var viewModel: GroupDetailViewModel
     @State var offsetMove: CGFloat = -110
-    
-    
+    @State var isTextFieldsShown: Bool
+        
     var body: some View {
         ZStack {
             BackgroundView()
@@ -56,7 +56,7 @@ struct GroupDetail: View {
                 }
                 //MARK: - Training Button
                 Button {
-                    
+
                 } label: {
                     Text("Hello")
                 }
@@ -65,7 +65,12 @@ struct GroupDetail: View {
             
             
         }
-        
+        .onAppear {
+            if isTextFieldsShown {
+                viewModel.showOrHide()
+                offsetMove = viewModel.addNewWordIsPressed ?  0 : -110
+            }
+        }
         .navigationTitle("\(viewModel.group.nameOfGroup)")
         .embedNavigationView(with: "\(viewModel.group.nameOfGroup)")
     }
@@ -73,6 +78,6 @@ struct GroupDetail: View {
 
 struct GroupDetail_Previews: PreviewProvider {
     static var previews: some View {
-        GroupDetail(viewModel: GroupDetailViewModel(group: WordList.example))
+        GroupDetail(viewModel: GroupDetailViewModel(group: WordList.example), isTextFieldsShown: false)
     }
 }

@@ -79,7 +79,7 @@ struct MakeWord: View {
                 }
             }
         }
-        .embedNavigationView(with: "MakeWord")
+        .embedNavigationView(with: "keyMakeWord".localized)
         .onAppear{
             viewModel.shuffleWords()
             viewModel.brokeWord()

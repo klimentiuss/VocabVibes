@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  VocabVibes
+
+  Created by Daniil Klimenko on 12.06.2023.
+  
+*/
+
+"keyAllWords" = "Всі слова";
+"keyHaptic" = "Вібрація";
+"keyWordsInTraining" = "Слів у тренуванні";
+"keyTrainings" = "Тренування";
+"keySettingsWarning" = "Налаштування слів у тренуванні передбачає використання максимальної кількості слів із групи.";
+"keyLocalization" = "Локалізація";
+"keyLanguage" = "Мова";
+"keySettings" = "Налаштування";
+"keyCorrectAnswers"= "Правильні відповіді: ";
+"keyGoback" = "Повернутися";
+"keyFewWords" = "Мало слів у групі.\nБудь ласка, додайте нові слова.";
+"keyMakeWord" = "Створи";
+"keyMakeWordWarning" = "Будь ласка, складіть слово \n    з букв";
+"keyIncorrect" = "Невірно";
+"keyChooseOne" = "Вибери";
+"keyWriteTranslation" = "Напишіть переклад";
+"keyWriteCards" = "Напиши";
+"keyWriteWordWorning" = "Будь ласка, введіть переклад нижче";
+"keyDonePractice" = "Ви закінчили тренування";
+"keyFlashCards" = "Картки";
+"keyStartTraining" = "Почніть тренування";
+"keyChooseTraining" = "Виберіть тип тренування:";
+"keyBigFlashCards" = "Картки";
+"keyBigWriteWords" = "Напиши";
+"keyBigChooseOne" = "Вибери";
+"keyBigMakeWord" = "Зроби";
+"keySelectGroup" = "Виберіть групу:";
+"keyChooseList" = "Будь ласка, виберіть групу";
+"keyFillCorrect" = "Будь ласка, заповніть поля правильно.";
+"keyWord" = "Слово";
+"keyTranslate" = "Переклад";
+"keyClose" = "Закрити";
+"keyCancel" = "Скасувати";
+"keySave" = "Зберегти";
+"keyWordGroups" = "Групи слів";
+"keyAddNew" = "Додати нове";
+"keyNewGroup" = "Нова група";
+"keyGroupName" = "Назва групи";
+"keyEnterNameOfGroup" = "Введіть назву нової групи.";
+"keyCantDeleteGroup" = "Ви не можете видалити останню групу.";
