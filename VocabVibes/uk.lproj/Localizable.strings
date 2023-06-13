@@ -41,8 +41,13 @@
 "keyCancel" = "Скасувати";
 "keySave" = "Зберегти";
 "keyWordGroups" = "Групи слів";
-"keyAddNew" = "Додати нове";
+"keyAddNew" = "Створити нову";
 "keyNewGroup" = "Нова група";
 "keyGroupName" = "Назва групи";
 "keyEnterNameOfGroup" = "Введіть назву нової групи.";
 "keyCantDeleteGroup" = "Ви не можете видалити останню групу.";
+"keyInitialGroup" = "Слова для вивчення";
+"keyApple" = "яблоко";
+"keyPhone" = "телефон";
+"keyApp" = "застосунок";
+"keyCard" = "картка";

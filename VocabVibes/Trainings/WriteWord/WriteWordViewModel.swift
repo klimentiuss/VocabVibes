@@ -55,10 +55,10 @@ class WriteWordViewModel: ObservableObject {
                 currentCardIndex += 1
             }
             translate = ""
-            VibrationManager.shared.simpleSuccess()
+            VibrationManager.shared.makeVibration(with: true)
             closeKeyboard()
         } else {
-            VibrationManager.shared.simpleError()
+            VibrationManager.shared.makeVibration(with: false)
             withAnimation {
                 translateStatus = translate.isEmpty ? "keyWriteWordWorning".localized : "keyIncorrect".localized
             }

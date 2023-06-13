@@ -17,17 +17,33 @@ class DataManager {
     func createInitialList() {
         if !UserDefaults.standard.bool(forKey: "done") {
             UserDefaults.standard.set(true, forKey: "done")
+            UserDefaults.standard.set(true, forKey: "vibrationToggle")
             UserDefaults.standard.set(10, forKey: "wordsPerTraining")
             
             let initialList = WordList()
-            initialList.nameOfGroup = "Words to learn"
+            initialList.nameOfGroup = "keyInitialGroup".localized
             
             
-            let word = Word()
-            word.wordValue = "apple"
-            word.wordTranslation = "яблоко"
+            let apple = Word()
+            apple.wordValue = "apple"
+            apple.wordTranslation = "keyApple".localized
             
-            initialList.words.append(word)
+            let phone = Word()
+            phone.wordValue = "phone"
+            phone.wordTranslation = "keyPhone".localized
+            
+            let app = Word()
+            app.wordValue = "app"
+            app.wordTranslation = "keyApp".localized
+            
+            let card = Word()
+            card.wordValue = "card"
+            card.wordTranslation = "keyCard".localized
+            
+            initialList.words.append(apple)
+            initialList.words.append(phone)
+            initialList.words.append(app)
+            initialList.words.append(card)
             $wordList.append(initialList)
         }
     }

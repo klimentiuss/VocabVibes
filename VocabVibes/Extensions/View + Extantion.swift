@@ -16,6 +16,7 @@ extension View {
         }
         return window.screen.bounds.size
     }
+
     
     func embedNavigationView(with title: String) -> some View {
         return NavigationStack {

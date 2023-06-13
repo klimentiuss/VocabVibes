@@ -46,3 +46,8 @@
 "keyGroupName" = "Nombre del grupo";
 "keyEnterNameOfGroup" = "Ingresa el nombre del nuevo grupo.";
 "keyCantDeleteGroup" = "No puedes eliminar el último grupo.";
+"keyInitialGroup" = "Palabras para estudiar";
+"keyApple" = "manzana";
+"keyPhone" = "teléfono";
+"keyApp" = "aplicación";
+"keyCard" = "tarjeta";

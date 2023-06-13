@@ -46,3 +46,8 @@
 "keyGroupName" = "Název skupiny";
 "keyEnterNameOfGroup" = "Zadejte název nové skupiny.";
 "keyCantDeleteGroup" = "Nemůžete smazat poslední skupinu.";
+"keyInitialGroup" = "Slova ke studiu";
+"keyApple" = "jablko";
+"keyPhone" = "telefon";
+"keyApp" = "aplikace";
+"keyCard" = "karta";

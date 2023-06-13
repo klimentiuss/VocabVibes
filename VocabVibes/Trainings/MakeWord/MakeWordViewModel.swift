@@ -61,10 +61,10 @@ class MakeWordViewModel: ObservableObject {
         if answer == wordsToTraining[currentCardIndex].wordTranslation.lowercased() {
             StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: true)
             correctAnswersCount += 1
-            VibrationManager.shared.simpleSuccess()
+            VibrationManager.shared.makeVibration(with: true)
             changeCard()
         } else {
-            VibrationManager.shared.simpleError()
+            VibrationManager.shared.makeVibration(with: false)
             withAnimation {
                 translateStatus = answer == "" ? "keyMakeWordWarning".localized : "keyIncorrect".localized
             }

@@ -65,7 +65,7 @@ class ChooseWordViewModel: ObservableObject {
             answerButtons[selectedButtonIndex] = "✅ " + answerButtons[selectedButtonIndex]
             correctAnswersCount += 1
             checkIndex()
-            VibrationManager.shared.simpleSuccess()
+            VibrationManager.shared.makeVibration(with: true)
             generateButtons()
             return
         } else {
@@ -73,7 +73,7 @@ class ChooseWordViewModel: ObservableObject {
             answerButtons[selectedButtonIndex] = "❌ " + answerButtons[selectedButtonIndex]
             answerButtons[correctAnswerIndex] = "🟢 " + answerButtons[correctAnswerIndex]
             isWrong = true
-            VibrationManager.shared.simpleError()
+            VibrationManager.shared.makeVibration(with: false)
         }
     }
     

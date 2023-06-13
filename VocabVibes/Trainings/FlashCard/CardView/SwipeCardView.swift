@@ -34,13 +34,14 @@ struct SwipeCardView: View {
                         //Mirror text
                         .rotation3DEffect(.degrees(Double(180)), axis: (x: 0, y: 1, z: 0))
                         .animation(.linear, value: viewModel.isTranslated)
-                        
+                        .transition(.identity)
                 } else {
                     Text(viewModel.word.wordValue)
                         .opacity(viewModel.isTranslated ? 0 : 1)
                         .font(.largeTitle)
                         .foregroundColor(.white)
                         .animation(.linear, value: viewModel.isTranslated)
+                        .transition(.identity)
                 }
             }
         }

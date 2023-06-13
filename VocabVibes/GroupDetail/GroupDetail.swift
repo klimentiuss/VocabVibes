@@ -54,13 +54,6 @@ struct GroupDetail: View {
                     }
                     
                 }
-                //MARK: - Training Button
-                Button {
-
-                } label: {
-                    Text("Hello")
-                }
-                .buttonStyle(.bordered)
             }
             
             

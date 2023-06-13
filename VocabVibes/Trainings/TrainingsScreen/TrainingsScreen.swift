@@ -10,31 +10,26 @@ import SwiftUI
 struct TrainingsScreen: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: TrainingsScreenViewModel
+    @StateObject var viewModel: TrainingsScreenViewModel
     
     var body: some View {
         ZStack(alignment: .top) {
             BackgroundView()
             
-            VStack(alignment: viewModel.isMain ? .leading : .center) {
+            VStack(alignment:.leading) {
                 //MARK: - Header
                 VStack {
-                    viewModel.isMain ?
                     Text("keyStartTraining".localized)
                         .foregroundColor(Color.lightWhite)
                         .font(.largeTitle)
                         .bold()
-                    :
-                    Text("keyChooseTraining".localized)
-                        .foregroundColor(.white)
-                        .font(.title)
                 }
                 .padding(.top, 10)
                 .padding(.leading, 20)
                 
                 //MARK: - Grid with trainings
                 LazyVGrid(
-                    columns: viewModel.isMain ? viewModel.lagreFixedColumns : viewModel.smallFixedColumns,
+                    columns: viewModel.lagreFixedColumns,
                     spacing: 10
                 ) {
                     Section {
@@ -58,17 +53,17 @@ struct TrainingsScreen: View {
                                     Rectangle()
                                         .foregroundColor(training.color)
                                         .frame(
-                                            width: viewModel.isMain ? 175 : 100,
-                                            height: viewModel.isMain ? 175 : 100)
+                                            width: 175,
+                                            height: 175)
                                         .cornerRadius(20)
                                     VStack {
                                         Image(training.image)
                                             .resizable()
-                                            .frame(width: 30, height: 30)
+                                            .frame(width: 40, height: 40)
                                             
                                         Text(training.trainingName)
                                             .foregroundColor(Color.coalBlack)
-                                            .font(viewModel.isMain ? .title2 : .headline)
+                                            .font(.title2)
                                             .bold()
                                     }
                                    
@@ -93,6 +88,6 @@ struct TrainingsScreen: View {
 
 struct TrainingsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        TrainingsScreen(viewModel: TrainingsScreenViewModel(isMain: true))
+        TrainingsScreen(viewModel: TrainingsScreenViewModel())
     }
 }

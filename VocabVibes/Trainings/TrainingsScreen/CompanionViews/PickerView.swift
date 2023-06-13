@@ -47,6 +47,6 @@ struct PickerView: View {
 
 struct PickerView_Previews: PreviewProvider {
     static var previews: some View {
-        PickerView(viewModel: TrainingsScreenViewModel(isMain: true))
+        PickerView(viewModel: TrainingsScreenViewModel())
     }
 }

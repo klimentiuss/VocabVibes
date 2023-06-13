@@ -46,3 +46,8 @@
 "keyGroupName" = "Gruppenname";
 "keyEnterNameOfGroup" = "Geben Sie den Namen der neuen Gruppe ein.";
 "keyCantDeleteGroup" = "Sie können die letzte Gruppe nicht löschen.";
+"keyInitialGroup" = "Wörter zum Lernen";
+"keyApple" = "apfel";
+"keyPhone" = "telefon";
+"keyApp" = "anwendung";
+"keyCard" = "karte";

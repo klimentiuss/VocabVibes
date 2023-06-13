@@ -60,6 +60,9 @@
 		DCD28FBF29F17F1F0050E786 /* ChooseWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FBE29F17F1F0050E786 /* ChooseWordViewModel.swift */; };
 		DCD28FC229F182370050E786 /* MakeWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FC129F182370050E786 /* MakeWordViewModel.swift */; };
 		DCD28FC429F1823C0050E786 /* MakeWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD28FC329F1823C0050E786 /* MakeWord.swift */; };
+		DCD9EEBA2A37965C0052A2CA /* CelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9EEB92A37965C0052A2CA /* CelebrationView.swift */; };
+		DCD9EEBC2A37AAED0052A2CA /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9EEBB2A37AAED0052A2CA /* LaunchView.swift */; };
+		DCD9EEBE2A37B88E0052A2CA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD9EEBD2A37B88E0052A2CA /* Launch Screen.storyboard */; };
 		DCEFFE6D2A1D0AFF003EE79E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFFE6C2A1D0AFF003EE79E /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +136,9 @@
 		DCD28FBE29F17F1F0050E786 /* ChooseWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWordViewModel.swift; sourceTree = "<group>"; };
 		DCD28FC129F182370050E786 /* MakeWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeWordViewModel.swift; sourceTree = "<group>"; };
 		DCD28FC329F1823C0050E786 /* MakeWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeWord.swift; sourceTree = "<group>"; };
+		DCD9EEB92A37965C0052A2CA /* CelebrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationView.swift; sourceTree = "<group>"; };
+		DCD9EEBB2A37AAED0052A2CA /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		DCD9EEBD2A37B88E0052A2CA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		DCEFFE6C2A1D0AFF003EE79E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +198,7 @@
 				DC201C062A2B6CA8002117FF /* FinishTraining.swift */,
 				DC201C082A2B8104002117FF /* WarningView.swift */,
 				DC83FBBF29E9883100EA8BFA /* BackgroundView.swift */,
+				DCD9EEB92A37965C0052A2CA /* CelebrationView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -321,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */,
+				DCE4DCAC2A388E5F009A2DF5 /* Launch */,
 				DCC1AA0229F1BC8100718739 /* TabViewScreens */,
 				DC7BF2AD29EFEF9800753C72 /* Trainings */,
 				DCAA0D9E29E5991100747E9F /* GroupDetail */,
@@ -439,6 +447,15 @@
 			path = MakeWord;
 			sourceTree = "<group>";
 		};
+		DCE4DCAC2A388E5F009A2DF5 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				DCD9EEBB2A37AAED0052A2CA /* LaunchView.swift */,
+				DCD9EEBD2A37B88E0052A2CA /* Launch Screen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -545,6 +562,7 @@
 			files = (
 				DCAA0D7E29E5919500747E9F /* Preview Assets.xcassets in Resources */,
 				DC9BC66A2A3748D3004EA037 /* Localizable.strings in Resources */,
+				DCD9EEBE2A37B88E0052A2CA /* Launch Screen.storyboard in Resources */,
 				DCAA0D7B29E5919500747E9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +593,7 @@
 				DC201C072A2B6CA8002117FF /* FinishTraining.swift in Sources */,
 				DC31C20C2A34C9C500C183B1 /* VibrationManager.swift in Sources */,
 				DC26991629ED5D7800EBB591 /* WordRowViewModel.swift in Sources */,
+				DCD9EEBC2A37AAED0052A2CA /* LaunchView.swift in Sources */,
 				DC7BF2B929F0214700753C72 /* SwipeCardViewModel.swift in Sources */,
 				DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */,
 				DC9993482A1A58C9002E0432 /* StorageManager.swift in Sources */,
@@ -584,6 +603,7 @@
 				DCD28FB429F175590050E786 /* CardView.swift in Sources */,
 				DCAA0D8629E591CA00747E9F /* WordGroup.swift in Sources */,
 				DCD28FC429F1823C0050E786 /* MakeWord.swift in Sources */,
+				DCD9EEBA2A37965C0052A2CA /* CelebrationView.swift in Sources */,
 				DCD28FBF29F17F1F0050E786 /* ChooseWordViewModel.swift in Sources */,
 				DCAA0D7729E5919400747E9F /* VocabVibesApp.swift in Sources */,
 				DC201C052A2B6A75002117FF /* CustomButton.swift in Sources */,
@@ -811,6 +831,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -844,6 +865,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (

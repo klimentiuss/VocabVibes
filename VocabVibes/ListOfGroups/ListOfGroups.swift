@@ -17,8 +17,6 @@ struct ListOfGroups: View {
     
     @StateObject private var viewModel = ListOfGroupsViewModel()
 
-//    @ObservedObject var viewModel = ListOfGroupsViewModel()
-
     var body: some View {
         ZStack {
             //Background
@@ -74,7 +72,7 @@ struct ListOfGroups: View {
                         if viewModel.wordGroups.count > 1 {
                             viewModel.delete(at: indexSet)
                         } else {
-                            VibrationManager.shared.simpleError()
+                            VibrationManager.shared.makeVibration(with: true)
                             viewModel.alertPresented.toggle()
                         }
                     })

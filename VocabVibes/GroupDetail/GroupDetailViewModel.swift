@@ -38,7 +38,7 @@ class GroupDetailViewModel: ObservableObject {
         }
         
         saveNewWord(word: trimmedWord, translate: trimmedTranslate)
-        VibrationManager.shared.simpleSuccess()
+        VibrationManager.shared.makeVibration(with: true)
         clearFields()
         
     }

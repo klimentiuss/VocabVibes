@@ -15,14 +15,14 @@ struct CardView: View {
         ZStack {
             Rectangle()
                 .foregroundColor(Color.lightCoalBlack)
-                .frame(width: 320, height: 420)
+                .frame(width: 320, height: screenSize().height >= 780 ? 420 : 320)
                 .cornerRadius(20)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.lightGreen, lineWidth: 1)
                         .opacity(0.4)
-                        
                 }
+            
             VStack {
                 Text(viewModel.word)
                     .font(.largeTitle)

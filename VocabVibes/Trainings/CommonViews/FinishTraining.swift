@@ -13,25 +13,30 @@ struct FinishTrainingView: View {
     var completion: () -> Void
     
     var body: some View {
-        VStack(alignment: .center) {
-            Spacer()
-            VStack {
-                Text("keyCorrectAnswers".localized)
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .bold()
-                Text("\(correctAnswersCount)")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .bold()
+        ZStack {
+            if correctAnswersCount > 0 {
+                CelebrationView()
             }
-            Button("keyGoback".localized) {
-                completion()
+            VStack(alignment: .center) {
+                Spacer()
+                VStack {
+                    Text("keyCorrectAnswers".localized)
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .bold()
+                    Text("\(correctAnswersCount)")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .bold()
+                }
+                Button("keyGoback".localized) {
+                    completion()
+                }
+                .foregroundColor(Color.lightGreen)
+                .buttonStyle(.bordered)
+                .padding()
+                Spacer()
             }
-            .foregroundColor(Color.lightGreen)
-            .buttonStyle(.bordered)
-            .padding()
-            Spacer()
         }
     }
 }
@@ -39,5 +44,6 @@ struct FinishTrainingView: View {
 struct FinishTrainingView_Previews: PreviewProvider {
     static var previews: some View {
         FinishTrainingView(correctAnswersCount: 1){}
+            .preferredColorScheme(.dark)
     }
 }

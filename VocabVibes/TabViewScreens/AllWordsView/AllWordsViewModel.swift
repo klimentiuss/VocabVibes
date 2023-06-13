@@ -13,6 +13,7 @@ class AllWordsViewModel: ObservableObject {
     
     func updateView() {
         objectWillChange.send()
+        
     }
   
 }

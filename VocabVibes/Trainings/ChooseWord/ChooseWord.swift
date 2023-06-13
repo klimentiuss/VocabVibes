@@ -19,6 +19,7 @@ struct ChooseWord: View {
             switch viewModel.status {
             case .readyToDisplay:
                 VStack {
+                    Spacer()
                     //MARK: - Displaying cards
                     ZStack {
                         ForEach(Array(viewModel.wordsToTraining.enumerated()), id: \.1.id) { index, word in
@@ -34,6 +35,7 @@ struct ChooseWord: View {
                     AnswerButtonsView(answerButtons: $viewModel.answerButtons) { index in
                         viewModel.checkAnswer(index)
                     }
+                    Spacer()
                 }
             case .lastWord:
                 FinishTrainingView(correctAnswersCount: viewModel.correctAnswersCount) {
