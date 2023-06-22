@@ -25,8 +25,8 @@ struct RatingView: View {
     }
 }
 
-struct RatingView_Previews: PreviewProvider {
-    static var previews: some View {
-        RatingView(viewModel: WordRowViewModel(word: Word.example))
-    }
-}
+//struct RatingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RatingView(viewModel: WordRowViewModel(word: Word.example))
+//    }
+//}

@@ -39,9 +39,9 @@ struct WordRow: View {
     }
 }
 
-struct WordRow_Previews: PreviewProvider {
-    static var previews: some View {
-        WordRow(viewModel: WordRowViewModel(word: Word.example))
-            .preferredColorScheme(.dark)
-    }
-}
+//struct WordRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WordRow(viewModel: WordRowViewModel(word: Word.example))
+//            .preferredColorScheme(.dark)
+//    }
+//}

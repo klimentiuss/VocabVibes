@@ -9,15 +9,18 @@ import SwiftUI
 
 struct SwipeCardView: View {
     
+    var width: CGFloat//350
+    var height: CGFloat//520
     @StateObject var viewModel: SwipeCardViewModel
     var completion: () -> ()
+    
     
     var body: some View {
         ZStack {
             //MARK: - Card
             Rectangle()
                 .foregroundColor(viewModel.color)
-                .frame(width: 350, height: 520)
+                .frame(width: width, height: height)
                 .cornerRadius(20)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)
@@ -34,14 +37,12 @@ struct SwipeCardView: View {
                         //Mirror text
                         .rotation3DEffect(.degrees(Double(180)), axis: (x: 0, y: 1, z: 0))
                         .animation(.linear, value: viewModel.isTranslated)
-                        .transition(.identity)
                 } else {
                     Text(viewModel.word.wordValue)
                         .opacity(viewModel.isTranslated ? 0 : 1)
                         .font(.largeTitle)
                         .foregroundColor(.white)
                         .animation(.linear, value: viewModel.isTranslated)
-                        .transition(.identity)
                 }
             }
         }
@@ -79,9 +80,9 @@ struct SwipeCardView: View {
     }
 }
 
-struct SwipeCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwipeCardView(viewModel: SwipeCardViewModel(word: Word.example)) {}
-            .preferredColorScheme(.dark)
-    }
-}
+//struct SwipeCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SwipeCardView(viewModel: SwipeCardViewModel(word: Word.example)) {}
+//            .preferredColorScheme(.dark)
+//    }
+//}

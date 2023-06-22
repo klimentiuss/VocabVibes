@@ -11,6 +11,8 @@ import SwiftUI
 
 struct TabMainView: View {
     
+    @State private var showingCredits = UserDefaults.standard.bool(forKey: "startLearning")
+    
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color.lightCoalBlack)
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.thinGreen.opacity(0.4))
@@ -21,7 +23,6 @@ struct TabMainView: View {
         TabView {
             MainView()
                 .tabItem {
-                    
                     Label("", systemImage: "figure.strengthtraining.traditional")
                 }
             
@@ -35,12 +36,18 @@ struct TabMainView: View {
                         
                 }
         }
-        .onAppear {
-            DataManager.shared.createInitialList()
-           
-        }
+        .sheet(isPresented: $showingCredits, content: {
+            OnbardingView() {
+                showingCredits.toggle()
+            }
+            .onDisappear {
+                UserDefaults.standard.set(false, forKey: "startLearning")
+
+            }
+        })
+        
         .tint(Color.lightGreen)
-        .embedNavigationView(with: "VocabVibes")
+        .embedNavigationView(with: "Memrix")
     }
 }
 

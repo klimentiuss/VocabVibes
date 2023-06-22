@@ -29,6 +29,9 @@ struct AllWordsView: View {
                         WordRow(viewModel: WordRowViewModel(word: word))
                             .listRowBackground(Color.coalBlack)
                     }
+                    .onDelete { indexSet in
+                        viewModel.delete(at: indexSet)
+                    }
                 }
                 .listStyle(.plain)
 

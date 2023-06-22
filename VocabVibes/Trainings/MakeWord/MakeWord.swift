@@ -87,9 +87,9 @@ struct MakeWord: View {
     }
 }
 
-struct MakeWord_Previews: PreviewProvider {
-    static var previews: some View {
-        @State var wordList: WordList? = WordList.example
-        MakeWord(viewModel: MakeWordViewModel(selectedWordList: $wordList))
-    }
-}
+//struct MakeWord_Previews: PreviewProvider {
+//    static var previews: some View {
+//        @State var wordList: WordList? = WordList.example
+//        MakeWord(viewModel: MakeWordViewModel(selectedWordList: $wordList))
+//    }
+//}

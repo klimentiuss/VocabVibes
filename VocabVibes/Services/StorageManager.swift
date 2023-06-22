@@ -57,4 +57,17 @@ class StorageManager {
             print("Error deleting word: \(error.localizedDescription)")
         }
     }
+    
+    func deleteWordFromAllWords(word: Word, index: IndexSet.Element) {
+        do {
+            let selectedWordRef = ThreadSafeReference(to: word)
+            guard let selectedWord = realm.resolve(selectedWordRef) else { return }
+                        
+            try realm.write {
+                realm.delete(selectedWord)
+            }
+        } catch {
+            print("Error deleting word: \(error.localizedDescription)")
+        }
+    }
 }

@@ -34,7 +34,6 @@ class SwipeCardViewModel: ObservableObject {
         }
     }
     
-    //test vibration
     func makeVibration(width: CGFloat) {
         if width >= 500 {
             VibrationManager.shared.makeVibration(with: true)

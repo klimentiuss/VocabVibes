@@ -7,28 +7,11 @@
 
 import SwiftUI
 
-
-class WriteWordViewModel: ObservableObject {
-    
-    @Binding var selectedWordList: WordList?
+class WriteWordViewModel: BaseViewModel, ObservableObject {
     
     @Published var translate = ""
-    @Published var currentCardIndex = 0//
     @Published var translateStatus = ""
     @Published var keyboardOffset: CGFloat = 0
-    @Published var isLast = false//
-    @Published var correctAnswersCount = 0//
-    
-    @Published var wordsToTraining = [Word]()
-    @Published var status: StatusView
-    @Published var prefix = UserDefaults.standard.integer(forKey: "wordsPerTraining")
-    
-    func shuffleWords() {
-        if let words = selectedWordList?.words.shuffled() {
-            wordsToTraining = words.prefix(prefix).shuffled()
-        }
-        status = wordsToTraining.count > 2 ? .readyToDisplay : .fewWords
-    }
     
     func checkIndex() {
         if currentCardIndex >= wordsToTraining.count - 1 || currentCardIndex == prefix {
@@ -44,7 +27,6 @@ class WriteWordViewModel: ObservableObject {
     }
     
     func checkTranslation() {
-        
         checkIndex()
         
         if  wordsToTraining[currentCardIndex].wordTranslation == translate.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
@@ -70,8 +52,5 @@ class WriteWordViewModel: ObservableObject {
     }
     
     
-    init(selectedWordList: Binding<WordList?>) {
-        self._selectedWordList = selectedWordList
-        self.status = .readyToDisplay
-    }
+    
 }

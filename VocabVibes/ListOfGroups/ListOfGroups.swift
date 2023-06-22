@@ -68,13 +68,7 @@ struct ListOfGroups: View {
                             .listRowBackground(Color.coalBlack)
                     }
                     .onDelete(perform: { indexSet in
-                        //перенести
-                        if viewModel.wordGroups.count > 1 {
-                            viewModel.delete(at: indexSet)
-                        } else {
-                            VibrationManager.shared.makeVibration(with: true)
-                            viewModel.alertPresented.toggle()
-                        }
+                        viewModel.checkLastGroup(indexSet: indexSet)
                     })
                 }
                 .scrollContentBackground(.hidden)

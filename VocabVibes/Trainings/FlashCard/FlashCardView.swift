@@ -20,28 +20,33 @@ struct FlashCardView: View {
                 //MARK: - Displaying cards
                 ZStack {
                     ForEach(viewModel.wordsToTraining, id: \.id) { word in
-                        SwipeCardView(viewModel: SwipeCardViewModel(word: word)) {
+                        SwipeCardView(width: 350, height: 520, viewModel: SwipeCardViewModel(word: word)) {
                             viewModel.updateIndex()
                         }
+                        
                     }
                 }
             case .lastWord:
-                VStack(alignment: .center) {
-                    Spacer()
-                    Text("keyDonePractice".localized)
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .bold()
-                    
-                    Button("keyGoback".localized) {
-                        self.presentationMode.wrappedValue.dismiss()
+                ZStack {
+                    CelebrationView()
+                    VStack(alignment: .center) {
+                        Spacer()
+                        Text("keyDonePractice".localized)
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                            .bold()
+                        
+                        Button("keyGoback".localized) {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                        .foregroundColor(Color.lightGreen)
+                        .buttonStyle(.bordered)
+                        .padding()
+                        
+                        Spacer()
                     }
-                    .foregroundColor(Color.lightGreen)
-                    .buttonStyle(.bordered)
-                    .padding()
-                    
-                    Spacer()
                 }
+                
             case .fewWords:
                 WarningView {
                     self.presentationMode.wrappedValue.dismiss()

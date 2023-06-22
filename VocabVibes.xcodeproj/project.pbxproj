@@ -20,6 +20,11 @@
 		DC26991629ED5D7800EBB591 /* WordRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26991529ED5D7800EBB591 /* WordRowViewModel.swift */; };
 		DC31C20C2A34C9C500C183B1 /* VibrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31C20B2A34C9C500C183B1 /* VibrationManager.swift */; };
 		DC4C4AF22A0E2C0C000C5377 /* AddNewWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C4AF12A0E2C0C000C5377 /* AddNewWordsView.swift */; };
+		DC68DFCA2A44671600A3A673 /* OnbardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68DFC92A44671600A3A673 /* OnbardingView.swift */; };
+		DC68DFD02A4493CB00A3A673 /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68DFCF2A4493CB00A3A673 /* FirstOnboardingView.swift */; };
+		DC68DFD22A44965C00A3A673 /* SecondOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68DFD12A44965C00A3A673 /* SecondOnboardingView.swift */; };
+		DC68DFD42A44988000A3A673 /* ThirdOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68DFD32A44988000A3A673 /* ThirdOnboardingView.swift */; };
+		DC68DFD62A44A47300A3A673 /* FourthOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68DFD52A44A47300A3A673 /* FourthOnboardingView.swift */; };
 		DC6DB26E2A30B994006D0518 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6DB26D2A30B994006D0518 /* SettingsViewModel.swift */; };
 		DC7BF2AC29EFEF6A00753C72 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2AB29EFEF6A00753C72 /* Training.swift */; };
 		DC7BF2AF29EFEFB600753C72 /* TrainingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BF2AE29EFEFB600753C72 /* TrainingsScreen.swift */; };
@@ -38,8 +43,6 @@
 		DC83FBC529E98AA100EA8BFA /* View + Extantion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBC429E98AA100EA8BFA /* View + Extantion.swift */; };
 		DC83FBC729E9914F00EA8BFA /* GroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBC629E9914F00EA8BFA /* GroupRow.swift */; };
 		DC83FBC929E9916400EA8BFA /* GroupRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBC829E9916400EA8BFA /* GroupRowViewModel.swift */; };
-		DC83FBD829E9998000EA8BFA /* ListOfGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83FBBC29E985F600EA8BFA /* ListOfGroupsViewModel.swift */; };
-		DC83FBDE29E9A01F00EA8BFA /* WordGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0D8529E591CA00747E9F /* WordGroup.swift */; };
 		DC9993482A1A58C9002E0432 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9993472A1A58C9002E0432 /* StorageManager.swift */; };
 		DC9BC6652A3747B9004EA037 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9BC6642A3747B9004EA037 /* String + Extension.swift */; };
 		DC9BC66A2A3748D3004EA037 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC9BC66C2A3748D3004EA037 /* Localizable.strings */; };
@@ -63,18 +66,9 @@
 		DCD9EEBA2A37965C0052A2CA /* CelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9EEB92A37965C0052A2CA /* CelebrationView.swift */; };
 		DCD9EEBC2A37AAED0052A2CA /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9EEBB2A37AAED0052A2CA /* LaunchView.swift */; };
 		DCD9EEBE2A37B88E0052A2CA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD9EEBD2A37B88E0052A2CA /* Launch Screen.storyboard */; };
+		DCE4DCB42A38C0A8009A2DF5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4DCB32A38C0A8009A2DF5 /* BaseViewModel.swift */; };
 		DCEFFE6D2A1D0AFF003EE79E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFFE6C2A1D0AFF003EE79E /* RatingView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DC83FBD329E998C300EA8BFA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DCAA0D6B29E5919400747E9F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DCAA0D7229E5919400747E9F;
-			remoteInfo = VocabVibes;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DC1CEDD929F2D16200EDAC55 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -88,6 +82,11 @@
 		DC26991529ED5D7800EBB591 /* WordRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRowViewModel.swift; sourceTree = "<group>"; };
 		DC31C20B2A34C9C500C183B1 /* VibrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationManager.swift; sourceTree = "<group>"; };
 		DC4C4AF12A0E2C0C000C5377 /* AddNewWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordsView.swift; sourceTree = "<group>"; };
+		DC68DFC92A44671600A3A673 /* OnbardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbardingView.swift; sourceTree = "<group>"; };
+		DC68DFCF2A4493CB00A3A673 /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
+		DC68DFD12A44965C00A3A673 /* SecondOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingView.swift; sourceTree = "<group>"; };
+		DC68DFD32A44988000A3A673 /* ThirdOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingView.swift; sourceTree = "<group>"; };
+		DC68DFD52A44A47300A3A673 /* FourthOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthOnboardingView.swift; sourceTree = "<group>"; };
 		DC6DB26D2A30B994006D0518 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		DC7BF2AB29EFEF6A00753C72 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		DC7BF2AE29EFEFB600753C72 /* TrainingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsScreen.swift; sourceTree = "<group>"; };
@@ -107,7 +106,6 @@
 		DC83FBC629E9914F00EA8BFA /* GroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRow.swift; sourceTree = "<group>"; };
 		DC83FBC829E9916400EA8BFA /* GroupRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRowViewModel.swift; sourceTree = "<group>"; };
 		DC83FBCA29E995D400EA8BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		DC83FBCF29E998C300EA8BFA /* VocabVibesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VocabVibesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9993472A1A58C9002E0432 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		DC9BC6642A3747B9004EA037 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		DC9BC66B2A3748D3004EA037 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -139,17 +137,11 @@
 		DCD9EEB92A37965C0052A2CA /* CelebrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationView.swift; sourceTree = "<group>"; };
 		DCD9EEBB2A37AAED0052A2CA /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		DCD9EEBD2A37B88E0052A2CA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		DCE4DCB32A38C0A8009A2DF5 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		DCEFFE6C2A1D0AFF003EE79E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DC83FBCC29E998C300EA8BFA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DCAA0D7029E5919400747E9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -211,6 +203,26 @@
 			path = CompanionViews;
 			sourceTree = "<group>";
 		};
+		DC68DFCD2A448E0500A3A673 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DC68DFC92A44671600A3A673 /* OnbardingView.swift */,
+				DC68DFCE2A44934B00A3A673 /* Views */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DC68DFCE2A44934B00A3A673 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC68DFCF2A4493CB00A3A673 /* FirstOnboardingView.swift */,
+				DC68DFD12A44965C00A3A673 /* SecondOnboardingView.swift */,
+				DC68DFD32A44988000A3A673 /* ThirdOnboardingView.swift */,
+				DC68DFD52A44A47300A3A673 /* FourthOnboardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DC6DB2682A30852B006D0518 /* CompanionViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +271,7 @@
 		DC7BF2AD29EFEF9800753C72 /* Trainings */ = {
 			isa = PBXGroup;
 			children = (
+				DCE4DCB32A38C0A8009A2DF5 /* BaseViewModel.swift */,
 				DC201C032A2B69C8002117FF /* CommonViews */,
 				DCD28FC029F181D60050E786 /* MakeWord */,
 				DCD28FBB29F17F020050E786 /* ChooseWord */,
@@ -319,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				DCAA0D7329E5919400747E9F /* VocabVibes.app */,
-				DC83FBCF29E998C300EA8BFA /* VocabVibesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				DCAA0D7629E5919400747E9F /* VocabVibesApp.swift */,
+				DC68DFCD2A448E0500A3A673 /* Onboarding */,
 				DCE4DCAC2A388E5F009A2DF5 /* Launch */,
 				DCC1AA0229F1BC8100718739 /* TabViewScreens */,
 				DC7BF2AD29EFEF9800753C72 /* Trainings */,
@@ -459,26 +472,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC83FBCE29E998C300EA8BFA /* VocabVibesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC83FBD529E998C300EA8BFA /* Build configuration list for PBXNativeTarget "VocabVibesTests" */;
-			buildPhases = (
-				DC83FBCB29E998C300EA8BFA /* Sources */,
-				DC83FBCC29E998C300EA8BFA /* Frameworks */,
-				DC83FBCD29E998C300EA8BFA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DC83FBD429E998C300EA8BFA /* PBXTargetDependency */,
-			);
-			name = VocabVibesTests;
-			packageProductDependencies = (
-			);
-			productName = VocabVibesTests;
-			productReference = DC83FBCF29E998C300EA8BFA /* VocabVibesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		DCAA0D7229E5919400747E9F /* VocabVibes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCAA0D8129E5919500747E9F /* Build configuration list for PBXNativeTarget "VocabVibes" */;
@@ -507,13 +500,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					DC83FBCE29E998C300EA8BFA = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = DCAA0D7229E5919400747E9F;
-					};
 					DCAA0D7229E5919400747E9F = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -543,19 +532,11 @@
 			projectRoot = "";
 			targets = (
 				DCAA0D7229E5919400747E9F /* VocabVibes */,
-				DC83FBCE29E998C300EA8BFA /* VocabVibesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DC83FBCD29E998C300EA8BFA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DCAA0D7129E5919400747E9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -570,15 +551,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DC83FBCB29E998C300EA8BFA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC83FBDE29E9A01F00EA8BFA /* WordGroup.swift in Sources */,
-				DC83FBD829E9998000EA8BFA /* ListOfGroupsViewModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DCAA0D6F29E5919400747E9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -594,6 +566,7 @@
 				DC31C20C2A34C9C500C183B1 /* VibrationManager.swift in Sources */,
 				DC26991629ED5D7800EBB591 /* WordRowViewModel.swift in Sources */,
 				DCD9EEBC2A37AAED0052A2CA /* LaunchView.swift in Sources */,
+				DC68DFD62A44A47300A3A673 /* FourthOnboardingView.swift in Sources */,
 				DC7BF2B929F0214700753C72 /* SwipeCardViewModel.swift in Sources */,
 				DC83FBBB29E985D100EA8BFA /* ListOfGroups.swift in Sources */,
 				DC9993482A1A58C9002E0432 /* StorageManager.swift in Sources */,
@@ -609,11 +582,14 @@
 				DC201C052A2B6A75002117FF /* CustomButton.swift in Sources */,
 				DC7BF2BB29F02ED500753C72 /* FlashCardViewModel.swift in Sources */,
 				DC8134292A07B62B006C85EF /* GroupDetailViewModel.swift in Sources */,
+				DC68DFD02A4493CB00A3A673 /* FirstOnboardingView.swift in Sources */,
 				DCC1AA0D29F1BD9400718739 /* TabMainView.swift in Sources */,
 				DC7BF2B329EFF42B00753C72 /* PickerView.swift in Sources */,
+				DC68DFCA2A44671600A3A673 /* OnbardingView.swift in Sources */,
 				DCD28FBA29F177EC0050E786 /* WriteWordViewModel.swift in Sources */,
 				DC83FBBD29E985F600EA8BFA /* ListOfGroupsViewModel.swift in Sources */,
 				DC201C022A2B64F0002117FF /* SplittingWord.swift in Sources */,
+				DCE4DCB42A38C0A8009A2DF5 /* BaseViewModel.swift in Sources */,
 				DC7BF2BD29F02EE000753C72 /* FlashCardView.swift in Sources */,
 				DC1CEDDA29F2D16200EDAC55 /* DataManager.swift in Sources */,
 				DC201C002A2B627E002117FF /* ComposingWord.swift in Sources */,
@@ -628,22 +604,16 @@
 				DCD28FB629F175650050E786 /* CardViewModel.swift in Sources */,
 				DC9BC6652A3747B9004EA037 /* String + Extension.swift in Sources */,
 				DC4C4AF22A0E2C0C000C5377 /* AddNewWordsView.swift in Sources */,
+				DC68DFD22A44965C00A3A673 /* SecondOnboardingView.swift in Sources */,
 				DC83FBC329E9887200EA8BFA /* Color + Extension.swift in Sources */,
 				DCB509982A15228800908EAF /* AllWordsViewModel.swift in Sources */,
+				DC68DFD42A44988000A3A673 /* ThirdOnboardingView.swift in Sources */,
 				DCD28FC229F182370050E786 /* MakeWordViewModel.swift in Sources */,
 				DC201C092A2B8104002117FF /* WarningView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DC83FBD429E998C300EA8BFA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DCAA0D7229E5919400747E9F /* VocabVibes */;
-			targetProxy = DC83FBD329E998C300EA8BFA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DC9BC66C2A3748D3004EA037 /* Localizable.strings */ = {
@@ -664,42 +634,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DC83FBD629E998C300EA8BFA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5KN7899368;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = klimenko.VocabVibesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VocabVibes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VocabVibes";
-			};
-			name = Debug;
-		};
-		DC83FBD729E998C300EA8BFA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5KN7899368;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = klimenko.VocabVibesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VocabVibes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VocabVibes";
-			};
-			name = Release;
-		};
 		DCAA0D7F29E5919500747E9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -828,6 +762,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VocabVibes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Memrix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -838,8 +773,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = klimenko.VocabVibes;
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.klymenko.memrix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -862,6 +797,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VocabVibes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Memrix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -872,8 +808,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = klimenko.VocabVibes;
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.klymenko.memrix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -887,15 +823,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC83FBD529E998C300EA8BFA /* Build configuration list for PBXNativeTarget "VocabVibesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC83FBD629E998C300EA8BFA /* Debug */,
-				DC83FBD729E998C300EA8BFA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		DCAA0D6E29E5919400747E9F /* Build configuration list for PBXProject "VocabVibes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

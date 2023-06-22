@@ -53,7 +53,6 @@ class GroupDetailViewModel: ObservableObject {
     
     func delete(at indexSet: IndexSet) {
         guard let index = indexSet.first else { return }
-        
         StorageManager.shared.deleteWord(group: group, index: index)
     }
     

@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @StateObject private var viewModel = SettingsViewModel()
+    @State private var showingCredits = false
     
     var body: some View {
         ZStack {
@@ -29,6 +30,26 @@ struct SettingsView: View {
                     Text("keyTrainings".localized)
                 }, footer: {
                     Text("keySettingsWarning".localized)
+                })
+                .listRowBackground(Color.lightCoalBlack)
+                
+                Section(content: {
+                    Button(action: {
+                        showingCredits.toggle()
+                    }, label: {
+                        Text("keyWatchTutorial".localized)
+                    })
+                    .sheet(isPresented: $showingCredits, content: {
+                        OnbardingView {
+                            showingCredits.toggle()
+                        }
+                    })
+                    .preferredColorScheme(.dark)
+                    .pickerStyle(.menu)
+                }, header: {
+                    Text("keyApp".localized)
+                }, footer: {
+                    Text("")
                 })
                 .listRowBackground(Color.lightCoalBlack)
             }

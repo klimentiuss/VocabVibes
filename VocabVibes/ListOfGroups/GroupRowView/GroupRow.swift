@@ -42,10 +42,10 @@ struct GroupRow: View {
     }
 }
 
-struct GroupRow_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupRow(viewModel: GroupRowViewModel(group: WordList.example))
-    }
-}
+//struct GroupRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroupRow(viewModel: GroupRowViewModel(group: WordList.example))
+//    }
+//}
 
 

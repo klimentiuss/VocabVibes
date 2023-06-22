@@ -69,8 +69,8 @@ struct GroupDetail: View {
     }
 }
 
-struct GroupDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupDetail(viewModel: GroupDetailViewModel(group: WordList.example), isTextFieldsShown: false)
-    }
-}
+//struct GroupDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroupDetail(viewModel: GroupDetailViewModel(group: WordList.example), isTextFieldsShown: false)
+//    }
+//}

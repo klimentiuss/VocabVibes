@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_4" data-name="Слой 4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.56 39.28">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m17.94,1.05h8.98c2.38,0,4.3,1.79,4.3,4v19.9c0,2.21-1.93,4-4.3,4h-14.4c-2.38,0-4.3-1.79-4.3-4V5.05c0-2.21,1.93-4,4.3-4h5.42"/>
+  <rect class="cls-2" x="2.06" y="32.4" width="36" height="6" rx="2" ry="2"/>
+  <circle class="cls-2" cx="5.56" cy="35.4" r=".5"/>
+  <circle class="cls-2" cx="10.56" cy="35.4" r=".5"/>
+  <circle class="cls-2" cx="15.56" cy="35.4" r=".5"/>
+  <circle class="cls-2" cx="21.56" cy="35.4" r=".5"/>
+</svg>

@@ -18,6 +18,7 @@ class DataManager {
         if !UserDefaults.standard.bool(forKey: "done") {
             UserDefaults.standard.set(true, forKey: "done")
             UserDefaults.standard.set(true, forKey: "vibrationToggle")
+            UserDefaults.standard.set(true, forKey: "startLearning")
             UserDefaults.standard.set(10, forKey: "wordsPerTraining")
             
             let initialList = WordList()

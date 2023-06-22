@@ -7,29 +7,12 @@
 
 import SwiftUI
 
-enum StatusView {
-    case readyToDisplay
-    case lastWord
-    case fewWords
-}
-
-class MakeWordViewModel: ObservableObject {
-    @Binding var selectedWordList: WordList?
+class MakeWordViewModel: BaseViewModel, ObservableObject {
+    
     
     @Published var arrayCharacter: [Character] = []
     @Published var answer = ""
-    @Published var currentCardIndex = 0
-    @Published var correctAnswersCount = 0
-    @Published var wordsToTraining = [Word]()
     @Published var translateStatus = ""
-    @Published var status: StatusView
-    @Published var prefix = UserDefaults.standard.integer(forKey: "wordsPerTraining")
-    
-    func shuffleWords() {
-        if let words = selectedWordList?.words.shuffled() {
-            wordsToTraining = words.prefix(prefix).shuffled()
-        }
-    }
     
     func returnCharacter() {
         if !answer.isEmpty {
@@ -39,7 +22,6 @@ class MakeWordViewModel: ObservableObject {
     }
     
     func changeCard() {
-        
         if currentCardIndex >= wordsToTraining.count - 1 || currentCardIndex == prefix {
             status = .lastWord
         } else {
@@ -57,7 +39,6 @@ class MakeWordViewModel: ObservableObject {
     }
     
     func checkAnswer() {
-        
         if answer == wordsToTraining[currentCardIndex].wordTranslation.lowercased() {
             StorageManager.shared.updateWeight(of: wordsToTraining[currentCardIndex], isKnow: true)
             correctAnswersCount += 1
@@ -78,16 +59,10 @@ class MakeWordViewModel: ObservableObject {
         } else {
             status = .fewWords
         }
-        
     }
     
     func addCharacter(char: Character) {
         answer += String(char)
         arrayCharacter.remove(at: arrayCharacter.firstIndex(of: char) ?? 0)
-    }
-    
-    init(selectedWordList: Binding<WordList?>) {
-        self._selectedWordList = selectedWordList
-        self.status = .readyToDisplay
     }
 }

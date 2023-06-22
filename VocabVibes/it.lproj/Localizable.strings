@@ -23,7 +23,7 @@
 "keyChooseOne" = "Scegli";
 "keyWriteTranslation" = "Scrivi la traduzione";
 "keyWriteCards" = "Scrivi";
-"keyWriteWordWorning" = "Si prega di inserire la traduzione qui sotto";
+"keyWriteWordWorning" = "Si prega di \ninserire la traduzione qui sotto";
 "keyDonePractice" = "Hai completato l'allenamento";
 "keyFlashCards" = "Carte";
 "keyStartTraining" = "Inizia l'allenamento";
@@ -51,3 +51,25 @@
 "keyPhone" = "telefono";
 "keyApp" = "applicazione";
 "keyCard" = "carta";
+"keySkip" = "Salta";
+"keyWelcome" = "Benvenuto in Memrix";
+"keyTagline" = "Un'app che ti permette di saperne di più.";
+"keyFindOut" = "Scopri di più";
+"keyLearnWords" = "Impara parole\ncon le flashcard";
+"keyTryAgain" = "Riprova";
+"keyTap" = "Tocca la carta per vedere la traduzione";
+"keySwipe" = "Scorri a destra se conosci la parola";
+"keyLeftSwipe" = "Oppure a sinistra se non la conosci";
+"keyNext" = "Avanti";
+"keyTrainingWords" = "Esercita le parole negli esercizi";
+"keyChooseRightWord" = "Scegli la risposta corretta tra le opzioni date";
+"keyMakeWordFromLetters" = "Forma una parola dalle lettere o salta se non la conosci";
+"keyWriteWordInTextFiedl" = "Scrivi la risposta nel campo di testo utilizzando la tastiera";
+"keyMakeAndWatch" = "Crea e monitora";
+"keyChooseGroupBeforeTrainig" = "Prima dell'allenamento, scegli un gruppo di parole che desideri studiare.";
+"keyTapPlus" = "Tocca il pulsante più per aggiungere una nuova parola al gruppo selezionato.";
+"keyWatchWords" = "Monitora i progressi con indicatori di colore.";
+"keyEndLearning" = "Termina familiarizzazione";
+"keyWatchTutorial" = "Come usare l'app";
+
+

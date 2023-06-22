@@ -30,6 +30,15 @@ class ListOfGroupsViewModel: ObservableObject {
         groupName = ""
     }
     
+    func checkLastGroup(indexSet: IndexSet) {
+        if wordGroups.count > 1 {
+            delete(at: indexSet)
+        } else {
+            VibrationManager.shared.makeVibration(with: true)
+            alertPresented.toggle()
+        }
+    }
+    
     func delete(at indexSet: IndexSet) {
         if let index = indexSet.first,
             let realm = wordGroups[index].realm {

@@ -84,8 +84,8 @@ struct AddNewWordsView: View {
 }
 
 
-struct AddNewWordsView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddNewWordsView(viewModel: GroupDetailViewModel(group: WordList.example)){}
-    }
-}
+//struct AddNewWordsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddNewWordsView(viewModel: GroupDetailViewModel(group: WordList.example)){}
+//    }
+//}

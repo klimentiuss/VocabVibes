@@ -10,10 +10,14 @@ import RealmSwift
 
 class AllWordsViewModel: ObservableObject {
     @ObservedResults(Word.self) var words
+    @ObservedResults(WordList.self) var groups
     
     func updateView() {
         objectWillChange.send()
-        
     }
   
+    func delete(at indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }        
+        StorageManager.shared.deleteWordFromAllWords(word: words[index], index: index)
+    }
 }

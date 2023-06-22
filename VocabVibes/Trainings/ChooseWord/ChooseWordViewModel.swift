@@ -7,27 +7,11 @@
 
 import SwiftUI
 
-
-class ChooseWordViewModel: ObservableObject {
-    @Binding var selectedWordList: WordList?
-    
-    @Published var currentCardIndex = 0//
+class ChooseWordViewModel: BaseViewModel, ObservableObject {
+ 
     @Published var answerButtons = [String]()
     @Published var correctAnswerIndex = 0
     @Published var isWrong = false
-    @Published var correctAnswersCount = 0
-    
-    @Published var wordsToTraining = [Word]()
-    @Published var status: StatusView
-    @Published var prefix = UserDefaults.standard.integer(forKey: "wordsPerTraining")
-    
-    func shuffleWords() {
-        if let words = selectedWordList?.words.shuffled() {
-            wordsToTraining = words.prefix(prefix).shuffled()
-        }
-        status = wordsToTraining.count > 2 ? .readyToDisplay : .fewWords
-    }
-    
     
     func generateButtons() {
         if status == .readyToDisplay  {
@@ -43,7 +27,6 @@ class ChooseWordViewModel: ObservableObject {
     }
     
     func checkIndex() {
-        
         if currentCardIndex >= wordsToTraining.count - 1 || currentCardIndex == prefix {
             status = .lastWord
         } else {
@@ -55,7 +38,6 @@ class ChooseWordViewModel: ObservableObject {
     }
     
     func checkAnswer(_ selectedButtonIndex: Int) {
-        
         if isWrong {
             return
         }
@@ -75,10 +57,5 @@ class ChooseWordViewModel: ObservableObject {
             isWrong = true
             VibrationManager.shared.makeVibration(with: false)
         }
-    }
-    
-    init(selectedWordList: Binding<WordList?>) {
-        self._selectedWordList = selectedWordList
-        self.status = .readyToDisplay
     }
 }

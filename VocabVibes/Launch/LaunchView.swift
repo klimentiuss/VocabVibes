@@ -47,17 +47,22 @@ struct LaunchView: View {
                     }
                     .scaleEffect(isCardsShown ? 10 : 1)
                     .onAppear {
+                        DataManager.shared.createInitialList()
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             withAnimation {
                                 isCardsShown.toggle()
     
                             }
                         }
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.26 ) {
                             withAnimation {
                                 isActive.toggle()
                             }
                         }
+                        
+                        
                     }
                     Spacer()
                 }
@@ -65,6 +70,7 @@ struct LaunchView: View {
         } else {
             TabMainView()
                 .opacity(isActive ? 0 : 1)
+                
                 
         }
         
