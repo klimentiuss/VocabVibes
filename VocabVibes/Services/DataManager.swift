@@ -12,6 +12,7 @@ class DataManager {
     
     static let shared = DataManager()
     
+   
     @ObservedResults(WordList.self) var wordList
     
     func createInitialList() {

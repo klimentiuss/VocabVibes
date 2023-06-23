@@ -49,6 +49,7 @@ struct OnbardingView: View {
                     Text("keySkip".localized)
                         .foregroundColor(.ratingRed)
                 }
+                .padding(.bottom, 20)
             }
             
 

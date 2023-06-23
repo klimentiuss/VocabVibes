@@ -23,9 +23,9 @@ class Word: Object, ObjectKeyIdentifiable {
     @Persisted var wordValue: String = ""
     @Persisted var wordTranslation: String = ""
 
+    
 }
 
-#if DEBUG
 // MARK: - Example Item
 
 extension WordList {
@@ -35,7 +35,7 @@ extension WordList {
         
         let word = Word()
         word.wordValue = "apple"
-        word.wordTranslation = "яблоко"
+        word.wordTranslation = "яблуко"
         word.wordWeight = 8
         
         for _ in 1..<15 {
@@ -51,9 +51,8 @@ extension Word {
     static var example: Word {
             let word = Word()
             word.wordValue = "apple"
-            word.wordTranslation = "яблоко"
+            word.wordTranslation = "яблуко"
             word.wordWeight = 8
             return word
         }
 }
-#endif

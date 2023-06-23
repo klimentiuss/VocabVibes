@@ -14,9 +14,19 @@ extension View {
         guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return .zero
         }
+        print(window.screen.bounds.size)
         return window.screen.bounds.size
     }
-
+    
+    func detectedSmallScreen(isWidthCheck: Bool) -> Bool {
+        guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return false }
+        
+        if isWidthCheck {
+            return window.screen.bounds.size.width <= 375
+        } else {
+            return window.screen.bounds.size.height <= 667
+        }
+    }
     
     func embedNavigationView(with title: String) -> some View {
         return NavigationStack {

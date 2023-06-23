@@ -19,7 +19,7 @@ struct ThirdOnboardingView: View {
                 .multilineTextAlignment(.center)
                 .bold()
                 .font(.title)
-            Spacer()
+                .padding(.top, 0)
             
             //MARK: - Page View
             TabView(selection: $selectedTab) {
@@ -33,14 +33,20 @@ struct ThirdOnboardingView: View {
                                 .stroke(Color.lightGreen, lineWidth: 1)
                                 .opacity(0.4)
                         }
+                        .scaleEffect(CGFloat(detectedSmallScreen(isWidthCheck: false) ? 0.7 : 1))
+                        .padding(.bottom,(detectedSmallScreen(isWidthCheck: false) ? -20 : 20))
+                    
+                    
                     Text("keyChooseRightWord".localized)
                         .multilineTextAlignment(.center)
-                        .padding()
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength:(detectedSmallScreen(isWidthCheck: false) ? 120 : 70))
                 }
                 .tabItem {
                     Text("Page 1")
                 }
                 .tag(0)
+                
                 
                 VStack {
                     Image("imgMake")
@@ -52,9 +58,12 @@ struct ThirdOnboardingView: View {
                                 .stroke(Color.lightGreen, lineWidth: 1)
                                 .opacity(0.4)
                         }
+                        .scaleEffect(CGFloat(detectedSmallScreen(isWidthCheck: false) ? 0.7 : 1))
+                        .padding(.bottom,(detectedSmallScreen(isWidthCheck: false) ? -20 : 20))
                     Text("keyMakeWordFromLetters".localized)
                         .multilineTextAlignment(.center)
-                        .padding()
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength:(detectedSmallScreen(isWidthCheck: false) ? 120 : 60))
                 }
                 .tabItem {
                     Text("Page 1")
@@ -71,25 +80,31 @@ struct ThirdOnboardingView: View {
                                 .stroke(Color.lightGreen, lineWidth: 1)
                                 .opacity(0.4)
                         }
+                        .scaleEffect(CGFloat(detectedSmallScreen(isWidthCheck: false) ? 0.7 : 1))
+                        .padding(.bottom,(detectedSmallScreen(isWidthCheck: false) ? -60 : 10))
                     Text("keyWriteWordInTextFiedl".localized)
+                        .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.center)
-                        .padding()
-                    if selectedTab == 2 {
+                    
+                    if selectedTab >= 1 {
                         Button {
                             completion()
                         } label: {
                             Text("keyNext".localized)
                         }
                         .buttonStyle(.bordered)
-                        .padding(.bottom, 30)
+                        .padding(.bottom, (detectedSmallScreen(isWidthCheck: false) ? 50 : 0))
                     }
+                    Spacer(minLength: 50)
                 }
                 .tabItem {
                     Text("Page 3")
                 }
                 .tag(2)
             }
+            .font(.system(size: (detectedSmallScreen(isWidthCheck: true) ? 15 : 20)))
             .tabViewStyle(.page(indexDisplayMode: .always))
+            
         }
         .padding()
     }

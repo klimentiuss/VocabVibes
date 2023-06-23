@@ -13,6 +13,7 @@ struct SecondOnboardingView: View {
     @State private var isButtonShown = false
     var completion: () -> ()
     
+    
     var body: some View {
         VStack {
             //MARK: - Header
@@ -22,6 +23,7 @@ struct SecondOnboardingView: View {
                     .bold()
                     .font(.title)
             }
+            .padding(.bottom, detectedSmallScreen(isWidthCheck: false) ? 0 : 40)
             
             //MARK: - Card
             ZStack {
@@ -39,7 +41,8 @@ struct SecondOnboardingView: View {
                     SwipeCardView(width: 240, height: 300, viewModel: SwipeCardViewModel(word: Word.example)) {
                         isButtonShown.toggle()
                     }
-                    .offset(y: 52)
+                    .scaleEffect(CGFloat(detectedSmallScreen(isWidthCheck: false) ? 0.7 : 1))
+                    //.offset(y: 10)
                     
                     .onAppear() {
                         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { timer in
@@ -50,7 +53,7 @@ struct SecondOnboardingView: View {
                     }
                 }
             }
-            
+            .padding(.bottom, detectedSmallScreen(isWidthCheck: false) ? 0 : 60)
             //MARK: - Instructions
             VStack(alignment: .listRowSeparatorLeading) {
                 HStack {
@@ -59,7 +62,7 @@ struct SecondOnboardingView: View {
                 }
                 .opacity(isTextShown ? 1 : 0)
                 .animation(Animation.easeInOut(duration: 0.6).delay(0.1), value: isTextShown)
-                .padding(.bottom ,20)
+                .padding(.bottom, 10)
                 HStack {
                     Image(systemName: "arrowshape.turn.up.right")
                     Text("keySwipe".localized)
@@ -73,13 +76,13 @@ struct SecondOnboardingView: View {
                 }
                 .opacity(isTextShown ? 1 : 0)
                 .animation(Animation.easeInOut(duration: 0.6).delay(1), value: isTextShown)
-                .padding(20)
+                .padding(.top, 10)
             }
-            .font(.callout)
-            .padding(.top, 100)
+            .font(.system(size: 15))
+            .padding(.horizontal, 20)
+            //.padding(.top, 21)
             
             //MARK: - Next button
-            Spacer()
             Button {
                 
                 completion()
@@ -88,8 +91,9 @@ struct SecondOnboardingView: View {
                 Text("keyNext".localized)
             }
             .buttonStyle(.bordered)
+            .padding(.top, 20)
         }
-        .padding()
+        
     }
 }
 

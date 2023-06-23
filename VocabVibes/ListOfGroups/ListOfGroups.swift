@@ -27,7 +27,7 @@ struct ListOfGroups: View {
                     //Header
                     Text("keyWordGroups".localized)
                         .foregroundColor(.white)
-                        .font(.largeTitle)
+                        .font(detectedSmallScreen(isWidthCheck: false) ? .title : .largeTitle)
                         .bold()
                         .padding(.top, 10)
                         .padding(.leading, 20)
@@ -41,6 +41,7 @@ struct ListOfGroups: View {
                     } label: {
                         Text("keyAddNew".localized)
                             .foregroundColor(Color.lightGreen)
+                            .font(.system(size: detectedSmallScreen(isWidthCheck: false) ? 15 : 20))
                     }
                     .padding(.top, 20)
                     .padding(.horizontal, 20)

@@ -21,7 +21,7 @@ struct TrainingsScreen: View {
                 VStack {
                     Text("keyStartTraining".localized)
                         .foregroundColor(Color.lightWhite)
-                        .font(.largeTitle)
+                        .font(detectedSmallScreen(isWidthCheck: false) ? .title : .largeTitle)
                         .bold()
                 }
                 .padding(.top, 10)

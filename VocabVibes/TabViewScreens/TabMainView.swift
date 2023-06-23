@@ -13,6 +13,7 @@ struct TabMainView: View {
     
     @State private var showingCredits = UserDefaults.standard.bool(forKey: "startLearning")
     
+    
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color.lightCoalBlack)
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.thinGreen.opacity(0.4))

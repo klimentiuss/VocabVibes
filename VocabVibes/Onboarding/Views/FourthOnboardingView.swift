@@ -18,8 +18,7 @@ struct FourthOnboardingView: View {
                 .multilineTextAlignment(.center)
                 .bold()
                 .font(.title)
-            Spacer()
-            
+                .padding(.bottom, (detectedSmallScreen(isWidthCheck: false) ? -20 : 0))
             //MARK: - First card
             VStack {
                 Image("imgGroup")
@@ -30,11 +29,13 @@ struct FourthOnboardingView: View {
                     HStack {
                         Image(systemName: "hand.tap")
                         Text("keyChooseGroupBeforeTrainig".localized)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                     
                     HStack {
                         Image(systemName: "plus")
                         Text("keyTapPlus".localized)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                     .padding(.top, 10)
                 }
@@ -45,9 +46,9 @@ struct FourthOnboardingView: View {
                     .stroke(Color.lightGreen, lineWidth: 1)
                     .opacity(0.4)
             }
+            .scaleEffect(CGFloat((detectedSmallScreen(isWidthCheck: false) ? 0.8 : 1)))
             
             //MARK: - Second Card
-            Spacer()
             VStack {
                 Image("imgWords")
                     .resizable()
@@ -56,7 +57,8 @@ struct FourthOnboardingView: View {
                 HStack {
                     Image(systemName: "graduationcap")
                     Text("keyWatchWords".localized)
-                        .padding()
+                        .fixedSize(horizontal: false, vertical: true)
+                       // .padding()
                 }
             }
             .padding()
@@ -65,16 +67,18 @@ struct FourthOnboardingView: View {
                     .stroke(Color.lightGreen, lineWidth: 1)
                     .opacity(0.4)
             }
-            
+            .scaleEffect(CGFloat((detectedSmallScreen(isWidthCheck: false) ? 0.8 : 1)))
+            .padding(.top, (detectedSmallScreen(isWidthCheck: false) ? -40 : 0))
             //MARK: - Button
-            Spacer()
             Button {
                 completion()
             } label: {
                 Text("keyEndLearning".localized)
             }
             .buttonStyle(.bordered)
+            .padding(.top, (detectedSmallScreen(isWidthCheck: false) ? -20 : 0))
         }
+        .font(.system(size: 15))
         .padding()
     }
 }
