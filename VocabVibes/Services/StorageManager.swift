@@ -41,28 +41,13 @@ class StorageManager {
             print("Error adding word: \(error.localizedDescription)")
         }
     }
+   
     
-    func deleteWord(group: WordList, index: IndexSet.Element) {
-        do {
-            let selectedListRef = ThreadSafeReference(to: group)
-            let selectedList = realm.resolve(selectedListRef)
-            
-            guard let wordToDelete = selectedList?.words[index] else { return }
-            
-            try realm.write {
-                selectedList?.words.remove(at: index)
-                realm.delete(wordToDelete)
-            }
-        } catch {
-            print("Error deleting word: \(error.localizedDescription)")
-        }
-    }
-    
-    func deleteWordFromAllWords(word: Word, index: IndexSet.Element) {
+    func deleteWord(word: Word) {
         do {
             let selectedWordRef = ThreadSafeReference(to: word)
             guard let selectedWord = realm.resolve(selectedWordRef) else { return }
-                        
+            
             try realm.write {
                 realm.delete(selectedWord)
             }
@@ -70,4 +55,18 @@ class StorageManager {
             print("Error deleting word: \(error.localizedDescription)")
         }
     }
+    
+    func editWord(selectedWordRefOptional: ThreadSafeReference<Word>?, value: String, translation: String) {
+            do {
+                guard let selectedWordRef = selectedWordRefOptional else { return }
+                guard let selectedWord = realm.resolve(selectedWordRef) else { return }
+                
+                try realm.write {
+                    selectedWord.wordTranslation = value
+                    selectedWord.wordValue = translation
+                }
+            } catch {
+                print("Error editing word: \(error.localizedDescription)")
+            }
+        }
 }

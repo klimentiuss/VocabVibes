@@ -53,7 +53,7 @@
 "keyCard" = "karta";
 "keySkip" = "Přeskočit";
 "keyWelcome" = "Vítejte v Memrix";
-"keyTagline" = "Aplikace, která vám pomáhá získat více informací.";
+"keyTagline" = "Aplikace, která Vám pomáhá získat více informací.";
 "keyFindOut" = "Zjistit více";
 "keyLearnWords" = "Učte se slova\ns pomocí kartiček";
 "keyTryAgain" = "Zkusit znovu";
@@ -71,3 +71,14 @@
 "keyWatchWords" = "Sledujte pokrok pomocí barevných identifikátorů.";
 "keyEndLearning" = "Ukončit seznamování";
 "keyWatchTutorial" = "Jak používat aplikaci";
+"keyApplication" = "aplikace";
+"keyBug" = "Nahlásit chybu";
+"keySuggest" = "Navrhnout vylepšení";
+"keySuport" = "Podpora";
+"keyPrivacy" = "Zásady ochrany osobních údajů";
+"keyUsage" = "Použití";
+"keySensitive" = "Citlivý na velká písmena";
+"keyRegisterWords" = "Zapnutím velkých písmen vám umožní přidávat slova do skupin s velkým písmenem.";
+"keyEdit" = "Editace";
+"keyEditMessage" = "Níže můžete upravit slovo.";
+"keyRate" = "Ohodnoťte aplikaci ❤️";

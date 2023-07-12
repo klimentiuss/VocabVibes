@@ -26,7 +26,9 @@ struct AllWordsView: View {
                     .padding(.bottom, -10)
                 List {
                     ForEach(viewModel.words.freeze(), id: \.id) { word in
-                        WordRow(viewModel: WordRowViewModel(word: word))
+                        WordRow(
+                            viewModel: WordRowViewModel(word: word),
+                            height: word.wordValue.count > 30 ? 85 : 60)
                             .listRowBackground(Color.coalBlack)
                     }
                     .onDelete { indexSet in

@@ -29,7 +29,7 @@ class WriteWordViewModel: BaseViewModel, ObservableObject {
     func checkTranslation() {
         checkIndex()
         
-        if  wordsToTraining[currentCardIndex].wordTranslation == translate.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
+        if  wordsToTraining[currentCardIndex].wordTranslation.lowercased() == translate.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
             StorageManager.shared.updateWeight(of:  wordsToTraining[currentCardIndex], isKnow: true)
             correctAnswersCount += 1
             translateStatus = ""

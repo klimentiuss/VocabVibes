@@ -22,7 +22,7 @@ struct WriteWord: View {
                     //MARK: - Displaying cards
                     ZStack {
                         ForEach(Array(viewModel.wordsToTraining.enumerated()), id: \.1.id) { index, word in
-                            CardView(viewModel: CardViewModel(word: word.wordValue))
+                            CardView(viewModel: CardViewModel(word: word))
                                 .offset(x: index == viewModel.currentCardIndex ? 0 : 500)
                                 .opacity(index == viewModel.currentCardIndex ? 1 : 0.5)
                         }

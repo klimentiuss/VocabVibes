@@ -34,8 +34,7 @@ struct ThirdOnboardingView: View {
                                 .opacity(0.4)
                         }
                         .scaleEffect(CGFloat(detectedSmallScreen(isWidthCheck: false) ? 0.7 : 1))
-                        .padding(.bottom,(detectedSmallScreen(isWidthCheck: false) ? -20 : 20))
-                    
+                        .padding(.bottom,(detectedSmallScreen(isWidthCheck: false) ? -60 : 10))
                     
                     Text("keyChooseRightWord".localized)
                         .multilineTextAlignment(.center)
@@ -59,7 +58,7 @@ struct ThirdOnboardingView: View {
                                 .opacity(0.4)
                         }
                         .scaleEffect(CGFloat(detectedSmallScreen(isWidthCheck: false) ? 0.7 : 1))
-                        .padding(.bottom,(detectedSmallScreen(isWidthCheck: false) ? -20 : 20))
+                        .padding(.bottom,(detectedSmallScreen(isWidthCheck: false) ? -60 : 10))
                     Text("keyMakeWordFromLetters".localized)
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
@@ -86,16 +85,7 @@ struct ThirdOnboardingView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.center)
                     
-                    if selectedTab >= 1 {
-                        Button {
-                            completion()
-                        } label: {
-                            Text("keyNext".localized)
-                        }
-                        .buttonStyle(.bordered)
-                        .padding(.bottom, (detectedSmallScreen(isWidthCheck: false) ? 50 : 0))
-                    }
-                    Spacer(minLength: 50)
+                    Spacer(minLength:(detectedSmallScreen(isWidthCheck: false) ? 120 : 60))
                 }
                 .tabItem {
                     Text("Page 3")
@@ -104,7 +94,14 @@ struct ThirdOnboardingView: View {
             }
             .font(.system(size: (detectedSmallScreen(isWidthCheck: true) ? 15 : 20)))
             .tabViewStyle(.page(indexDisplayMode: .always))
-            
+            Button {
+                withAnimation {
+                    selectedTab >= 2 ? completion() : (selectedTab += 1)
+                }
+            } label: {
+                Text("keyNext".localized)
+            }
+            .buttonStyle(.bordered)
         }
         .padding()
     }

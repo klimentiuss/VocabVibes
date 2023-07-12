@@ -17,6 +17,11 @@ class GroupDetailViewModel: ObservableObject {
     @Published var translate = ""
     @Published var warningText = ""
             
+    @Published var alertPresented = false
+    @Published var editingValue = ""
+    @Published var editingTranslation = ""
+    @Published var threadedWord: ThreadSafeReference<Word>?
+    
     func showOrHide() {
         addNewWordIsPressed.toggle()
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -37,23 +42,28 @@ class GroupDetailViewModel: ObservableObject {
             return
         }
         
-        saveNewWord(word: trimmedWord, translate: trimmedTranslate)
+        saveNewWord(value: trimmedWord, translate: trimmedTranslate)
         VibrationManager.shared.makeVibration(with: true)
         clearFields()
         
     }
     
-    func saveNewWord(word: String, translate: String) {
+    func saveNewWord(value: String, translate: String) {
         let newWord = Word()
-        newWord.wordValue = word.lowercased()
-        newWord.wordTranslation = translate.lowercased()
+        
+        newWord.wordValue = UserDefaults.standard.bool(forKey: "upperCaseSwitcher") ? value : value.lowercased()
+        newWord.wordTranslation = UserDefaults.standard.bool(forKey: "upperCaseSwitcher") ? translate : translate.lowercased()
         
         StorageManager.shared.saveWord(group: group, word: newWord)
     }
     
-    func delete(at indexSet: IndexSet) {
-        guard let index = indexSet.first else { return }
-        StorageManager.shared.deleteWord(group: group, index: index)
+    func threaded(word: Word){
+        threadedWord = ThreadSafeReference(to: word)
+    }
+    
+    func prepareTextFields(word: Word) {
+        editingValue = word.wordValue
+        editingTranslation = word.wordTranslation
     }
     
     init(group: WordList, addNewWordIsPressed: Bool = false, word: String = "", transalte: String = "", warningText: String = "") {

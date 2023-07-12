@@ -71,3 +71,14 @@
 "keyWatchWords" = "Sigue el progreso con indicadores de color.";
 "keyEndLearning" = "Finalizar familiarización";
 "keyWatchTutorial" = "Cómo usar la aplicación";
+"keyApplication" = "Solicitud";
+"keyBug" = "Informar un error";
+"keySuggest" = "Sugerir una mejora";
+"keySuport" = "Soporte";
+"keyPrivacy" = "Política de privacidad";
+"keyUsage" = "Uso";
+"keySensitive" = "Distingue mayúsculas y minúsculas";
+"keyRegisterWords" = "Activar mayúsculas le permitirá agregar palabras a grupos con una letra mayúscula.";
+"keyEdit" = "Edición";
+"keyEditMessage" = "Puede editar la palabra a continuación.";
+"keyRate" = "Califica la aplicación ❤️";

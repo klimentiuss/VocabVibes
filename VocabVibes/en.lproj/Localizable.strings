@@ -71,3 +71,14 @@
 "keyWatchWords" = "Track progress with color identifiers.";
 "keyEndLearning" = "Finish familiarization";
 "keyWatchTutorial" = "How to use the app";
+"keyApplication" = "Application";
+"keyBug" = "Report a bug";
+"keySuggest" = "Suggest improvement";
+"keySuport" = "Support";
+"keyPrivacy" = "Privacy Policy";
+"keyUsage" = "Usage";
+"keySensitive" = "Case sensitive";
+"keyRegisterWords" = "Turning case on will allow you to add words to groups with a capital letter.";
+"keyEdit" = "Editing";
+"keyEditMessage" = "You can edit word below.";
+"keyRate" = "Rate the app ❤️";

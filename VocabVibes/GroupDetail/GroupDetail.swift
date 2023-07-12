@@ -12,9 +12,10 @@ struct GroupDetail: View {
     
     
     @ObservedObject var viewModel: GroupDetailViewModel
+    
     @State var offsetMove: CGFloat = -110
     @State var isTextFieldsShown: Bool
-        
+    
     var body: some View {
         ZStack {
             BackgroundView()
@@ -25,16 +26,56 @@ struct GroupDetail: View {
                         AddNewWordsView(viewModel: viewModel) {
                             offsetMove = viewModel.addNewWordIsPressed ?  0 : -110
                         }
-                    //MARK: - List of words
+                        //MARK: - List of words
                         List {
                             ForEach(viewModel.group.words, id: \.id) { word in
-                                WordRow(viewModel: WordRowViewModel(word: word))
+                                
+                                WordRow(
+                                    viewModel: WordRowViewModel(word: word),
+                                    height: word.wordValue.count > 30 ? 85 : 60)
+                                //MARK: - Swipe Actions
+                                    .swipeActions {
+                                        Button(role: .destructive) {
+                                            StorageManager.shared.deleteWord(word: word)
+                                        } label: {
+                                            Image(systemName: "trash")
+                                        }
+                                        
+                                        Button {
+                                            viewModel.threaded(word: word)
+                                            viewModel.prepareTextFields(word: word)
+                                            viewModel.alertPresented.toggle()
+                                        } label: {
+                                            Image(systemName: "pencil")
+                                        }
+                                    }
                                     .listRowBackground(Color.coalBlack)
-                            }
-                            .onDelete { indexSet in
-                                viewModel.delete(at: indexSet)
+                                //MARK: - Alert with Editing
+                                    .alert("keyEdit".localized, isPresented: $viewModel.alertPresented, actions: {
+                                        TextField("keyWord".localized, text: $viewModel.editingValue)
+                                            .autocorrectionDisabled()
+                                            .foregroundColor(.ratingEmerald)
+                                        TextField("keyTranslate".localized, text: $viewModel.editingTranslation)
+                                            .autocorrectionDisabled()
+                                            .foregroundColor(.ratingEmerald)
+                                        
+                                        Button("keySave".localized, role: .cancel, action: {
+                                            StorageManager.shared.editWord(
+                                                selectedWordRefOptional: viewModel.threadedWord,
+                                                value: viewModel.editingValue,
+                                                translation: viewModel.editingTranslation)
+                                            
+                                        })
+                                        
+                                        Button("keyCancel".localized, role: .cancel, action: {})
+                                            
+                                    }, message: {
+                                        Text("keyEditMessage".localized)
+                                    })
+                                
                             }
                         }
+                        
                         .background(Color.coalBlack)
                         .listStyle(.plain)
                     }
@@ -55,8 +96,6 @@ struct GroupDetail: View {
                     
                 }
             }
-            
-            
         }
         .onAppear {
             if isTextFieldsShown {

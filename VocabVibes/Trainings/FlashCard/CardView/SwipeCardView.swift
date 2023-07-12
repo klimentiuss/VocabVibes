@@ -34,6 +34,7 @@ struct SwipeCardView: View {
                         .opacity(viewModel.isTranslated ? 1 : 0)
                         .font(.largeTitle)
                         .foregroundColor(.white)
+                        
                         //Mirror text
                         .rotation3DEffect(.degrees(Double(180)), axis: (x: 0, y: 1, z: 0))
                         .animation(.linear, value: viewModel.isTranslated)
@@ -45,6 +46,8 @@ struct SwipeCardView: View {
                         .animation(.linear, value: viewModel.isTranslated)
                 }
             }
+            .multilineTextAlignment(.center)
+            .frame(width: 250)
         }
         
         //Card rotation
@@ -80,9 +83,10 @@ struct SwipeCardView: View {
     }
 }
 
-//struct SwipeCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SwipeCardView(viewModel: SwipeCardViewModel(word: Word.example)) {}
-//            .preferredColorScheme(.dark)
-//    }
-//}
+struct SwipeCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        SwipeCardView(width: 350, height: 520, viewModel: SwipeCardViewModel(word: Word.example), completion: {
+        }) 
+            .preferredColorScheme(.dark)
+    }
+}

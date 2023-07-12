@@ -13,6 +13,7 @@ struct CardView: View {
     
     var body: some View {
         ZStack {
+            
             Rectangle()
                 .foregroundColor(Color.lightCoalBlack)
                 .frame(width: 320, height: screenSize().height >= 780 ? 420 : 320)
@@ -23,18 +24,47 @@ struct CardView: View {
                         .opacity(0.4)
                 }
             
+            
+            
             VStack {
-                Text(viewModel.word)
+                
+                Text(viewModel.word.wordValue)
                     .font(.largeTitle)
                     .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 250)
+                
+                if viewModel.translateIsShown {
+                    Text(viewModel.word.wordTranslation)
+                        //.font(.largeTitle)
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
+                        .opacity(0.7)
+                }
+                
+                
+            }
+            
+            if !viewModel.translateIsShown {
+                Button {
+                    withAnimation {
+                        viewModel.translateIsShown.toggle()
+                    }
+                } label: {
+                    Image(systemName: "questionmark.circle")
+                }
+                .foregroundColor(Color.lightGreen)
+                .offset(y: screenSize().height >= 780 ? 180 : 140)
             }
         }
-   
+        
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(viewModel: CardViewModel(word: "Hi"))
+        CardView(viewModel: CardViewModel(word: Word.example))
+            .preferredColorScheme(.dark)
     }
 }

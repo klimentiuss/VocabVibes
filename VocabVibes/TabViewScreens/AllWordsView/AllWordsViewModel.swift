@@ -18,6 +18,7 @@ class AllWordsViewModel: ObservableObject {
   
     func delete(at indexSet: IndexSet) {
         guard let index = indexSet.first else { return }        
-        StorageManager.shared.deleteWordFromAllWords(word: words[index], index: index)
+//        StorageManager.shared.deleteWordFromAllWords(word: words[index], index: index)
+        StorageManager.shared.deleteWord(word: words[index])
     }
 }

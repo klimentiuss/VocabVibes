@@ -71,5 +71,14 @@
 "keyWatchWords" = "Śledź postęp za pomocą identyfikatorów kolorów.";
 "keyEndLearning" = "Zakończ zapoznanie się";
 "keyWatchTutorial" = "Jak korzystać z aplikacji";
-
-
+"keyApplication" = "Aplikacja";
+"keyBug" = "Zgłoś błąd";
+"keySuggest" = "Zaproponuj ulepszenie";
+"keySuport" = "Wsparcie";
+"keyPrivacy" = "Polityka prywatności";
+"keyUsage" = "Wykorzystanie";
+"keySensitive" = "Wielkość liter ma znaczenie";
+"keyRegisterWords" = "Włączenie wielkości liter umożliwi dodawanie słów do grup z wielką literą.";
+"keyEdit" = "Edycja";
+"keyEditMessage" = "Możesz edytować słowo poniżej.";
+"keyRate" = "Oceń aplikację ❤️";

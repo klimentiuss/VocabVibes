@@ -14,7 +14,6 @@ extension View {
         guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return .zero
         }
-        print(window.screen.bounds.size)
         return window.screen.bounds.size
     }
     

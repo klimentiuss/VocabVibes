@@ -9,9 +9,10 @@ import Foundation
 
 class CardViewModel: ObservableObject {
  
-    @Published var word: String
+    @Published var word: Word
+    @Published var translateIsShown = false
     
-    init(word: String) {
+    init(word: Word) {
         self.word = word
     }
 }

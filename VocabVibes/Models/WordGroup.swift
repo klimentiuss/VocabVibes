@@ -50,8 +50,8 @@ extension WordList {
 extension Word {
     static var example: Word {
             let word = Word()
-            word.wordValue = "apple"
-            word.wordTranslation = "яблуко"
+            word.wordValue = "Arbeitsunfähigkeitsbescheinigung"
+            word.wordTranslation = "больничный лист"
             word.wordWeight = 8
             return word
         }

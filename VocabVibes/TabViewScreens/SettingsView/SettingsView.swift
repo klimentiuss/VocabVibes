@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct SettingsView: View {
     
+    @Environment(\.requestReview) var requestReview
     @StateObject private var viewModel = SettingsViewModel()
     @State private var showingCredits = false
+    @State private var showingMailWithError = false
+    @State private var showingMailWithSuggestion = false
     
     var body: some View {
         ZStack {
             BackgroundView()
             Form {
+                // MARK: - TRAININGS
                 Section(content: {
                     Toggle("keyHaptic".localized, isOn: $viewModel.switcher)
                     
@@ -33,21 +38,100 @@ struct SettingsView: View {
                 })
                 .listRowBackground(Color.lightCoalBlack)
                 
+                // MARK: - APPLICATION
                 Section(content: {
                     Button(action: {
                         showingCredits.toggle()
                     }, label: {
-                        Text("keyWatchTutorial".localized)
+                        HStack {
+                            Text("keyWatchTutorial".localized)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
                     })
                     .sheet(isPresented: $showingCredits, content: {
                         OnbardingView {
                             showingCredits.toggle()
                         }
                     })
+                    .buttonStyle(.plain)
+                    .preferredColorScheme(.dark)
+                    
+                    Toggle("keySensitive".localized, isOn: $viewModel.upperCaseSwitcher)
+                    
+                }, header: {
+                    Text("keyApplication".localized)
+                }, footer: {
+                    Text("keyRegisterWords".localized)
+                })
+                .listRowBackground(Color.lightCoalBlack)
+                
+                // MARK: - SUPPORT
+                Section(content: {
+                    Button(action: {
+                        requestReview()
+                    }, label: {
+                        HStack {
+                            Text("keyRate".localized)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
+                    })
+                    
+                    Button(action: {
+                        showingMailWithError.toggle()
+                    }, label: {
+                        HStack {
+                            Text("keyBug".localized)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
+                    })
+                    .sheet(isPresented: $showingMailWithError) {
+                        MailComposeView(isShowing: $showingMailWithError, subject: "Error message", recipientEmail: "memrixApp@icloud.com")
+                    }
+                    
+                    Button(action: {
+                        showingMailWithSuggestion.toggle()
+                    }, label: {
+                        HStack {
+                            Text("keySuggest".localized)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
+                    })
+                    .sheet(isPresented: $showingMailWithSuggestion) {
+                        MailComposeView(isShowing: $showingMailWithSuggestion, subject: "Improvement suggestion", recipientEmail: "memrixApp@icloud.com")
+                    }
+                    
+                    .buttonStyle(.plain)
                     .preferredColorScheme(.dark)
                     .pickerStyle(.menu)
                 }, header: {
-                    Text("keyApp".localized)
+                    Text("keySuport".localized)
+                }, footer: {
+                    Text("")
+                })
+                .listRowBackground(Color.lightCoalBlack)
+                
+                // MARK: - USAGE
+                Section(content: {
+                    Button(action: {
+                        viewModel.openPrivacyPolicy()
+                    }, label: {
+                        Text("keyPrivacy".localized)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                    })
+                  
+                    .buttonStyle(.plain)
+                    .preferredColorScheme(.dark)
+                    .pickerStyle(.menu)
+                }, header: {
+                    Text("keyUsage".localized)
                 }, footer: {
                     Text("")
                 })
@@ -67,3 +151,11 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
+
+
+
+
+
+
+
+

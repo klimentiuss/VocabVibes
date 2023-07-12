@@ -71,5 +71,14 @@
 "keyWatchWords" = "Monitora i progressi con indicatori di colore.";
 "keyEndLearning" = "Termina familiarizzazione";
 "keyWatchTutorial" = "Come usare l'app";
-
-
+"keyApplication" = "Applicazione";
+"keyBug" = "Segnala un errore";
+"keySuggest" = "Suggerisci un miglioramento";
+"keySuport" = "Supporto";
+"keyPrivacy" = "Politica sulla privacy";
+"keyUsage" = "Utilizzo";
+"keySensitive" = "Maiuscole e minuscole";
+"keyRegisterWords" = "L'attivazione di maiuscole e minuscole ti consentirà di aggiungere parole ai gruppi con una lettera maiuscola.";
+"keyEdit" = "Modifica";
+"keyEditMessage" = "Puoi modificare la parola qui sotto.";
+"keyRate" = "Valuta l'app ❤️";

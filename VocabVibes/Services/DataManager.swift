@@ -21,6 +21,7 @@ class DataManager {
             UserDefaults.standard.set(true, forKey: "vibrationToggle")
             UserDefaults.standard.set(true, forKey: "startLearning")
             UserDefaults.standard.set(10, forKey: "wordsPerTraining")
+            UserDefaults.standard.set(false, forKey: "upperCaseSwitcher")
             
             let initialList = WordList()
             initialList.nameOfGroup = "keyInitialGroup".localized

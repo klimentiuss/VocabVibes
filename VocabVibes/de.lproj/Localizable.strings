@@ -71,3 +71,14 @@
 "keyWatchWords" = "Verfolgen Sie den Fortschritt mit Farbmarkierungen.";
 "keyEndLearning" = "Fertig mit der Einführung";
 "keyWatchTutorial" = "So verwenden Sie die App";
+"keyApplication" = "Anwendung";
+"keyBug" = "Fehler melden";
+"keySuggest" = "Verbesserung vorschlagen";
+"keySuport" = "Unterstützung";
+"keyPrivacy" = "Datenschutzbestimmungen";
+"keyUsage" = "Verwendung";
+"keySensitive" = "Großgeschrieben";
+"keyRegisterWords" = "Wenn Sie die Groß-/Kleinschreibung aktivieren, können Sie Wörter zu Gruppen mit Großbuchstaben hinzufügen.";
+"keyEdit" = "Bearbeiten";
+"keyEditMessage" = "Sie können das Wort unten bearbeiten.";
+"keyRate" = "App bewerten ❤️";
