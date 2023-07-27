@@ -48,6 +48,7 @@ struct GroupDetail: View {
                                         } label: {
                                             Image(systemName: "pencil")
                                         }
+                                        .tint(Color.gray)
                                     }
                                     .listRowBackground(Color.coalBlack)
                                 //MARK: - Alert with Editing
@@ -59,7 +60,7 @@ struct GroupDetail: View {
                                             .autocorrectionDisabled()
                                             .foregroundColor(.ratingEmerald)
                                         
-                                        Button("keySave".localized, role: .cancel, action: {
+                                        Button("keySave".localized, action: {
                                             StorageManager.shared.editWord(
                                                 selectedWordRefOptional: viewModel.threadedWord,
                                                 value: viewModel.editingValue,

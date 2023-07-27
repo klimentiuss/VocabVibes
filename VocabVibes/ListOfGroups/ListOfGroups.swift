@@ -66,11 +66,42 @@ struct ListOfGroups: View {
                 List {
                     ForEach(viewModel.wordGroups.freeze(), id: \.id) { group in
                         GroupRow(viewModel: GroupRowViewModel(group: group))
+                            .swipeActions{
+                                Button(role: .destructive) {
+                                    viewModel.checkLastGroup(group: group)
+                                    
+                                } label: {
+                                    Image(systemName: "trash")
+                                }
+                                .tint(Color.red)
+                                
+                                Button {
+                                    viewModel.threaded(group: group)
+                                    viewModel.prepareTextField(group: group)
+                                    viewModel.editingAlertPresented.toggle()
+                                } label: {
+                                    Image(systemName: "pencil")
+                                }
+                                .tint(Color.gray)
+                            }
                             .listRowBackground(Color.coalBlack)
+                        //MARK: - Alert with Editing
+                            .alert("keyEdit".localized, isPresented: $viewModel.editingAlertPresented, actions: {
+                                TextField("keyEnterNameOfGroup".localized, text: $viewModel.editingValue)
+                                    .autocorrectionDisabled()
+                                    .foregroundColor(.ratingEmerald)
+                                
+                                Button("keySave".localized, action: {
+                                    StorageManager.shared.editGroup(
+                                        selectedGroupRefOptional: viewModel.threadedGroup,
+                                        newName: viewModel.editingValue)
+                                })
+                                
+                                Button("keyCancel".localized, role: .cancel, action: {})
+                                    
+                            })
+                            
                     }
-                    .onDelete(perform: { indexSet in
-                        viewModel.checkLastGroup(indexSet: indexSet)
-                    })
                 }
                 .scrollContentBackground(.hidden)
                 .listStyle(.plain)

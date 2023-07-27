@@ -56,14 +56,41 @@ class StorageManager {
         }
     }
     
+    func deleteGroup(group: WordList) {
+        do {
+            let selectedGroupRef = ThreadSafeReference(to: group)
+            guard let selectedGroup = realm.resolve(selectedGroupRef) else { return }
+            
+            try realm.write {
+                realm.delete(selectedGroup.words)
+                realm.delete(selectedGroup)
+            }
+        } catch {
+            print("Error deleting word: \(error.localizedDescription)")
+        }
+    }
+    
     func editWord(selectedWordRefOptional: ThreadSafeReference<Word>?, value: String, translation: String) {
             do {
                 guard let selectedWordRef = selectedWordRefOptional else { return }
                 guard let selectedWord = realm.resolve(selectedWordRef) else { return }
                 
                 try realm.write {
-                    selectedWord.wordTranslation = value
-                    selectedWord.wordValue = translation
+                    selectedWord.wordTranslation = translation
+                    selectedWord.wordValue = value
+                }
+            } catch {
+                print("Error editing word: \(error.localizedDescription)")
+            }
+        }
+    
+    func editGroup(selectedGroupRefOptional: ThreadSafeReference<WordList>?, newName: String) {
+            do {
+                guard let selectedGroupRef = selectedGroupRefOptional else { return }
+                guard let selectedGroup = realm.resolve(selectedGroupRef) else { return }
+                
+                try realm.write {
+                    selectedGroup.nameOfGroup = newName
                 }
             } catch {
                 print("Error editing word: \(error.localizedDescription)")

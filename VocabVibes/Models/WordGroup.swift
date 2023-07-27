@@ -51,7 +51,7 @@ extension Word {
     static var example: Word {
             let word = Word()
             word.wordValue = "Arbeitsunfähigkeitsbescheinigung"
-            word.wordTranslation = "больничный лист"
+            word.wordTranslation = "Arbeitsunfähigkeitsbescheinigung"
             word.wordWeight = 8
             return word
         }

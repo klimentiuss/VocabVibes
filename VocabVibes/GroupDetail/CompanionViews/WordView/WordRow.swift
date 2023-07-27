@@ -18,23 +18,27 @@ struct WordRow: View {
                 .fill(Color.lightCoalBlack)
                 .frame(height: height)
                 .cornerRadius(15)
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(viewModel.word.wordValue)
-                        .foregroundColor(.white)
-                        .font(.title2)
+                .overlay {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(viewModel.word.wordValue)
+                                .foregroundColor(.white)
+                                .font(.title2)
 
-                    Text(viewModel.word.wordTranslation)
-                        .foregroundColor(.white)
-                        .font(.title2)
-                        .opacity(0.5)
+                            Text(viewModel.word.wordTranslation)
+                                .foregroundColor(.white)
+                                .font(.title2)
+                                .opacity(0.5)
+                                
+                        }
+
+                        Spacer()
+
+                        RatingView(viewModel: viewModel)
+                    }
+                    .padding(.horizontal, 20)
                 }
-
-                Spacer()
-
-                RatingView(viewModel: viewModel)
-            }
-            .padding(.horizontal, 20)
+            
         }
     }
 }

@@ -28,7 +28,7 @@ struct WriteWord: View {
                         }
                         
                         Text(viewModel.translateStatus)
-                            .offset(y: 170)
+                            .offset(y: screenSize().height >= 780 ? 140 : 100)
                             .font(.title3)
                             .foregroundColor(.white)
                             .animation(.spring(), value: 0.5)

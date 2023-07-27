@@ -14,7 +14,9 @@ class ListOfGroupsViewModel: ObservableObject {
     @Published var alertPresented = false
     @Published var addNewGroupPresented = false
     @Published var groupName = ""
-    
+    @Published var threadedGroup: ThreadSafeReference<WordList>?
+    @Published var editingAlertPresented = false
+    @Published var editingValue = ""
     
     func createNewGroup() {
         let trimmedGroupName = groupName.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -30,24 +32,21 @@ class ListOfGroupsViewModel: ObservableObject {
         groupName = ""
     }
     
-    func checkLastGroup(indexSet: IndexSet) {
+    func checkLastGroup(group: WordList) {
         if wordGroups.count > 1 {
-            delete(at: indexSet)
+            StorageManager.shared.deleteGroup(group: group)
         } else {
             VibrationManager.shared.makeVibration(with: true)
             alertPresented.toggle()
         }
+        objectWillChange.send()
+    }
+
+    func threaded(group: WordList){
+        threadedGroup = ThreadSafeReference(to: group)
     }
     
-    func delete(at indexSet: IndexSet) {
-        if let index = indexSet.first,
-            let realm = wordGroups[index].realm {
-            try? realm.write({
-                realm.delete(wordGroups[index].words)
-                realm.delete(wordGroups[index])
-            })
-            objectWillChange.send()
-        }
+    func prepareTextField(group: WordList) {
+        editingValue = group.nameOfGroup
     }
-    
 }
