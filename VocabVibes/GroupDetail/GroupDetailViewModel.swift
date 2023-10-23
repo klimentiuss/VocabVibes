@@ -22,9 +22,16 @@ class GroupDetailViewModel: ObservableObject {
     @Published var editingTranslation = ""
     @Published var threadedWord: ThreadSafeReference<Word>?
     
+    @Published var searchWord = ""
+    @Published var isSearchShown = false
+    
+    @Published var offsetMove: CGFloat = -110
+    
+    
     func showOrHide() {
         addNewWordIsPressed.toggle()
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        offsetMove = addNewWordIsPressed ?  0 : -110
     }
     
     func clearFields() {
@@ -65,6 +72,19 @@ class GroupDetailViewModel: ObservableObject {
         editingValue = word.wordValue
         editingTranslation = word.wordTranslation
     }
+    
+    func search(by filterText: String, in group: WordList) -> Array<Word> {
+        
+        if filterText.isEmpty {
+            return Array(group.words)
+            } else {
+                return Array(group.words.filter {
+                    $0.wordValue.lowercased().contains(filterText.lowercased()) ||
+                    $0.wordTranslation.lowercased().contains(filterText.lowercased())
+                })
+            }
+    }
+
     
     init(group: WordList, addNewWordIsPressed: Bool = false, word: String = "", transalte: String = "", warningText: String = "") {
         self.group = group
