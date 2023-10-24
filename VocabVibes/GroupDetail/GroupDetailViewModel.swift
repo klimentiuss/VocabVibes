@@ -8,6 +8,7 @@
 import SwiftUI
 import RealmSwift
 
+
 class GroupDetailViewModel: ObservableObject {
     
     @ObservedRealmObject var group: WordList
@@ -73,19 +74,6 @@ class GroupDetailViewModel: ObservableObject {
         editingTranslation = word.wordTranslation
     }
     
-    func search(by filterText: String, in group: WordList) -> Array<Word> {
-        
-        if filterText.isEmpty {
-            return Array(group.words)
-            } else {
-                return Array(group.words.filter {
-                    $0.wordValue.lowercased().contains(filterText.lowercased()) ||
-                    $0.wordTranslation.lowercased().contains(filterText.lowercased())
-                })
-            }
-    }
-
-    
     init(group: WordList, addNewWordIsPressed: Bool = false, word: String = "", transalte: String = "", warningText: String = "") {
         self.group = group
         self.addNewWordIsPressed = addNewWordIsPressed
@@ -96,3 +84,7 @@ class GroupDetailViewModel: ObservableObject {
 
 }
 
+
+extension GroupDetailViewModel: ListSearchable {
+    
+}

@@ -45,7 +45,7 @@ struct GroupDetail: View {
                                     } label: {
                                         Image(systemName: "trash")
                                     }
-                                    
+                                    .tint(Color.red)
                                     Button {
                                         viewModel.threaded(word: word)
                                         viewModel.prepareTextFields(word: word)

@@ -17,35 +17,33 @@ struct AllWordsView: View {
             BackgroundView()
             
             VStack(alignment: .leading) {
-                Text("keyAllWords".localized)
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .bold()
-                    .padding(.top, 10)
-                    .padding(.leading, 20)
-                    .padding(.bottom, -10)
                 List {
-                    ForEach(viewModel.words.freeze(), id: \.id) { word in
+                    ForEach(viewModel.search(by: viewModel.searchWord, in: viewModel.words.freeze()), id: \.id) { word in
                         WordRow(
                             viewModel: WordRowViewModel(word: word),
                             height: word.wordValue.count > 30 ? 85 : 60)
                             .listRowBackground(Color.coalBlack)
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    StorageManager.shared.deleteWord(word: word)
+                                    
+                                } label: {
+                                    Image(systemName: "trash")
+                                }
+                                .tint(Color.red)
+                                
+                            }
                     }
-                    .onDelete { indexSet in
-                        viewModel.delete(at: indexSet)
-                    }
-                }
-                .listStyle(.plain)
 
+                }
+                .searchable(text: $viewModel.searchWord)
+                .listStyle(.plain)
             }
-                            
         }
         .onAppear {
             viewModel.updateView()
         }
-        
-        .navigationTitle("All words")
-        .embedNavigationView(with: "All words")
+        .embedNavigationView(with: "keyAllWords".localized)
     }
 }
 

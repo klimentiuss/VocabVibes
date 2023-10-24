@@ -79,7 +79,7 @@ struct TrainingsScreen: View {
                 
             }
         }
-        .embedNavigationView(with: "VocabVibes")
+        .embedNavigationView(with: "Memrix")
         .onAppear {
             viewModel.getFirstlist()
         }

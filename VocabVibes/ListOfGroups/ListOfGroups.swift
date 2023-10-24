@@ -8,6 +8,9 @@
 import SwiftUI
 import RealmSwift
 
+import SwiftUI
+import RealmSwift
+
 struct ListOfGroups: View {
     
     init() {
@@ -23,45 +26,6 @@ struct ListOfGroups: View {
             BackgroundView()
             
             VStack(alignment: .leading) {
-                HStack {
-                    //Header
-                    Text("keyWordGroups".localized)
-                        .foregroundColor(.white)
-                        .font(detectedSmallScreen(isWidthCheck: false) ? .title : .largeTitle)
-                        .bold()
-                        .padding(.top, 10)
-                        .padding(.leading, 20)
-                        .padding(.bottom, -10)
-                    
-                    Spacer()
-                    
-                    //Addition new group
-                    Button {
-                        viewModel.addNewGroupPresented.toggle()
-                    } label: {
-                        Text("keyAddNew".localized)
-                            .foregroundColor(Color.lightGreen)
-                            .font(.system(size: detectedSmallScreen(isWidthCheck: false) ? 15 : 20))
-                    }
-                    .padding(.top, 20)
-                    .padding(.horizontal, 20)
-                    
-                    .alert("keyNewGroup".localized, isPresented: $viewModel.addNewGroupPresented, actions: {
-                        TextField("keyGroupName".localized, text: $viewModel.groupName)
-                            .autocorrectionDisabled()
-                            .foregroundColor(.ratingEmerald)
-                        Button("keySave".localized, action: {
-                            viewModel.createNewGroup()
-                        })
-                        
-                        Button("keyCancel".localized, role: .cancel, action: {})
-                        
-                    }, message: {
-                        Text("keyEnterNameOfGroup".localized)
-                    })
-                    
-                }
-
                 //MARK: - List of groups
                 List {
                     ForEach(viewModel.wordGroups.freeze(), id: \.id) { group in
@@ -107,10 +71,32 @@ struct ListOfGroups: View {
                 .listStyle(.plain)
                 .alert("keyCantDeleteGroup".localized, isPresented: $viewModel.alertPresented) {}
             }
-            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewModel.addNewGroupPresented.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(Color.lightGreen)
+                            .font(.system(size: detectedSmallScreen(isWidthCheck: false) ? 15 : 20))
+                    }
+                    .alert("keyNewGroup".localized, isPresented: $viewModel.addNewGroupPresented, actions: {
+                        TextField("keyGroupName".localized, text: $viewModel.groupName)
+                            .autocorrectionDisabled()
+                            .foregroundColor(.ratingEmerald)
+                        Button("keySave".localized, action: {
+                            viewModel.createNewGroup()
+                        })
+                        
+                        Button("keyCancel".localized, role: .cancel, action: {})
+                        
+                    }, message: {
+                        Text("keyEnterNameOfGroup".localized)
+                    })
+                }
+            }
         }
-        .navigationTitle("keyWordGroups".localized)
-        .embedNavigationView(with: "VocabVibes")
+        .embedNavigationView(with: "keyWordGroups".localized)
     }
 }
 
@@ -119,3 +105,4 @@ struct ListOfGroups_Previews: PreviewProvider {
         ListOfGroups()
     }
 }
+
