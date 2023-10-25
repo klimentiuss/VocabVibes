@@ -32,7 +32,7 @@ struct GroupDetail: View {
                         }
                         //MARK: - List of words
                         List {
-                            ForEach(viewModel.search(by: viewModel.searchWord, in: viewModel.group), id: \.id) { word in
+                            ForEach(viewModel.search(by: viewModel.searchWord, in: viewModel.sortWords(group: viewModel.group, by: viewModel.sortingMethod)), id: \.id) { word in
                                 
                                 WordRow(
                                     viewModel: WordRowViewModel(word: word),
@@ -89,6 +89,16 @@ struct GroupDetail: View {
                     .offset(y:viewModel.offsetMove)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
+                            Picker("", selection: $viewModel.sortingMethod) {
+                                ForEach(WordSorting.allCases, id: \.self) { sortingOption in
+                                    Text(sortingOption.description)
+                                }
+                            }
+                            .labelsHidden()
+                            
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
                                 if viewModel.isSearchShown {
                                     viewModel.isSearchShown.toggle()
@@ -102,6 +112,7 @@ struct GroupDetail: View {
                                     .animation(.easeIn, value: viewModel.addNewWordIsPressed)
                             }
                         }
+                        
                         
                         ToolbarItem(placement: .navigationBarLeading ) {
                             Button {
@@ -117,6 +128,7 @@ struct GroupDetail: View {
                                     .foregroundColor(Color.lightGreen)
                             }
                         }
+                        
                         
                     }
                     

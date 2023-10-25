@@ -18,26 +18,42 @@ struct AllWordsView: View {
             
             VStack(alignment: .leading) {
                 List {
-                    ForEach(viewModel.search(by: viewModel.searchWord, in: viewModel.words.freeze()), id: \.id) { word in
+                    ForEach(viewModel.search(
+                        by: viewModel.searchWord,
+                        in: viewModel.sortWords(
+                            group: viewModel.words.freeze(),
+                            by: viewModel.sortingMethod)),
+                            id: \.id) { word in
                         WordRow(
                             viewModel: WordRowViewModel(word: word),
                             height: word.wordValue.count > 30 ? 85 : 60)
-                            .listRowBackground(Color.coalBlack)
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    StorageManager.shared.deleteWord(word: word)
-                                    
-                                } label: {
-                                    Image(systemName: "trash")
-                                }
-                                .tint(Color.red)
+                        .listRowBackground(Color.coalBlack)
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                StorageManager.shared.deleteWord(word: word)
                                 
+                            } label: {
+                                Image(systemName: "trash")
                             }
+                            .tint(Color.red)
+                            
+                        }
                     }
-
+                    
                 }
                 .searchable(text: $viewModel.searchWord)
                 .listStyle(.plain)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Picker("", selection: $viewModel.sortingMethod) {
+                            ForEach(WordSorting.allCases, id: \.self) { sortingOption in
+                                Text(sortingOption.description)
+                            }
+                        }
+                        .labelsHidden()
+                        
+                    }
+                }
             }
         }
         .onAppear {

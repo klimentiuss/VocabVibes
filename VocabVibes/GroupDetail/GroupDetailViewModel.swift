@@ -27,6 +27,7 @@ class GroupDetailViewModel: ObservableObject {
     @Published var isSearchShown = false
     
     @Published var offsetMove: CGFloat = -110
+    @Published var sortingMethod: WordSorting = .unsorted
     
     
     func showOrHide() {
@@ -85,6 +86,6 @@ class GroupDetailViewModel: ObservableObject {
 }
 
 
-extension GroupDetailViewModel: ListSearchable {
+extension GroupDetailViewModel: ListSortable {
     
 }

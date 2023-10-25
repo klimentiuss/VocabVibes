@@ -13,12 +13,15 @@ class AllWordsViewModel: ObservableObject {
     @ObservedResults(WordList.self) var groups
     
     @Published var searchWord = ""
+    @Published var sortingMethod: WordSorting = .unsorted
     
     func updateView() {
         objectWillChange.send()
     }
+        
+    
 }
 
-extension AllWordsViewModel: ListSearchable {
-
+extension AllWordsViewModel: ListSortable {
+    
 }

@@ -8,35 +8,64 @@
 import Foundation
 import RealmSwift
 
-
-protocol ListSearchable {
-    func search(by filterText: String, in group: WordList) -> Array<Word>
+enum WordSorting: CaseIterable, CustomStringConvertible {
+    
+    case unsorted
+    case alphabeticallyAscending
+    case byWeightAscending
+    case byWeightDescending
+    
+    var description: String {
+           switch self {
+           case .unsorted: return "○"
+           case .alphabeticallyAscending: return "A-Z"
+           case .byWeightAscending: return "1-10"
+           case .byWeightDescending: return "10-1"
+           }
+       }
 }
 
-extension ListSearchable {
+protocol ListSortable {
+    func sortWords<T>(group: T, by sortingMethod: WordSorting) -> [Word]
+    func search(by filterText: String, in group: [Word]) -> [Word]
+}
+
+extension ListSortable {
   
-    func search<T>(by filterText: String, in group: T) -> [Word] {
+    func sortWords<T>(group: T, by sortingMethod: WordSorting) -> [Word] {
+        
+        let arrayForSort: [Word]
+        
         switch group {
         case let list as WordList:
-            if filterText.isEmpty {
-                return Array(list.words)
-            } else {
-                return Array(list.words.filter {
-                    $0.wordValue.lowercased().contains(filterText.lowercased()) ||
-                    $0.wordTranslation.lowercased().contains(filterText.lowercased())
-                })
-            }
+            arrayForSort = Array(list.words)
         case let results as Results<Word>:
-            if filterText.isEmpty {
-                return Array(results)
-            } else {
-                return Array(results.filter {
-                    $0.wordValue.lowercased().contains(filterText.lowercased()) ||
-                    $0.wordTranslation.lowercased().contains(filterText.lowercased())
-                })
-            }
+            arrayForSort = Array(results)
         default:
-            return []
+            arrayForSort = []
+        }
+        
+        switch sortingMethod {
+        case .unsorted:
+            return arrayForSort
+        case .alphabeticallyAscending:
+            return arrayForSort.sorted { $0.wordValue < $1.wordValue}
+        case .byWeightAscending:
+            return arrayForSort.sorted { $0.wordWeight < $1.wordWeight}
+        case .byWeightDescending:
+            return arrayForSort.sorted { $0.wordWeight > $1.wordWeight}
+        }
+    
+    }
+    
+    func search(by filterText: String, in group: [Word]) -> [Word] {
+        if filterText.isEmpty {
+            return group
+        } else {
+            return group.filter {
+                $0.wordValue.lowercased().contains(filterText.lowercased()) ||
+                $0.wordTranslation.lowercased().contains(filterText.lowercased())
+            }
         }
     }
   
