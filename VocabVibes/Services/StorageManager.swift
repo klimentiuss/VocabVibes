@@ -13,7 +13,7 @@ class StorageManager {
     static let shared = StorageManager()
     
     private init() {}
-    
+        
     let realm = try! Realm()
     
     func updateWeight(of word: Word, isKnow: Bool ) {

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TabMainView: View {
-    
     @State private var showingCredits = UserDefaults.standard.bool(forKey: "startLearning")
     
     

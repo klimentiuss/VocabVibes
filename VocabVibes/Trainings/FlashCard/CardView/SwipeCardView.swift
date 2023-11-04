@@ -12,6 +12,7 @@ struct SwipeCardView: View {
     var width: CGFloat//350
     var height: CGFloat//520
     @StateObject var viewModel: SwipeCardViewModel
+    @StateObject private var synthesizer = SpeechSynthesizer()
     var completion: () -> ()
     
     
@@ -30,20 +31,40 @@ struct SwipeCardView: View {
             //MARK: - Word on card
             HStack {
                 if viewModel.isTranslated {
-                    Text(viewModel.word.wordTranslation)
-                        .opacity(viewModel.isTranslated ? 1 : 0)
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                        
-                        //Mirror text
-                        .rotation3DEffect(.degrees(Double(180)), axis: (x: 0, y: 1, z: 0))
-                        .animation(.linear, value: viewModel.isTranslated)
+                    VStack {
+                        Text(viewModel.word.wordTranslation)
+                            .opacity(viewModel.isTranslated ? 1 : 0)
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            
+                            //Mirror text
+                            .rotation3DEffect(.degrees(Double(180)), axis: (x: 0, y: 1, z: 0))
+                            .animation(.linear, value: viewModel.isTranslated)
+                        Image(systemName: "speaker.wave.1.fill")
+                            .foregroundColor(Color.lightGreen)
+                            .rotation3DEffect(.degrees(Double(180)), axis: (x: 0, y: 1, z: 0))
+
+                    }
+                    .onTapGesture {
+                        Task {
+                            await synthesizer.speak(viewModel.word.wordTranslation)
+                        }
+                    }
                 } else {
-                    Text(viewModel.word.wordValue)
-                        .opacity(viewModel.isTranslated ? 0 : 1)
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                        .animation(.linear, value: viewModel.isTranslated)
+                    VStack {
+                        Text(viewModel.word.wordValue)
+                            .opacity(viewModel.isTranslated ? 0 : 1)
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .animation(.linear, value: viewModel.isTranslated)
+                        Image(systemName: "speaker.wave.1.fill")
+                            .foregroundColor(Color.lightGreen)
+                    }
+                    .onTapGesture {
+                        Task {
+                            await synthesizer.speak(viewModel.word.wordValue)
+                        }
+                    }
                 }
             }
             .multilineTextAlignment(.center)
@@ -79,6 +100,7 @@ struct SwipeCardView: View {
                     }
                 }
         )
+        
         
     }
 }

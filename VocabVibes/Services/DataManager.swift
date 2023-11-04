@@ -15,6 +15,7 @@ class DataManager {
    
     @ObservedResults(WordList.self) var wordList
     
+    
     func createInitialList() {
         if !UserDefaults.standard.bool(forKey: "done") {
             UserDefaults.standard.set(true, forKey: "done")

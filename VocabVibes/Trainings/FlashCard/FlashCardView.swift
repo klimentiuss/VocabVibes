@@ -23,7 +23,6 @@ struct FlashCardView: View {
                         SwipeCardView(width: 350, height: 520, viewModel: SwipeCardViewModel(word: word)) {
                             viewModel.updateIndex()
                         }
-                        
                     }
                 }
             case .lastWord:
