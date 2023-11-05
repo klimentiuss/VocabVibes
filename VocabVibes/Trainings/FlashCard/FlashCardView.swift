@@ -20,9 +20,12 @@ struct FlashCardView: View {
                 //MARK: - Displaying cards
                 ZStack {
                     ForEach(viewModel.wordsToTraining, id: \.id) { word in
-                        SwipeCardView(width: 350, height: 520, viewModel: SwipeCardViewModel(word: word)) {
-                            viewModel.updateIndex()
-                        }
+                        SwipeCardView(
+                            width: 350,
+                            height: 520,
+                            viewModel: SwipeCardViewModel(word: word)) {
+                                viewModel.updateIndex()
+                            }
                     }
                 }
             case .lastWord:

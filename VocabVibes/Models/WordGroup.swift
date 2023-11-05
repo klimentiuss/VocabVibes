@@ -13,7 +13,9 @@ class WordList: Object, ObjectKeyIdentifiable {
     
     @Persisted var nameOfGroup: String = ""
     @Persisted var words = RealmSwift.List<Word>()
-    @Persisted var languages = RealmSwift.List<WordListLanguage>()
+    
+    @Persisted var groupMainLanguage: String?
+    @Persisted var groupLearningLanguage: String?
 }
 
 
@@ -23,16 +25,19 @@ class Word: Object, ObjectKeyIdentifiable {
     @Persisted var wordWeight: Int = 0
     @Persisted var wordValue: String = ""
     @Persisted var wordTranslation: String = ""
+    
+    @Persisted var wordValueLanguage: String?
+    @Persisted var wordTranslationLanguage: String?
 }
 
-class WordListLanguage: Object, ObjectKeyIdentifiable {
-    @Persisted var mainLanguage: String?
-    @Persisted var languageToLearn: String?
-}
+//class WordListLanguage: Object, ObjectKeyIdentifiable {
+//    @Persisted var mainLanguage: String?
+//    @Persisted var languageToLearn: String?
+//}
 
 enum Language: String, CaseIterable, Identifiable, CustomStringConvertible {
     var id: Self { self }
-    case en, uk, cs, de, pl, it, es, fr
+    case en, uk, cs, de, pl, it, es, fr, other
     
     var description: String {
         switch self {
@@ -52,6 +57,8 @@ enum Language: String, CaseIterable, Identifiable, CustomStringConvertible {
             return "Spanish"
         case .fr:
             return "French"
+        case .other:
+            return "Other"
         }
     }
 }

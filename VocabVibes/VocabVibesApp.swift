@@ -27,9 +27,9 @@ struct VocabVibesApp: SwiftUI.App {
             schemaVersion: 1,
             migrationBlock: { migration, oldSchemaVersion in
                 if oldSchemaVersion < 1 {
-                    migration.enumerateObjects(ofType: WordList.className()) { _, newObject in
-                        newObject!["languages"] = RealmSwift.List<WordListLanguage>()
-                    }
+//                    migration.enumerateObjects(ofType: WordList.className()) { _, newObject in
+//                        newObject!["languages"] = RealmSwift.List<WordListLanguage>()
+//                    }
                 }
             }
         )

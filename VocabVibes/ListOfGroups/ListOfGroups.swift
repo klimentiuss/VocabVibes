@@ -8,9 +8,6 @@
 import SwiftUI
 import RealmSwift
 
-import SwiftUI
-import RealmSwift
-
 struct ListOfGroups: View {
     
     init() {
@@ -40,11 +37,18 @@ struct ListOfGroups: View {
                                 .tint(Color.red)
                                 
                                 Button {
-                                    viewModel.threaded(group: group)
-                                    viewModel.prepareTextField(group: group)
-                                    viewModel.editingAlertPresented.toggle()
+                                    viewModel.addViewPresented.toggle()
+
+//                                    viewModel.threaded(group: group)
+//                                    viewModel.prepareTextField(group: group)
+//                                    viewModel.editingAlertPresented.toggle()
                                 } label: {
                                     Image(systemName: "pencil")
+                                }
+                                .sheet(isPresented: $viewModel.addViewPresented) {
+                                    AddGroupView()
+                                        .presentationDetents([.medium, .large])
+                                        .presentationDragIndicator(.visible)
                                 }
                                 .tint(Color.gray)
                             }
@@ -74,25 +78,31 @@ struct ListOfGroups: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        viewModel.addNewGroupPresented.toggle()
+                     //   viewModel.addNewGroupPresented.toggle()
+                        viewModel.addViewPresented.toggle()
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color.lightGreen)
                             .font(.system(size: detectedSmallScreen(isWidthCheck: false) ? 15 : 20))
                     }
-                    .alert("keyNewGroup".localized, isPresented: $viewModel.addNewGroupPresented, actions: {
-                        TextField("keyGroupName".localized, text: $viewModel.groupName)
-                            .autocorrectionDisabled()
-                            .foregroundColor(.ratingEmerald)
-                        Button("keySave".localized, action: {
-                            viewModel.createNewGroup()
-                        })
-                        
-                        Button("keyCancel".localized, role: .cancel, action: {})
-                        
-                    }, message: {
-                        Text("keyEnterNameOfGroup".localized)
-                    })
+                    .sheet(isPresented: $viewModel.addViewPresented) {
+                        AddGroupView()
+                            .presentationDetents([.medium, .large])
+                            .presentationDragIndicator(.visible)
+                    }
+//                    .alert("keyNewGroup".localized, isPresented: $viewModel.addNewGroupPresented, actions: {
+//                        TextField("keyGroupName".localized, text: $viewModel.groupName)
+//                            .autocorrectionDisabled()
+//                            .foregroundColor(.ratingEmerald)
+//                        Button("keySave".localized, action: {
+//                            viewModel.createNewGroup()
+//                        })
+//
+//                        Button("keyCancel".localized, role: .cancel, action: {})
+//
+//                    }, message: {
+//                        Text("keyEnterNameOfGroup".localized)
+//                    })
                 }
             }
         }
